@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO: Primary Meta Tags -->
+<title>株式会社清水商事 | 安全・確実な運送サービス</title>
+<meta name="description" content="株式会社清水商事は、創業50年の信頼と実績を持つ運送会社です。一般貨物輸送、特殊配送、倉庫・保管業務を通じて、お客様の物流を安全・確実にサポートします。お見積り・ご相談はお気軽にどうぞ。">
+<meta name="keywords" content="運送会社,貨物輸送,物流,配送,倉庫,清水商事,一般貨物自動車運送事業,Gマーク">
+<meta name="robots" content="index, follow">
+<meta name="author" content="株式会社清水商事">
+<link rel="canonical" href="https://shimizu-shoji.co.jp/">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shimizu-shoji.co.jp/">
+<meta property="og:title" content="株式会社清水商事 | 安全・確実な運送サービス">
+<meta property="og:description" content="創業50年の信頼と実績。一般貨物輸送・特殊配送・倉庫業務でお客様の物流を支えます。">
+<meta property="og:site_name" content="株式会社清水商事">
+<meta property="og:locale" content="ja_JP">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="株式会社清水商事 | 安全・確実な運送サービス">
+<meta name="twitter:description" content="創業50年の信頼と実績。一般貨物輸送・特殊配送・倉庫業務でお客様の物流を支えます。">
+
+<!-- Structured Data (JSON-LD) - LocalBusiness -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MovingCompany",
+  "name": "株式会社清水商事",
+  "alternateName": "SHIMIZU SHOJI CO., LTD.",
+  "url": "https://shimizu-shoji.co.jp/",
+  "telephone": "+81-XX-XXXX-XXXX",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "◯◯",
+    "addressLocality": "◯◯市",
+    "addressRegion": "◯◯県",
+    "postalCode": "XXX-XXXX",
+    "addressCountry": "JP"
+  },
+  "description": "一般貨物自動車運送事業および倉庫業を営む、創業50年の運送会社です。",
+  "foundingDate": "19XX",
+  "areaServed": "JP"
+}
+</script>
+
+<!-- Tabler Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:#1a1a1a;line-height:1.7;background:#fff}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* Header */
+.site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-bottom:1px solid #e5e7eb}
+.header-inner{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;max-width:1100px;margin:0 auto}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-mark{width:36px;height:36px;background:#0C447C;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:500;font-size:16px}
+.logo-name{font-size:15px;font-weight:500}
+.logo-sub{font-size:10px;color:#6b7280;letter-spacing:1px}
+.site-nav{display:flex;gap:28px;align-items:center;font-size:13px;color:#4b5563}
+.site-nav a{transition:color .2s}
+.site-nav a:hover{color:#0C447C}
+.nav-cta{background:#0C447C;color:#fff!important;padding:8px 18px;border-radius:6px;font-size:12px;font-weight:500}
+.nav-cta:hover{background:#185FA5;color:#fff!important}
+.menu-toggle{display:none;background:none;border:none;font-size:24px;cursor:pointer}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#E6F1FB 0%,#B5D4F4 100%);padding:100px 24px 80px;position:relative;overflow:hidden}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:2}
+.hero-eyebrow{font-size:12px;color:#185FA5;letter-spacing:3px;margin-bottom:16px;font-weight:500}
+.hero h1{font-size:clamp(28px,5vw,44px);font-weight:500;color:#042C53;margin:0 0 20px;line-height:1.4}
+.hero-lead{font-size:15px;color:#0C447C;max-width:560px;margin:0 0 32px;line-height:1.9}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:14px 28px;border-radius:6px;font-size:14px;font-weight:500;transition:all .2s;cursor:pointer;border:none}
+.btn-primary{background:#0C447C;color:#fff}
+.btn-primary:hover{background:#185FA5;transform:translateY(-1px)}
+.btn-secondary{background:#fff;color:#0C447C;border:1px solid #185FA5}
+.btn-secondary:hover{background:#E6F1FB}
+
+/* Trust Bar */
+.trust-bar{display:grid;grid-template-columns:repeat(4,1fr);padding:32px 24px;border-bottom:1px solid #e5e7eb;max-width:1100px;margin:0 auto}
+.trust-item{text-align:center;padding:0 16px}
+.trust-item + .trust-item{border-left:1px solid #e5e7eb}
+.trust-value{font-size:32px;font-weight:500;color:#0C447C;line-height:1}
+.trust-value .unit{font-size:14px;margin-left:2px}
+.trust-label{font-size:11px;color:#6b7280;margin-top:8px;letter-spacing:1px}
+
+/* Sections */
+section{padding:80px 24px}
+.section-head{text-align:center;margin-bottom:48px}
+.section-eyebrow{font-size:11px;color:#185FA5;letter-spacing:3px;margin-bottom:10px;font-weight:500}
+.section-title{font-size:28px;font-weight:500;margin:0;color:#1a1a1a}
+
+/* Services */
+.services{background:#fff}
+.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:0 auto}
+.service-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:32px 28px;transition:all .25s}
+.service-card:hover{border-color:#185FA5;transform:translateY(-4px);box-shadow:0 12px 32px rgba(12,68,124,0.08)}
+.service-icon{font-size:36px;color:#185FA5;margin-bottom:16px;display:inline-block}
+.service-title{font-size:18px;font-weight:500;margin:0 0 10px;color:#1a1a1a}
+.service-desc{font-size:13px;color:#6b7280;line-height:1.8;margin:0}
+
+/* Strengths */
+.strengths{background:#f9fafb}
+.strength-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:0 auto}
+.strength-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:32px 28px}
+.strength-num{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:#E6F1FB;color:#0C447C;border-radius:50%;font-size:13px;font-weight:500;margin-bottom:16px}
+.strength-title{font-size:16px;font-weight:500;margin:0 0 10px;color:#1a1a1a}
+.strength-desc{font-size:13px;color:#6b7280;line-height:1.8;margin:0}
+
+/* Company */
+.company{background:#fff}
+.company-table{width:100%;max-width:760px;margin:0 auto;border-collapse:collapse;font-size:14px}
+.company-table tr{border-bottom:1px solid #e5e7eb}
+.company-table th{text-align:left;padding:18px 0;color:#6b7280;font-weight:400;width:28%;vertical-align:top}
+.company-table td{padding:18px 0;color:#1a1a1a}
+
+/* Contact */
+.contact{background:#042C53;color:#fff;text-align:center}
+.contact .section-eyebrow{color:#85B7EB}
+.contact .section-title{color:#fff}
+.contact-lead{font-size:14px;color:#B5D4F4;max-width:520px;margin:0 auto 32px;line-height:1.9}
+.contact-grid{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:40px}
+.contact-card{background:#fff;color:#042C53;padding:16px 32px;border-radius:8px;font-size:15px;font-weight:500;display:flex;align-items:center;gap:8px}
+.contact-card.alt{background:#185FA5;color:#fff}
+
+/* Form */
+.contact-form{max-width:560px;margin:0 auto;background:#fff;border-radius:12px;padding:32px;text-align:left;color:#1a1a1a}
+.form-row{margin-bottom:18px}
+.form-row label{display:block;font-size:12px;color:#4b5563;margin-bottom:6px;font-weight:500}
+.form-row input,.form-row textarea{width:100%;padding:12px 14px;border:1px solid #d1d5db;border-radius:6px;font-size:14px;font-family:inherit;background:#fff}
+.form-row input:focus,.form-row textarea:focus{outline:none;border-color:#185FA5;box-shadow:0 0 0 3px rgba(24,95,165,0.1)}
+.form-row textarea{min-height:120px;resize:vertical}
+.required{color:#dc2626;font-size:11px;margin-left:4px}
+.btn-submit{width:100%;background:#0C447C;color:#fff;padding:14px;border-radius:6px;font-size:14px;font-weight:500;border:none;cursor:pointer;margin-top:8px}
+.btn-submit:hover{background:#185FA5}
+
+/* Footer */
+.site-footer{background:#021F3A;color:#85B7EB;padding:40px 24px 24px;text-align:center}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-logo{font-size:14px;color:#fff;margin-bottom:8px;font-weight:500}
+.footer-info{font-size:12px;color:#85B7EB;margin-bottom:20px;line-height:1.8}
+.footer-copy{font-size:11px;color:#3a6da3;padding-top:20px;border-top:1px solid #0C447C}
+
+/* Responsive */
+@media (max-width:768px){
+  .site-nav{display:none}
+  .menu-toggle{display:block}
+  .hero{padding:60px 24px 50px}
+  .trust-bar{grid-template-columns:repeat(2,1fr);gap:24px 0}
+  .trust-item:nth-child(3){border-left:none}
+  section{padding:60px 20px}
+  .service-grid,.strength-grid{grid-template-columns:1fr;gap:16px}
+  .section-title{font-size:24px}
+  .contact-card{padding:14px 24px;font-size:14px}
+  .company-table th{width:35%;font-size:12px}
+  .company-table td{font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a href="#" class="logo" aria-label="株式会社清水商事 ホーム">
+      <div class="logo-mark" aria-hidden="true">清</div>
+      <div>
+        <div class="logo-name">株式会社清水商事</div>
+        <div class="logo-sub">SHIMIZU SHOJI CO., LTD.</div>
+      </div>
+    </a>
+    <nav class="site-nav" aria-label="メインナビゲーション">
+      <a href="#services">事業内容</a>
+      <a href="#strengths">強み</a>
+      <a href="#company">会社概要</a>
+      <a href="#contact" class="nav-cta">お見積り依頼</a>
+    </nav>
+    <button class="menu-toggle" aria-label="メニューを開く"><i class="ti ti-menu-2"></i></button>
+  </div>
+</header>
+
+<main>
+
+<!-- Hero -->
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">SAFE, RELIABLE, ON-TIME DELIVERY</div>
+    <h1 id="hero-heading">あなたの荷物を、<br>確かな信頼でお届けします。</h1>
+    <p class="hero-lead">創業以来、地域に根ざした運送サービスで、お客様の大切な荷物を安全・確実にお届けしてまいりました。一般貨物輸送から特殊配送まで、幅広いニーズにお応えします。</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">お問い合わせ <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+      <a href="#services" class="btn btn-secondary">サービス詳細</a>
+    </div>
+  </div>
+</section>
+
+<!-- Trust Bar -->
+<div class="trust-bar" role="region" aria-label="会社実績">
+  <div class="trust-item">
+    <div class="trust-value">50<span class="unit">年</span></div>
+    <div class="trust-label">創業実績</div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-value">24<span class="unit">時間</span></div>
+    <div class="trust-label">対応体制</div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-value">500<span class="unit">社+</span></div>
+    <div class="trust-label">取引実績</div>
+  </div>
+  <div class="trust-item">
+    <div class="trust-value" style="font-size:22px">Gマーク</div>
+    <div class="trust-label">安全性認定</div>
+  </div>
+</div>
+
+<!-- Services -->
+<section id="services" class="services" aria-labelledby="services-heading">
+  <div class="section-head">
+    <div class="section-eyebrow">SERVICES</div>
+    <h2 id="services-heading" class="section-title">事業内容</h2>
+  </div>
+  <div class="service-grid">
+    <article class="service-card">
+      <i class="ti ti-truck-delivery service-icon" aria-hidden="true"></i>
+      <h3 class="service-title">一般貨物輸送</h3>
+      <p class="service-desc">企業間の定期配送から単発の輸送まで、幅広い貨物輸送ニーズに対応します。安全運行を最優先に、確実なお届けをお約束します。</p>
+    </article>
+    <article class="service-card">
+      <i class="ti ti-package service-icon" aria-hidden="true"></i>
+      <h3 class="service-title">特殊配送</h3>
+      <p class="service-desc">精密機器・重量物・時間指定など、難易度の高い配送も承ります。経験豊富なドライバーが丁寧に対応いたします。</p>
+    </article>
+    <article class="service-card">
+      <i class="ti ti-building-warehouse service-icon" aria-hidden="true"></i>
+      <h3 class="service-title">倉庫・保管</h3>
+      <p class="service-desc">入出庫管理から在庫管理まで、物流をワンストップでサポート。お客様の事業効率化に貢献します。</p>
+    </article>
+  </div>
+</section>
+
+<!-- Strengths -->
+<section id="strengths" class="strengths" aria-labelledby="strengths-heading">
+  <div class="section-head">
+    <div class="section-eyebrow">OUR STRENGTHS</div>
+    <h2 id="strengths-heading" class="section-title">選ばれる3つの理由</h2>
+  </div>
+  <div class="strength-grid">
+    <div class="strength-card">
+      <div class="strength-num">01</div>
+      <h3 class="strength-title">徹底した安全管理</h3>
+      <p class="strength-desc">Gマーク取得事業所として、ドライバー教育と車両点検を徹底。事故ゼロを目指した運行管理体制を構築しています。</p>
+    </div>
+    <div class="strength-card">
+      <div class="strength-num">02</div>
+      <h3 class="strength-title">柔軟な対応力</h3>
+      <p class="strength-desc">急な配送依頼や個別のご要望にも、迅速かつ柔軟に対応いたします。お客様の事業に寄り添うパートナーを目指します。</p>
+    </div>
+    <div class="strength-card">
+      <div class="strength-num">03</div>
+      <h3 class="strength-title">地域密着の信頼</h3>
+      <p class="strength-desc">創業以来築いてきた地域とのつながりが、安定したサービスを支えます。長期的なお取引で関係を深めてまいります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Company -->
+<section id="company" class="company" aria-labelledby="company-heading">
+  <div class="section-head">
+    <div class="section-eyebrow">COMPANY</div>
+    <h2 id="company-heading" class="section-title">会社概要</h2>
+  </div>
+  <table class="company-table">
+    <tbody>
+      <tr><th scope="row">会社名</th><td>株式会社清水商事（SHIMIZU SHOJI CO., LTD.）</td></tr>
+      <tr><th scope="row">代表者</th><td>代表取締役 清水 ◯◯</td></tr>
+      <tr><th scope="row">設立</th><td>19XX年X月</td></tr>
+      <tr><th scope="row">資本金</th><td>X,XXX万円</td></tr>
+      <tr><th scope="row">所在地</th><td>〒XXX-XXXX ◯◯県◯◯市◯◯ X-X-X</td></tr>
+      <tr><th scope="row">電話番号</th><td>0XX-XXXX-XXXX</td></tr>
+      <tr><th scope="row">事業内容</th><td>一般貨物自動車運送事業、倉庫業</td></tr>
+      <tr><th scope="row">許認可</th><td>一般貨物自動車運送事業許可、Gマーク認定</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="contact" aria-labelledby="contact-heading">
+  <div class="section-head">
+    <div class="section-eyebrow">CONTACT</div>
+    <h2 id="contact-heading" class="section-title">お問い合わせ</h2>
+  </div>
+  <p class="contact-lead">お見積り・配送のご相談は、お電話またはフォームよりお気軽にどうぞ。<br>24時間以内にご返信いたします。</p>
+  <div class="contact-grid">
+    <a href="tel:0XX-XXXX-XXXX" class="contact-card">
+      <i class="ti ti-phone" aria-hidden="true"></i>0XX-XXXX-XXXX
+    </a>
+    <a href="mailto:info@shimizu-shoji.co.jp" class="contact-card alt">
+      <i class="ti ti-mail" aria-hidden="true"></i>メールで問い合わせ
+    </a>
+  </div>
+
+  <form class="contact-form" id="contactForm">
+    <div class="form-row">
+      <label for="company">会社名<span class="required">必須</span></label>
+      <input type="text" id="company" name="company" required>
+    </div>
+    <div class="form-row">
+      <label for="name">お名前<span class="required">必須</span></label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-row">
+      <label for="email">メールアドレス<span class="required">必須</span></label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-row">
+      <label for="phone">電話番号</label>
+      <input type="tel" id="phone" name="phone">
+    </div>
+    <div class="form-row">
+      <label for="message">お問い合わせ内容<span class="required">必須</span></label>
+      <textarea id="message" name="message" required></textarea>
+    </div>
+    <button type="submit" class="btn-submit">送信する</button>
+  </form>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="footer-logo">株式会社清水商事</div>
+    <div class="footer-info">
+      〒XXX-XXXX ◯◯県◯◯市◯◯ X-X-X<br>
+      TEL: 0XX-XXXX-XXXX / FAX: 0XX-XXXX-XXXX
+    </div>
+    <div class="footer-copy">© 2026 SHIMIZU SHOJI CO., LTD. All Rights Reserved.</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  alert('お問い合わせありがとうございます。内容を確認の上、ご返信いたします。');
+});
+</script>
+
+</body>
+</html>
