@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MEOサービス概要レポート v2</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F7F6F3;
+    --surface: #FFFFFF;
+    --surface2: #F1EFE9;
+    --text-primary: #1C1B19;
+    --text-secondary: #6B6A66;
+    --text-muted: #9B9A96;
+    --border: #E4E2DB;
+    --border-strong: #CCCAC2;
+    --teal-bg: #E1F5EE;
+    --teal-text: #0F6E56;
+    --blue-bg: #E6F1FB;
+    --blue-text: #185FA5;
+    --purple-bg: #EEEDFE;
+    --purple-text: #3C3489;
+    --coral-bg: #FAECE7;
+    --coral-text: #993C1D;
+    --amber-bg: #FAEEDA;
+    --amber-text: #854F0B;
+    --green-bg: #EAF3DE;
+    --green-text: #3B6D11;
+    --red-bg: #FCEBEB;
+    --red-text: #A32D2D;
+  }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.7;
+    padding: 40px 20px 80px;
+  }
+
+  .wrapper { max-width: 860px; margin: 0 auto; }
+
+  .report-header { margin-bottom: 48px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+  .report-eyebrow { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+  .report-title { font-size: 32px; font-weight: 700; letter-spacing: -0.02em; color: var(--text-primary); line-height: 1.25; margin-bottom: 10px; }
+  .report-subtitle { font-size: 14px; color: var(--text-secondary); }
+
+  .section { margin-bottom: 48px; }
+  .section-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+
+  .metric-strip {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 48px;
+  }
+  .metric-cell { background: var(--surface); padding: 18px 16px; text-align: center; }
+  .metric-cell-label { font-size: 10px; color: var(--text-muted); margin-bottom: 6px; }
+  .metric-cell-value { font-size: 24px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em; }
+  .metric-cell-sub { font-size: 10px; color: var(--text-secondary); margin-top: 3px; }
+  .metric-cell-value.up { color: var(--teal-text); }
+  .metric-cell-value.warn { color: var(--coral-text); }
+
+  .badge {
+    display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.06em;
+    padding: 3px 10px; border-radius: 100px;
+  }
+  .badge-teal { background: var(--teal-bg); color: var(--teal-text); }
+  .badge-blue { background: var(--blue-bg); color: var(--blue-text); }
+  .badge-purple { background: var(--purple-bg); color: var(--purple-text); }
+  .badge-coral { background: var(--coral-bg); color: var(--coral-text); }
+  .badge-amber { background: var(--amber-bg); color: var(--amber-text); }
+  .badge-red { background: var(--red-bg); color: var(--red-text); }
+
+  .item-row { display: flex; align-items: flex-start; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .item-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .item-row:first-child { padding-top: 0; }
+  .item-num {
+    width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--border-strong);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; color: var(--text-secondary); flex-shrink: 0; margin-top: 2px;
+  }
+  .item-title { font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+  .item-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+
+  .flow-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin: 12px 0; }
+  .flow-box {
+    background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;
+    padding: 7px 14px; font-size: 13px; font-weight: 500; color: var(--text-primary);
+  }
+  .flow-arrow { color: var(--text-muted); font-size: 14px; }
+
+  .highlight {
+    background: var(--blue-bg); border-left: 3px solid var(--blue-text);
+    border-radius: 0 8px 8px 0; padding: 12px 16px; font-size: 13px; color: var(--blue-text);
+    line-height: 1.65; margin-bottom: 16px;
+  }
+
+  /* Traffic section */
+  .traffic-header {
+    display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;
+  }
+  .traffic-site { font-size: 13px; font-weight: 700; color: var(--text-primary); }
+  .traffic-source { font-size: 11px; color: var(--text-muted); }
+
+  .chart-wrap { position: relative; height: 120px; margin: 16px 0; }
+  svg.spark { width: 100%; height: 100%; overflow: visible; }
+
+  .kw-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 12px; }
+  .kw-table th {
+    text-align: left; padding: 8px 12px; font-size: 11px; font-weight: 700;
+    color: var(--text-secondary); background: var(--surface2); border-bottom: 1px solid var(--border);
+  }
+  .kw-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text-primary); }
+  .kw-table tr:last-child td { border-bottom: none; }
+  .kw-traffic { font-weight: 700; color: var(--text-primary); }
+  .kw-zero { color: var(--text-muted); font-size: 12px; }
+
+  .issue-tag {
+    display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px;
+    border-radius: 4px; margin-left: 6px; vertical-align: middle;
+  }
+  .issue-tag.bad { background: var(--red-bg); color: var(--red-text); }
+  .issue-tag.ok { background: var(--green-bg); color: var(--green-text); }
+  .issue-tag.warn { background: var(--amber-bg); color: var(--amber-text); }
+
+  .stat-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px;
+  }
+  .stat-row:last-child { border-bottom: none; }
+  .stat-label { color: var(--text-secondary); display: flex; align-items: center; gap: 6px; }
+  .stat-value { font-weight: 700; color: var(--text-primary); }
+
+  .opportunity-box {
+    background: var(--teal-bg); border-left: 3px solid var(--teal-text);
+    border-radius: 0 10px 10px 0; padding: 14px 18px; margin-top: 16px;
+  }
+  .opportunity-title { font-size: 13px; font-weight: 700; color: var(--teal-text); margin-bottom: 4px; }
+  .opportunity-desc { font-size: 12px; color: var(--teal-text); line-height: 1.65; }
+
+  /* Plan */
+  .plan-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 20px; display: flex; flex-direction: column;
+  }
+  .plan-card.featured { border: 2px solid var(--blue-text); }
+  .plan-price { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; color: var(--text-primary); margin-bottom: 4px; }
+  .plan-price-unit { font-size: 12px; font-weight: 400; color: var(--text-secondary); }
+  .plan-divider { height: 1px; background: var(--border); margin: 12px 0; }
+  .plan-feature { display: flex; align-items: flex-start; gap: 8px; font-size: 12px; color: var(--text-secondary); padding: 3px 0; line-height: 1.5; }
+  .plan-check { color: var(--teal-text); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .featured-label { font-size: 10px; font-weight: 700; color: var(--blue-text); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px; display: block; }
+
+  .施策-header { font-size: 11px; font-weight: 700; color: var(--text-secondary); letter-spacing: 0.06em; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+
+  .warn-box { border-radius: 10px; padding: 14px 18px; margin-bottom: 10px; }
+  .warn-box:last-child { margin-bottom: 0; }
+  .warn-box.amber { background: var(--amber-bg); border-left: 3px solid var(--amber-text); }
+  .warn-box.coral { background: var(--coral-bg); border-left: 3px solid var(--coral-text); }
+  .warn-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .warn-box.amber .warn-title { color: var(--amber-text); }
+  .warn-box.coral .warn-title { color: var(--coral-text); }
+  .warn-desc { font-size: 12px; line-height: 1.65; }
+  .warn-box.amber .warn-desc { color: var(--amber-text); }
+  .warn-box.coral .warn-desc { color: var(--coral-text); }
+
+  .example-box { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; margin-top: 12px; }
+  .example-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 10px; }
+  .example-table th { text-align: left; padding: 6px 10px; font-weight: 700; color: var(--text-secondary); background: var(--border); font-size: 11px; }
+  .example-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--text-primary); }
+  .example-table tr:last-child td { border-bottom: none; }
+  .num-good { color: var(--teal-text); font-weight: 700; }
+  .num-bad { color: var(--coral-text); font-weight: 700; }
+
+  .report-footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 11px; color: var(--text-muted); display: flex; justify-content: space-between; }
+
+  @media (max-width: 640px) {
+    .grid2, .grid3 { grid-template-columns: 1fr; }
+    .metric-strip { grid-template-columns: 1fr 1fr; }
+    .report-title { font-size: 24px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- Header -->
+  <div class="report-header">
+    <div class="report-eyebrow">Service Report · MDS Inc. — with Competitor Traffic Analysis</div>
+    <h1 class="report-title">MEOサービス概要レポート</h1>
+    <div class="report-subtitle">Googleマップ上位表示支援サービスの要点 + 競合サイトトラフィック分析（Similarweb / Apr 2026）</div>
+  </div>
+
+  <!-- MDS Metrics -->
+  <div class="metric-strip">
+    <div class="metric-cell">
+      <div class="metric-cell-label">MDS クライアント累計</div>
+      <div class="metric-cell-value">3万+</div>
+      <div class="metric-cell-sub">4カ国展開</div>
+    </div>
+    <div class="metric-cell">
+      <div class="metric-cell-label">日本飲食店カバー率</div>
+      <div class="metric-cell-value">4%</div>
+      <div class="metric-cell-sub">集客実績・ノウハウ保有</div>
+    </div>
+    <div class="metric-cell">
+      <div class="metric-cell-label">MEO検索シェア</div>
+      <div class="metric-cell-value">約70%</div>
+      <div class="metric-cell-sub">エリア×カテゴリ検索</div>
+    </div>
+    <div class="metric-cell">
+      <div class="metric-cell-label">競合サイト月間訪問</div>
+      <div class="metric-cell-value up">915</div>
+      <div class="metric-cell-sub">nemuro-saitogumi.com</div>
+    </div>
+  </div>
+
+  <!-- ★ 新セクション: 競合トラフィック分析 -->
+  <div class="section">
+    <div class="section-label">競合サイト現状分析 — nemuro-saitogumi.com（Similarweb Apr 2026）</div>
+
+    <div class="grid2" style="margin-bottom:12px;">
+
+      <!-- Traffic Chart Card -->
+      <div class="card">
+        <div class="traffic-header">
+          <div>
+            <div class="traffic-site">nemuro-saitogumi.com</div>
+            <div class="traffic-source">根室市・不動産会社</div>
+          </div>
+          <span class="badge badge-teal">訪問数 急増中</span>
+        </div>
+
+        <!-- Sparkline chart -->
+        <div class="chart-wrap">
+          <svg class="spark" viewBox="0 0 300 100" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#378ADD" stop-opacity="0.25"/>
+                <stop offset="100%" stop-color="#378ADD" stop-opacity="0.03"/>
+              </linearGradient>
+            </defs>
+            <!-- Area fill -->
+            <path d="M0,72 L150,38 L300,8 L300,100 L0,100 Z" fill="url(#areaGrad)"/>
+            <!-- Line -->
+            <polyline points="0,72 150,38 300,8" fill="none" stroke="#378ADD" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Dots -->
+            <circle cx="0" cy="72" r="4" fill="#378ADD"/>
+            <circle cx="150" cy="38" r="4" fill="#378ADD"/>
+            <circle cx="300" cy="8" r="5" fill="#185FA5" stroke="#fff" stroke-width="2"/>
+            <!-- Labels -->
+            <text x="0" y="92" font-size="10" fill="#9B9A96" font-family="sans-serif">Feb</text>
+            <text x="138" y="92" font-size="10" fill="#9B9A96" font-family="sans-serif">Mar</text>
+            <text x="278" y="92" font-size="10" fill="#9B9A96" font-family="sans-serif">Apr</text>
+            <!-- Value callouts -->
+            <text x="10" y="68" font-size="9" fill="#6B6A66" font-family="sans-serif">〜330</text>
+            <text x="155" y="34" font-size="9" fill="#6B6A66" font-family="sans-serif">858</text>
+            <text x="255" y="5" font-size="10" fill="#185FA5" font-weight="bold" font-family="sans-serif">915</text>
+          </svg>
+        </div>
+
+        <div class="stat-row">
+          <span class="stat-label">月間訪問数（Apr）</span>
+          <span class="stat-value">915</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">直帰率</span>
+          <span class="stat-value">46.4%</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">1訪問あたりページ数</span>
+          <span class="stat-value">1.05 <span style="font-size:11px; font-weight:400; color:var(--text-muted);">ページ</span></span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">平均滞在時間</span>
+          <span class="stat-value" style="color:var(--text-muted);">N/A</span>
+        </div>
+      </div>
+
+      <!-- Keyword Analysis Card -->
+      <div class="card">
+        <div style="margin-bottom:12px;">
+          <div class="traffic-site" style="margin-bottom:4px;">Top Keywords（Apr 2026）</div>
+          <div class="traffic-source">Worldwide · Desktop Only · Organic &amp; Paid</div>
+        </div>
+
+        <table class="kw-table">
+          <thead>
+            <tr>
+              <th>キーワード</th>
+              <th>流入数</th>
+              <th>評価</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>根室　売家</td>
+              <td class="kw-traffic">10</td>
+              <td><span class="badge badge-amber" style="font-size:10px;">指名検索</span></td>
+            </tr>
+            <tr>
+              <td>根室 不動産</td>
+              <td class="kw-zero">0</td>
+              <td><span class="badge badge-red" style="font-size:10px;">流入なし</span></td>
+            </tr>
+            <tr>
+              <td style="font-size:12px;">北海道根室市花咲町2丁目6番地</td>
+              <td class="kw-zero">0</td>
+              <td><span class="badge badge-red" style="font-size:10px;">住所検索のみ</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="opportunity-box">
+          <div class="opportunity-title">MEO導入のチャンスポイント</div>
+          <div class="opportunity-desc">
+            流入キーワードのほぼ全てが指名・住所系で、「根室 不動産」など集客系キーワードからの流入がゼロ。SEOもMEOも未対策の状態。月915訪問は自然増だが、対策次第で数倍のリーチが見込める。
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 課題サマリー -->
+    <div class="card">
+      <div style="font-size:13px; font-weight:700; color:var(--text-primary); margin-bottom:12px;">現状の課題サマリー</div>
+      <div class="stat-row">
+        <span class="stat-label">流入キーワードの質</span>
+        <span><span class="issue-tag bad">集客系KWがゼロ</span></span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">1訪問あたりページ閲覧数（1.05）</span>
+        <span><span class="issue-tag bad">直帰に近い状態</span></span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">直帰率（46.4%）</span>
+        <span><span class="issue-tag warn">改善余地あり</span></span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">訪問数トレンド（Feb→Apr）</span>
+        <span><span class="issue-tag ok">右肩上がり ＋約180%</span></span>
+      </div>
+      <div class="stat-row" style="border-bottom:none;">
+        <span class="stat-label">Googleマップ最適化状況</span>
+        <span><span class="issue-tag bad">未対策（推定）</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: MEOとは -->
+  <div class="section">
+    <div class="section-label">MEOとは — 4つの基本</div>
+    <div class="card">
+      <div class="item-row">
+        <div class="item-num">1</div>
+        <div>
+          <div class="item-title">即時集客につながる</div>
+          <div class="item-desc">Googleマップで検索するユーザーは「今すぐ行きたい人」。SEOと違い、来店・問合わせ行動に直結しやすい特性がある。</div>
+        </div>
+      </div>
+      <div class="item-row">
+        <div class="item-num">2</div>
+        <div>
+          <div class="item-title">MEOの表示シェアが圧倒的</div>
+          <div class="item-desc">「根室 不動産」などエリア×カテゴリ検索では、約7割のユーザーがSEOではなくMEO（マップ情報）を参照してサービスを探す。</div>
+        </div>
+      </div>
+      <div class="item-row">
+        <div class="item-num">3</div>
+        <div>
+          <div class="item-title">データで運用できる</div>
+          <div class="item-desc">検索回数・電話件数・来店数などがGoogleの公式アプリで全て確認可能。データに基づく改善サイクルを回せる。</div>
+        </div>
+      </div>
+      <div class="item-row">
+        <div class="item-num">4</div>
+        <div>
+          <div class="item-title">予算ではなく品質で勝負できる</div>
+          <div class="item-desc">SUUMOや大手ポータルは広告予算の多い大手が有利。Googleマップは広告費で上位表示を買えないため、対策次第で地元の中小不動産会社でも大手を超えられる。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: 施策 -->
+  <div class="section">
+    <div class="section-label">上位表示の対策 — 内部施策と外部施策</div>
+    <div class="grid2">
+      <div class="card">
+        <div class="施策-header"><span class="badge badge-teal">内部施策</span>ビジネスプロフィール内の最適化</div>
+        <div class="item-row">
+          <div class="item-num" style="font-size:10px;">①</div>
+          <div>
+            <div class="item-title">口コミ管理・返信</div>
+            <div class="item-desc">良い口コミを集め、すべてに丁寧に返信する。評価の質と返信率の両方が重要。</div>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-num" style="font-size:10px;">②</div>
+          <div>
+            <div class="item-title">定期投稿でアクティブをアピール</div>
+            <div class="item-desc">Googleマップ上の投稿機能で「営業中・アクティブ」であることを継続的に示す。</div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="施策-header"><span class="badge badge-purple">外部施策</span>外部サイトからの評価を高める</div>
+        <div class="item-row">
+          <div class="item-num" style="font-size:10px;">①</div>
+          <div>
+            <div class="item-title">被リンク（関連カテゴリのサイトから）</div>
+            <div class="item-desc">不動産関連・地域情報系メディアからのリンク獲得が有効。</div>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-num" style="font-size:10px;">②</div>
+          <div>
+            <div class="item-title">NAP統一</div>
+            <div class="item-desc">店名・住所・電話番号をSNS含む全媒体で統一。</div>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-num" style="font-size:10px;">③</div>
+          <div>
+            <div class="item-title">Webサイトのアクセス数・滞在時間</div>
+            <div class="item-desc">現在1.05ページ/訪問という低さを改善することがMEO評価にも直結する。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: KW分析フロー -->
+  <div class="section">
+    <div class="section-label">MDSのキーワード分析フロー</div>
+    <div class="card">
+      <div class="highlight">
+        月間検索回数の多さではなく「予想最終リーチ数（競合の弱さを加味した実際に到達できる集客数）」でキーワードを選ぶのが同社の特徴。
+      </div>
+      <div class="flow-row">
+        <div class="flow-box">① エリア分析</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">② 関連KW洗い出し</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">③ 競合分析</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">④ スコアリング</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">⑤ KW決定</div>
+      </div>
+      <div class="example-box">
+        <strong style="font-size:11px; letter-spacing:0.06em; color:var(--text-secondary);">EXAMPLE — 根室 不動産 vs 根室 売家</strong>
+        <table class="example-table">
+          <thead>
+            <tr><th>キーワード</th><th>月間検索（推定）</th><th>競合強度</th><th>予想最終リーチ</th><th>判定</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>根室 不動産</td>
+              <td>〜200回</td>
+              <td>弱い（地方）</td>
+              <td class="num-good">高リーチ期待</td>
+              <td class="num-good">✓ 推奨</td>
+            </tr>
+            <tr>
+              <td>根室 売家</td>
+              <td>〜50回</td>
+              <td>弱い</td>
+              <td class="num-good">高リーチ期待</td>
+              <td class="num-good">✓ 推奨</td>
+            </tr>
+            <tr>
+              <td>北海道根室市 不動産</td>
+              <td>〜30回</td>
+              <td>ほぼなし</td>
+              <td class="num-good">独占可能</td>
+              <td class="num-good">✓ ロングテール狙い</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="margin-top:8px; font-size:11px; color:var(--text-muted);">地方・ニッチエリアは競合が弱いため、対策すれば上位独占のチャンスが大きい。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: MDSの特徴 -->
+  <div class="section">
+    <div class="section-label">MDSサービスの4つの特徴</div>
+    <div class="grid2">
+      <div class="card">
+        <div style="margin-bottom:10px;"><span class="badge badge-teal">特徴 1</span></div>
+        <div class="item-title">申込前に効果予測を提示</div>
+        <div class="item-desc" style="margin-top:6px;">店舗情報を送るだけで来店予測・貢献売上まで試算したレポートを申込前に無償提出。代理店も翌日にレポートを受け取って営業活用できる。</div>
+      </div>
+      <div class="card">
+        <div style="margin-bottom:10px;"><span class="badge badge-blue">特徴 2</span></div>
+        <div class="item-title">Google公式データの透明な管理画面</div>
+        <div class="item-desc" style="margin-top:6px;">専用URLで成果をリアルタイム確認。データはGoogle提供のものをそのまま反映。サービス側による操作は不可。</div>
+      </div>
+      <div class="card">
+        <div style="margin-bottom:10px;"><span class="badge badge-purple">特徴 3</span></div>
+        <div class="item-title">毎月のキーワード最適化</div>
+        <div class="item-desc" style="margin-top:6px;">上位を取ったキーワードは次のキーワードへ移行。「陣取り合戦」式で集客キーワードを拡大し続ける。</div>
+      </div>
+      <div class="card">
+        <div style="margin-bottom:10px;"><span class="badge badge-coral">特徴 4</span></div>
+        <div class="item-title">専属メディアの制作が月額に込み</div>
+        <div class="item-desc" style="margin-top:6px;">通常30〜40万円かかるメディア制作が月額料金に含まれる。被リンク獲得のための専用メディアを1クライアント1つ作成。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: プラン -->
+  <div class="section">
+    <div class="section-label">料金プラン比較</div>
+    <div class="grid3">
+      <div class="plan-card">
+        <div style="margin-bottom:8px;"><span class="badge badge-teal">ベーシック</span></div>
+        <div class="plan-price">¥19,800<span class="plan-price-unit"> /月</span></div>
+        <div class="plan-divider"></div>
+        <div class="plan-feature"><span class="plan-check">✓</span> キーワード分析</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> Googleマップ登録代行</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> 専属メディア制作</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> 専属担当コンサルティング</div>
+      </div>
+      <div class="plan-card featured">
+        <span class="featured-label">おすすめ</span>
+        <div style="margin-bottom:8px;"><span class="badge badge-blue">ゴールド MEO</span></div>
+        <div class="plan-price">¥42,800<span class="plan-price-unit"> /月</span></div>
+        <div class="plan-divider"></div>
+        <div class="plan-feature"><span class="plan-check">✓</span> ベーシック全内容</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> 投稿作成・キーワード分析</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> 投稿代行</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> 口コミ返信代行</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> メールサポート</div>
+      </div>
+      <div class="plan-card">
+        <div style="margin-bottom:8px;"><span class="badge badge-purple">IG + MEO</span></div>
+        <div class="plan-price">¥69,800<span class="plan-price-unit"> /月</span></div>
+        <div class="plan-divider"></div>
+        <div class="plan-feature"><span class="plan-check">✓</span> ゴールド全内容</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> Instagram運用代行</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> SNS×MEO統合戦略</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section: 業者選び -->
+  <div class="section">
+    <div class="section-label">業者選びで気をつけること</div>
+    <div class="warn-box amber">
+      <div class="warn-title">⚠ 注意① ビッグワードだけ謳う業者</div>
+      <div class="warn-desc">超競合キーワードで上位表示を約束して長期契約を結ばせるケースが多い。「予想最終リーチ数」で提示できる業者を選ぶこと。</div>
+    </div>
+    <div class="warn-box coral">
+      <div class="warn-title">⚠ 注意② 成果報酬型の業者</div>
+      <div class="warn-desc">「1キーワード上位表示で○円」という成果報酬型では、最初から取りやすいキーワードを入れて必ず1つ達成させる手法が横行。実際の集客につながらないケースが多い。</div>
+    </div>
+  </div>
+
+  <div class="report-footer">
+    <div>MEOサービス概要レポート v2 — MDS動画 + Similarweb Apr 2026データをもとに作成</div>
+    <div>内部資料用</div>
+  </div>
+
+</div>
+</body>
+</html>
