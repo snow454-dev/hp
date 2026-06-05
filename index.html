@@ -3,358 +3,578 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- SEO: Primary Meta Tags -->
-<title>株式会社清水商事 | 安全・確実な運送サービス</title>
-<meta name="description" content="株式会社清水商事は、創業50年の信頼と実績を持つ運送会社です。一般貨物輸送、特殊配送、倉庫・保管業務を通じて、お客様の物流を安全・確実にサポートします。お見積り・ご相談はお気軽にどうぞ。">
-<meta name="keywords" content="運送会社,貨物輸送,物流,配送,倉庫,清水商事,一般貨物自動車運送事業,Gマーク">
-<meta name="robots" content="index, follow">
-<meta name="author" content="株式会社清水商事">
-<link rel="canonical" href="https://shimizu-shoji.co.jp/">
-
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://shimizu-shoji.co.jp/">
-<meta property="og:title" content="株式会社清水商事 | 安全・確実な運送サービス">
-<meta property="og:description" content="創業50年の信頼と実績。一般貨物輸送・特殊配送・倉庫業務でお客様の物流を支えます。">
-<meta property="og:site_name" content="株式会社清水商事">
-<meta property="og:locale" content="ja_JP">
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="株式会社清水商事 | 安全・確実な運送サービス">
-<meta name="twitter:description" content="創業50年の信頼と実績。一般貨物輸送・特殊配送・倉庫業務でお客様の物流を支えます。">
-
-<!-- Structured Data (JSON-LD) - LocalBusiness -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "MovingCompany",
-  "name": "株式会社清水商事",
-  "alternateName": "SHIMIZU SHOJI CO., LTD.",
-  "url": "https://shimizu-shoji.co.jp/",
-  "telephone": "+81-XX-XXXX-XXXX",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "◯◯",
-    "addressLocality": "◯◯市",
-    "addressRegion": "◯◯県",
-    "postalCode": "XXX-XXXX",
-    "addressCountry": "JP"
-  },
-  "description": "一般貨物自動車運送事業および倉庫業を営む、創業50年の運送会社です。",
-  "foundingDate": "19XX",
-  "areaServed": "JP"
-}
-</script>
-
-<!-- Tabler Icons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
-
+<title>MEOサービス概要レポート</title>
 <style>
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:#1a1a1a;line-height:1.7;background:#fff}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-.container{max-width:1100px;margin:0 auto;padding:0 24px}
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
 
-/* Header */
-.site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-bottom:1px solid #e5e7eb}
-.header-inner{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;max-width:1100px;margin:0 auto}
-.logo{display:flex;align-items:center;gap:10px}
-.logo-mark{width:36px;height:36px;background:#0C447C;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:500;font-size:16px}
-.logo-name{font-size:15px;font-weight:500}
-.logo-sub{font-size:10px;color:#6b7280;letter-spacing:1px}
-.site-nav{display:flex;gap:28px;align-items:center;font-size:13px;color:#4b5563}
-.site-nav a{transition:color .2s}
-.site-nav a:hover{color:#0C447C}
-.nav-cta{background:#0C447C;color:#fff!important;padding:8px 18px;border-radius:6px;font-size:12px;font-weight:500}
-.nav-cta:hover{background:#185FA5;color:#fff!important}
-.menu-toggle{display:none;background:none;border:none;font-size:24px;cursor:pointer}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* Hero */
-.hero{background:linear-gradient(135deg,#E6F1FB 0%,#B5D4F4 100%);padding:100px 24px 80px;position:relative;overflow:hidden}
-.hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:2}
-.hero-eyebrow{font-size:12px;color:#185FA5;letter-spacing:3px;margin-bottom:16px;font-weight:500}
-.hero h1{font-size:clamp(28px,5vw,44px);font-weight:500;color:#042C53;margin:0 0 20px;line-height:1.4}
-.hero-lead{font-size:15px;color:#0C447C;max-width:560px;margin:0 0 32px;line-height:1.9}
-.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:6px;padding:14px 28px;border-radius:6px;font-size:14px;font-weight:500;transition:all .2s;cursor:pointer;border:none}
-.btn-primary{background:#0C447C;color:#fff}
-.btn-primary:hover{background:#185FA5;transform:translateY(-1px)}
-.btn-secondary{background:#fff;color:#0C447C;border:1px solid #185FA5}
-.btn-secondary:hover{background:#E6F1FB}
+  :root {
+    --bg: #F7F6F3;
+    --surface: #FFFFFF;
+    --surface2: #F1EFE9;
+    --text-primary: #1C1B19;
+    --text-secondary: #6B6A66;
+    --text-muted: #9B9A96;
+    --border: #E4E2DB;
+    --border-strong: #CCCAC2;
+    --teal-bg: #E1F5EE;
+    --teal-text: #0F6E56;
+    --teal-border: #5DCAA5;
+    --blue-bg: #E6F1FB;
+    --blue-text: #185FA5;
+    --purple-bg: #EEEDFE;
+    --purple-text: #3C3489;
+    --coral-bg: #FAECE7;
+    --coral-text: #993C1D;
+    --amber-bg: #FAEEDA;
+    --amber-text: #854F0B;
+    --green-bg: #EAF3DE;
+    --green-text: #3B6D11;
+  }
 
-/* Trust Bar */
-.trust-bar{display:grid;grid-template-columns:repeat(4,1fr);padding:32px 24px;border-bottom:1px solid #e5e7eb;max-width:1100px;margin:0 auto}
-.trust-item{text-align:center;padding:0 16px}
-.trust-item + .trust-item{border-left:1px solid #e5e7eb}
-.trust-value{font-size:32px;font-weight:500;color:#0C447C;line-height:1}
-.trust-value .unit{font-size:14px;margin-left:2px}
-.trust-label{font-size:11px;color:#6b7280;margin-top:8px;letter-spacing:1px}
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.7;
+    padding: 40px 20px 80px;
+  }
 
-/* Sections */
-section{padding:80px 24px}
-.section-head{text-align:center;margin-bottom:48px}
-.section-eyebrow{font-size:11px;color:#185FA5;letter-spacing:3px;margin-bottom:10px;font-weight:500}
-.section-title{font-size:28px;font-weight:500;margin:0;color:#1a1a1a}
+  .wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+  }
 
-/* Services */
-.services{background:#fff}
-.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:0 auto}
-.service-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:32px 28px;transition:all .25s}
-.service-card:hover{border-color:#185FA5;transform:translateY(-4px);box-shadow:0 12px 32px rgba(12,68,124,0.08)}
-.service-icon{font-size:36px;color:#185FA5;margin-bottom:16px;display:inline-block}
-.service-title{font-size:18px;font-weight:500;margin:0 0 10px;color:#1a1a1a}
-.service-desc{font-size:13px;color:#6b7280;line-height:1.8;margin:0}
+  /* Header */
+  .report-header {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+  }
+  .report-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+  .report-title {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+  .report-subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
 
-/* Strengths */
-.strengths{background:#f9fafb}
-.strength-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:0 auto}
-.strength-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:32px 28px}
-.strength-num{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;background:#E6F1FB;color:#0C447C;border-radius:50%;font-size:13px;font-weight:500;margin-bottom:16px}
-.strength-title{font-size:16px;font-weight:500;margin:0 0 10px;color:#1a1a1a}
-.strength-desc{font-size:13px;color:#6b7280;line-height:1.8;margin:0}
+  /* Section */
+  .section { margin-bottom: 48px; }
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
 
-/* Company */
-.company{background:#fff}
-.company-table{width:100%;max-width:760px;margin:0 auto;border-collapse:collapse;font-size:14px}
-.company-table tr{border-bottom:1px solid #e5e7eb}
-.company-table th{text-align:left;padding:18px 0;color:#6b7280;font-weight:400;width:28%;vertical-align:top}
-.company-table td{padding:18px 0;color:#1a1a1a}
+  /* Cards */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+  }
 
-/* Contact */
-.contact{background:#042C53;color:#fff;text-align:center}
-.contact .section-eyebrow{color:#85B7EB}
-.contact .section-title{color:#fff}
-.contact-lead{font-size:14px;color:#B5D4F4;max-width:520px;margin:0 auto 32px;line-height:1.9}
-.contact-grid{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:40px}
-.contact-card{background:#fff;color:#042C53;padding:16px 32px;border-radius:8px;font-size:15px;font-weight:500;display:flex;align-items:center;gap:8px}
-.contact-card.alt{background:#185FA5;color:#fff}
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
 
-/* Form */
-.contact-form{max-width:560px;margin:0 auto;background:#fff;border-radius:12px;padding:32px;text-align:left;color:#1a1a1a}
-.form-row{margin-bottom:18px}
-.form-row label{display:block;font-size:12px;color:#4b5563;margin-bottom:6px;font-weight:500}
-.form-row input,.form-row textarea{width:100%;padding:12px 14px;border:1px solid #d1d5db;border-radius:6px;font-size:14px;font-family:inherit;background:#fff}
-.form-row input:focus,.form-row textarea:focus{outline:none;border-color:#185FA5;box-shadow:0 0 0 3px rgba(24,95,165,0.1)}
-.form-row textarea{min-height:120px;resize:vertical}
-.required{color:#dc2626;font-size:11px;margin-left:4px}
-.btn-submit{width:100%;background:#0C447C;color:#fff;padding:14px;border-radius:6px;font-size:14px;font-weight:500;border:none;cursor:pointer;margin-top:8px}
-.btn-submit:hover{background:#185FA5}
+  /* Metric strip */
+  .metric-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+  .metric-cell {
+    background: var(--surface);
+    padding: 20px 24px;
+    text-align: center;
+  }
+  .metric-cell-label { font-size: 11px; color: var(--text-muted); margin-bottom: 6px; }
+  .metric-cell-value { font-size: 26px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em; }
+  .metric-cell-sub { font-size: 11px; color: var(--text-secondary); margin-top: 3px; }
 
-/* Footer */
-.site-footer{background:#021F3A;color:#85B7EB;padding:40px 24px 24px;text-align:center}
-.footer-inner{max-width:1100px;margin:0 auto}
-.footer-logo{font-size:14px;color:#fff;margin-bottom:8px;font-weight:500}
-.footer-info{font-size:12px;color:#85B7EB;margin-bottom:20px;line-height:1.8}
-.footer-copy{font-size:11px;color:#3a6da3;padding-top:20px;border-top:1px solid #0C447C}
+  /* Badge */
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+  .badge-teal { background: var(--teal-bg); color: var(--teal-text); }
+  .badge-blue { background: var(--blue-bg); color: var(--blue-text); }
+  .badge-purple { background: var(--purple-bg); color: var(--purple-text); }
+  .badge-coral { background: var(--coral-bg); color: var(--coral-text); }
+  .badge-amber { background: var(--amber-bg); color: var(--amber-text); }
+  .badge-green { background: var(--green-bg); color: var(--green-text); }
 
-/* Responsive */
-@media (max-width:768px){
-  .site-nav{display:none}
-  .menu-toggle{display:block}
-  .hero{padding:60px 24px 50px}
-  .trust-bar{grid-template-columns:repeat(2,1fr);gap:24px 0}
-  .trust-item:nth-child(3){border-left:none}
-  section{padding:60px 20px}
-  .service-grid,.strength-grid{grid-template-columns:1fr;gap:16px}
-  .section-title{font-size:24px}
-  .contact-card{padding:14px 24px;font-size:14px}
-  .company-table th{width:35%;font-size:12px}
-  .company-table td{font-size:13px}
-}
+  /* Item row */
+  .item-list { }
+  .item-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .item-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .item-row:first-child { padding-top: 0; }
+  .item-num {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    border: 1px solid var(--border-strong);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .item-title { font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+  .item-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
+
+  /* Flow */
+  .flow-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin: 12px 0;
+  }
+  .flow-box {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+  .flow-arrow { color: var(--text-muted); font-size: 14px; }
+
+  /* Highlight */
+  .highlight {
+    background: var(--blue-bg);
+    border-left: 3px solid var(--blue-text);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--blue-text);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+
+  /* Plan card */
+  .plan-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .plan-card.featured { border: 2px solid var(--blue-text); }
+  .plan-badge { margin-bottom: 10px; }
+  .plan-name { font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+  .plan-price {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+  .plan-price-unit { font-size: 12px; font-weight: 400; color: var(--text-secondary); }
+  .plan-divider { height: 1px; background: var(--border); margin: 14px 0; }
+  .plan-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    padding: 3px 0;
+    line-height: 1.5;
+  }
+  .plan-check { color: var(--teal-text); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .featured-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--blue-text);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  /* Warn box */
+  .warn-box {
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+  }
+  .warn-box:last-child { margin-bottom: 0; }
+  .warn-box.amber { background: var(--amber-bg); border-left: 3px solid var(--amber-text); }
+  .warn-box.coral { background: var(--coral-bg); border-left: 3px solid var(--coral-text); }
+  .warn-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .warn-box.amber .warn-title { color: var(--amber-text); }
+  .warn-box.coral .warn-title { color: var(--coral-text); }
+  .warn-desc { font-size: 12px; line-height: 1.65; }
+  .warn-box.amber .warn-desc { color: var(--amber-text); }
+  .warn-box.coral .warn-desc { color: var(--coral-text); }
+
+  /* Example box */
+  .example-box {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .example-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  .example-table th {
+    text-align: left;
+    padding: 6px 10px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    background: var(--border);
+    font-size: 11px;
+  }
+  .example-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-primary);
+  }
+  .example-table tr:last-child td { border-bottom: none; }
+  .num-good { color: var(--teal-text); font-weight: 700; }
+  .num-bad { color: var(--coral-text); font-weight: 700; }
+
+  /* Two-col for施策 */
+  .施策-header {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Footer */
+  .report-footer {
+    margin-top: 64px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 640px) {
+    .grid2, .grid3 { grid-template-columns: 1fr; }
+    .grid4 { grid-template-columns: 1fr 1fr; }
+    .metric-strip { grid-template-columns: 1fr; }
+    .report-title { font-size: 24px; }
+    .plan-price { font-size: 22px; }
+  }
 </style>
 </head>
 <body>
+<div class="wrapper">
 
-<!-- Header -->
-<header class="site-header" role="banner">
-  <div class="header-inner">
-    <a href="#" class="logo" aria-label="株式会社清水商事 ホーム">
-      <div class="logo-mark" aria-hidden="true">清</div>
-      <div>
-        <div class="logo-name">株式会社清水商事</div>
-        <div class="logo-sub">SHIMIZU SHOJI CO., LTD.</div>
+  <!-- Header -->
+  <div class="report-header">
+    <div class="report-eyebrow">Service Report · MDS Inc.</div>
+    <h1 class="report-title">MEOサービス概要レポート</h1>
+    <div class="report-subtitle">Googleマップ上位表示支援サービスの要点整理 — 動画文字起こしをもとに作成</div>
+  </div>
+
+  <!-- Metric Strip -->
+  <div class="metric-strip">
+    <div class="metric-cell">
+      <div class="metric-cell-label">クライアント累計</div>
+      <div class="metric-cell-value">3万+</div>
+      <div class="metric-cell-sub">4カ国展開</div>
+    </div>
+    <div class="metric-cell">
+      <div class="metric-cell-label">日本の飲食店に占める割合</div>
+      <div class="metric-cell-value">4%</div>
+      <div class="metric-cell-sub">集客実績・ノウハウを保有</div>
+    </div>
+    <div class="metric-cell">
+      <div class="metric-cell-label">MEOの検索シェア</div>
+      <div class="metric-cell-value">約70%</div>
+      <div class="metric-cell-sub">エリア×カテゴリ検索のユーザーが参照</div>
+    </div>
+  </div>
+
+  <!-- Section 1: MEOとは -->
+  <div class="section">
+    <div class="section-label">MEOとは — 4つの基本</div>
+    <div class="card">
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-num">1</div>
+          <div>
+            <div class="item-title">即時集客につながる</div>
+            <div class="item-desc">Googleマップで検索するユーザーは「今すぐ行きたい人」。SEOと違い、来店行動に直結しやすい特性がある。</div>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-num">2</div>
+          <div>
+            <div class="item-title">MEOの表示シェアが圧倒的</div>
+            <div class="item-desc">「渋谷 カフェ」などエリア×カテゴリ検索では、約7割のユーザーがSEO（通常検索結果）ではなくMEO（マップ情報）を参照してお店を探している。</div>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-num">3</div>
+          <div>
+            <div class="item-title">データで運用できる</div>
+            <div class="item-desc">検索回数・電話件数・来店数などがGoogleの公式アプリで全て確認可能。「多分集客できた」という勘に頼らず、データに基づく改善サイクルを回せる。</div>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-num">4</div>
+          <div>
+            <div class="item-title">予算ではなく品質で勝負できる</div>
+            <div class="item-desc">ホットペッパーや食べログは広告予算の多い大手が有利なオークション型。Googleマップは広告費で上位表示を買えない仕組みのため、対策の質次第で個人店でも大手に勝てる集客媒体。</div>
+          </div>
+        </div>
       </div>
-    </a>
-    <nav class="site-nav" aria-label="メインナビゲーション">
-      <a href="#services">事業内容</a>
-      <a href="#strengths">強み</a>
-      <a href="#company">会社概要</a>
-      <a href="#contact" class="nav-cta">お見積り依頼</a>
-    </nav>
-    <button class="menu-toggle" aria-label="メニューを開く"><i class="ti ti-menu-2"></i></button>
-  </div>
-</header>
-
-<main>
-
-<!-- Hero -->
-<section class="hero" aria-labelledby="hero-heading">
-  <div class="hero-inner">
-    <div class="hero-eyebrow">SAFE, RELIABLE, ON-TIME DELIVERY</div>
-    <h1 id="hero-heading">あなたの荷物を、<br>確かな信頼でお届けします。</h1>
-    <p class="hero-lead">創業以来、地域に根ざした運送サービスで、お客様の大切な荷物を安全・確実にお届けしてまいりました。一般貨物輸送から特殊配送まで、幅広いニーズにお応えします。</p>
-    <div class="hero-cta">
-      <a href="#contact" class="btn btn-primary">お問い合わせ <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
-      <a href="#services" class="btn btn-secondary">サービス詳細</a>
     </div>
   </div>
-</section>
 
-<!-- Trust Bar -->
-<div class="trust-bar" role="region" aria-label="会社実績">
-  <div class="trust-item">
-    <div class="trust-value">50<span class="unit">年</span></div>
-    <div class="trust-label">創業実績</div>
+  <!-- Section 2: 対策 -->
+  <div class="section">
+    <div class="section-label">上位表示の対策 — 内部施策と外部施策</div>
+    <div class="grid2">
+      <div class="card">
+        <div class="施策-header">
+          <span class="badge badge-teal">内部施策</span>
+          ビジネスプロフィール内の最適化
+        </div>
+        <div class="item-list">
+          <div class="item-row">
+            <div class="item-num" style="font-size:10px;">①</div>
+            <div>
+              <div class="item-title">口コミ管理・返信</div>
+              <div class="item-desc">良い口コミを集め、すべての口コミに丁寧に返信する。評価の質と返信率の両方が重要。</div>
+            </div>
+          </div>
+          <div class="item-row">
+            <div class="item-num" style="font-size:10px;">②</div>
+            <div>
+              <div class="item-title">定期投稿でアクティブをアピール</div>
+              <div class="item-desc">Googleマップ上の投稿機能を活用し、「営業中・アクティブ」であることをGoogleに継続的に示す。閉店しているかもしれないお店はGoogleが嫌う。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="施策-header">
+          <span class="badge badge-purple">外部施策</span>
+          外部サイトからの評価を高める
+        </div>
+        <div class="item-list">
+          <div class="item-row">
+            <div class="item-num" style="font-size:10px;">①</div>
+            <div>
+              <div class="item-title">被リンク（関連カテゴリのサイトから）</div>
+              <div class="item-desc">飲食系・業種関連のメディアやブログからのリンク獲得が有効。無関係なサイトやスパムリンクは逆効果。</div>
+            </div>
+          </div>
+          <div class="item-row">
+            <div class="item-num" style="font-size:10px;">②</div>
+            <div>
+              <div class="item-title">NAP統一（Name / Address / Phone）</div>
+              <div class="item-desc">InstagramなどURLがないSNSでも、店名・住所・電話番号が統一されていればGoogleが「同じ店」と認識して評価に加算する。</div>
+            </div>
+          </div>
+          <div class="item-row">
+            <div class="item-num" style="font-size:10px;">③</div>
+            <div>
+              <div class="item-title">Webサイトのアクセス数・滞在時間</div>
+              <div class="item-desc">SNS経由でサイトへ誘導し滞在時間を伸ばすことで、Googleからの評価が向上。SNS運用がMEOにも間接的に効いてくる。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="trust-item">
-    <div class="trust-value">24<span class="unit">時間</span></div>
-    <div class="trust-label">対応体制</div>
+
+  <!-- Section 3: キーワード分析フロー -->
+  <div class="section">
+    <div class="section-label">MDSのキーワード分析フロー</div>
+    <div class="card">
+      <div class="highlight">
+        月間検索回数の多さではなく「予想最終リーチ数（競合の弱さを加味した、実際に到達できる集客数）」でキーワードを選ぶのが同社の特徴。
+      </div>
+      <div class="flow-row">
+        <div class="flow-box">① エリア分析</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">② 関連KW洗い出し</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">③ 競合分析</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">④ スコアリング</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">⑤ KW決定</div>
+      </div>
+      <div class="example-box">
+        <strong style="font-size:11px; letter-spacing:0.06em; color: var(--text-secondary);">EXAMPLE — 表参道エステ vs 表参道スパ</strong>
+        <table class="example-table">
+          <thead>
+            <tr>
+              <th>キーワード</th>
+              <th>月間検索数</th>
+              <th>競合強度</th>
+              <th>予想最終リーチ</th>
+              <th>判定</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>表参道エステ</td>
+              <td>1,200回</td>
+              <td>強い</td>
+              <td class="num-bad">36人/月</td>
+              <td class="num-bad">✗ 非推奨</td>
+            </tr>
+            <tr>
+              <td>表参道スパ</td>
+              <td>400回</td>
+              <td>弱い</td>
+              <td class="num-good">300人/月</td>
+              <td class="num-good">✓ 推奨</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="margin-top:8px; font-size:11px; color: var(--text-muted);">検索数が少なくても競合が弱ければ予想リーチは大幅に増える。</div>
+      </div>
+    </div>
   </div>
-  <div class="trust-item">
-    <div class="trust-value">500<span class="unit">社+</span></div>
-    <div class="trust-label">取引実績</div>
+
+  <!-- Section 4: MDSの4つの特徴 -->
+  <div class="section">
+    <div class="section-label">MDSサービスの4つの特徴</div>
+    <div class="grid2">
+      <div class="card">
+        <div style="margin-bottom:10px;"><span class="badge badge-teal">特徴 1</span></div>
+        <div class="item-title">申込前に効果予測を提示</div>
+        <div class="item-desc" style="margin-top:6px;">店舗情報を送るだけで、来店予測・貢献売上まで試算したレポートを申込前に無償提出。他社は「やってみてから」が普通。代理店も翌日にレポートを受け取って営業活用できる。</div>
+      </div>
+      <div class="card">
+        <div style="margin-bottom:10px;"><span class="badge badge-blue">特徴 2</span></div>
+        <div class="item-title">Google公式データの透明な管理画面</div>
+        <div class="item-desc" style="margin-top:6px;">成果を専用URLでリアルタイム確認できる管理画面を提供。表示データはGoogle提供のものをそのまま反映しており、サービス側による操作は不可。透明性が高い。</div>
+      </div>
+      <div class="card">
+        <div style="margin-bottom:10px;"><span class="badge badge-purple">特徴 3</span></div>
+        <div class="item-title">毎月のキーワード最適化</div>
+        <div class="item-desc" style="margin-top:6px;">上位表示を取ったキーワードは次のキーワードへ移行し、毎月分析をかけて最適化。「陣取り合戦」式で集客キーワードを拡大し続けることで長期的な集客力を高める。</div>
+      </div>
+      <div class="card">
+        <div style="margin-bottom:10px;"><span class="badge badge-coral">特徴 4</span></div>
+        <div class="item-title">専属メディアの制作が月額に込み</div>
+        <div class="item-desc" style="margin-top:6px;">通常立ち上げだけで30〜40万円かかるメディア制作が月額料金に含まれる。被リンク獲得のための専用メディアを1クライアント1つ作成し、外部施策の柱として機能させる。</div>
+      </div>
+    </div>
   </div>
-  <div class="trust-item">
-    <div class="trust-value" style="font-size:22px">Gマーク</div>
-    <div class="trust-label">安全性認定</div>
+
+  <!-- Section 5: プラン比較 -->
+  <div class="section">
+    <div class="section-label">料金プラン比較</div>
+    <div class="grid3">
+      <div class="plan-card">
+        <div class="plan-badge"><span class="badge badge-teal">ベーシック</span></div>
+        <div class="plan-price">¥19,800<span class="plan-price-unit"> /月</span></div>
+        <div class="plan-divider"></div>
+        <div class="plan-feature"><span class="plan-check">✓</span> キーワード分析</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> Googleマップ登録代行</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> 専属メディア制作</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> 専属担当コンサルティング</div>
+      </div>
+      <div class="plan-card featured">
+        <span class="featured-label">おすすめ</span>
+        <div class="plan-badge"><span class="badge badge-blue">ゴールド MEO</span></div>
+        <div class="plan-price">¥42,800<span class="plan-price-unit"> /月</span></div>
+        <div class="plan-divider"></div>
+        <div class="plan-feature"><span class="plan-check">✓</span> ベーシック全内容</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> 投稿作成・キーワード分析</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> 投稿代行</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> 口コミ返信代行</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> メールサポート</div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-badge"><span class="badge badge-purple">IG + MEO</span></div>
+        <div class="plan-price">¥69,800<span class="plan-price-unit"> /月</span></div>
+        <div class="plan-divider"></div>
+        <div class="plan-feature"><span class="plan-check">✓</span> ゴールド全内容</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> Instagram運用代行</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> SNS×MEO統合戦略</div>
+      </div>
+    </div>
   </div>
+
+  <!-- Section 6: 業者選び注意点 -->
+  <div class="section">
+    <div class="section-label">業者選びで気をつけること</div>
+    <div class="warn-box amber">
+      <div class="warn-title">⚠ 注意① ビッグワードだけ謳う業者</div>
+      <div class="warn-desc">「渋谷 カフェ」などの超競合キーワードで上位表示を約束して長期契約を結ばせるケースが多い。月間検索数ではなく「予想最終リーチ数」で提示できる業者を選ぶこと。</div>
+    </div>
+    <div class="warn-box coral">
+      <div class="warn-title">⚠ 注意② 成果報酬型の業者</div>
+      <div class="warn-desc">「1キーワード上位表示で○円」という成果報酬型では、最初から取りやすいキーワードを提案し必ず1つ達成させる手法が横行している。実際の集客につながらないケースが多く、契約が長引く構造になっている。</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="report-footer">
+    <div>MEOサービス概要レポート — MDS動画をもとに作成</div>
+    <div>内部資料用</div>
+  </div>
+
 </div>
-
-<!-- Services -->
-<section id="services" class="services" aria-labelledby="services-heading">
-  <div class="section-head">
-    <div class="section-eyebrow">SERVICES</div>
-    <h2 id="services-heading" class="section-title">事業内容</h2>
-  </div>
-  <div class="service-grid">
-    <article class="service-card">
-      <i class="ti ti-truck-delivery service-icon" aria-hidden="true"></i>
-      <h3 class="service-title">一般貨物輸送</h3>
-      <p class="service-desc">企業間の定期配送から単発の輸送まで、幅広い貨物輸送ニーズに対応します。安全運行を最優先に、確実なお届けをお約束します。</p>
-    </article>
-    <article class="service-card">
-      <i class="ti ti-package service-icon" aria-hidden="true"></i>
-      <h3 class="service-title">特殊配送</h3>
-      <p class="service-desc">精密機器・重量物・時間指定など、難易度の高い配送も承ります。経験豊富なドライバーが丁寧に対応いたします。</p>
-    </article>
-    <article class="service-card">
-      <i class="ti ti-building-warehouse service-icon" aria-hidden="true"></i>
-      <h3 class="service-title">倉庫・保管</h3>
-      <p class="service-desc">入出庫管理から在庫管理まで、物流をワンストップでサポート。お客様の事業効率化に貢献します。</p>
-    </article>
-  </div>
-</section>
-
-<!-- Strengths -->
-<section id="strengths" class="strengths" aria-labelledby="strengths-heading">
-  <div class="section-head">
-    <div class="section-eyebrow">OUR STRENGTHS</div>
-    <h2 id="strengths-heading" class="section-title">選ばれる3つの理由</h2>
-  </div>
-  <div class="strength-grid">
-    <div class="strength-card">
-      <div class="strength-num">01</div>
-      <h3 class="strength-title">徹底した安全管理</h3>
-      <p class="strength-desc">Gマーク取得事業所として、ドライバー教育と車両点検を徹底。事故ゼロを目指した運行管理体制を構築しています。</p>
-    </div>
-    <div class="strength-card">
-      <div class="strength-num">02</div>
-      <h3 class="strength-title">柔軟な対応力</h3>
-      <p class="strength-desc">急な配送依頼や個別のご要望にも、迅速かつ柔軟に対応いたします。お客様の事業に寄り添うパートナーを目指します。</p>
-    </div>
-    <div class="strength-card">
-      <div class="strength-num">03</div>
-      <h3 class="strength-title">地域密着の信頼</h3>
-      <p class="strength-desc">創業以来築いてきた地域とのつながりが、安定したサービスを支えます。長期的なお取引で関係を深めてまいります。</p>
-    </div>
-  </div>
-</section>
-
-<!-- Company -->
-<section id="company" class="company" aria-labelledby="company-heading">
-  <div class="section-head">
-    <div class="section-eyebrow">COMPANY</div>
-    <h2 id="company-heading" class="section-title">会社概要</h2>
-  </div>
-  <table class="company-table">
-    <tbody>
-      <tr><th scope="row">会社名</th><td>株式会社清水商事（SHIMIZU SHOJI CO., LTD.）</td></tr>
-      <tr><th scope="row">代表者</th><td>代表取締役 清水 ◯◯</td></tr>
-      <tr><th scope="row">設立</th><td>19XX年X月</td></tr>
-      <tr><th scope="row">資本金</th><td>X,XXX万円</td></tr>
-      <tr><th scope="row">所在地</th><td>〒XXX-XXXX ◯◯県◯◯市◯◯ X-X-X</td></tr>
-      <tr><th scope="row">電話番号</th><td>0XX-XXXX-XXXX</td></tr>
-      <tr><th scope="row">事業内容</th><td>一般貨物自動車運送事業、倉庫業</td></tr>
-      <tr><th scope="row">許認可</th><td>一般貨物自動車運送事業許可、Gマーク認定</td></tr>
-    </tbody>
-  </table>
-</section>
-
-<!-- Contact -->
-<section id="contact" class="contact" aria-labelledby="contact-heading">
-  <div class="section-head">
-    <div class="section-eyebrow">CONTACT</div>
-    <h2 id="contact-heading" class="section-title">お問い合わせ</h2>
-  </div>
-  <p class="contact-lead">お見積り・配送のご相談は、お電話またはフォームよりお気軽にどうぞ。<br>24時間以内にご返信いたします。</p>
-  <div class="contact-grid">
-    <a href="tel:0XX-XXXX-XXXX" class="contact-card">
-      <i class="ti ti-phone" aria-hidden="true"></i>0XX-XXXX-XXXX
-    </a>
-    <a href="mailto:info@shimizu-shoji.co.jp" class="contact-card alt">
-      <i class="ti ti-mail" aria-hidden="true"></i>メールで問い合わせ
-    </a>
-  </div>
-
-  <form class="contact-form" id="contactForm">
-    <div class="form-row">
-      <label for="company">会社名<span class="required">必須</span></label>
-      <input type="text" id="company" name="company" required>
-    </div>
-    <div class="form-row">
-      <label for="name">お名前<span class="required">必須</span></label>
-      <input type="text" id="name" name="name" required>
-    </div>
-    <div class="form-row">
-      <label for="email">メールアドレス<span class="required">必須</span></label>
-      <input type="email" id="email" name="email" required>
-    </div>
-    <div class="form-row">
-      <label for="phone">電話番号</label>
-      <input type="tel" id="phone" name="phone">
-    </div>
-    <div class="form-row">
-      <label for="message">お問い合わせ内容<span class="required">必須</span></label>
-      <textarea id="message" name="message" required></textarea>
-    </div>
-    <button type="submit" class="btn-submit">送信する</button>
-  </form>
-</section>
-
-</main>
-
-<!-- Footer -->
-<footer class="site-footer" role="contentinfo">
-  <div class="footer-inner">
-    <div class="footer-logo">株式会社清水商事</div>
-    <div class="footer-info">
-      〒XXX-XXXX ◯◯県◯◯市◯◯ X-X-X<br>
-      TEL: 0XX-XXXX-XXXX / FAX: 0XX-XXXX-XXXX
-    </div>
-    <div class="footer-copy">© 2026 SHIMIZU SHOJI CO., LTD. All Rights Reserved.</div>
-  </div>
-</footer>
-
-<script>
-document.getElementById('contactForm').addEventListener('submit',function(e){
-  e.preventDefault();
-  alert('お問い合わせありがとうございます。内容を確認の上、ご返信いたします。');
-});
-</script>
-
 </body>
 </html>
