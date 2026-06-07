@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MEO分析レポート — 永平寺だるまぷりん</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #F5F4F0;
+    --surface: #FFFFFF;
+    --surface2: #F0EEE8;
+    --border: #E2DFD7;
+    --border-strong: #C8C4BA;
+    --text-primary: #1A1915;
+    --text-secondary: #5C5A54;
+    --text-muted: #9C9A93;
+    --brand: #C17F24;
+    --brand-bg: #FDF5E8;
+    --brand-light: #F5E4C0;
+    --blue: #2563EB;
+    --blue-bg: #EEF4FF;
+    --teal: #0D7A5F;
+    --teal-bg: #E6F7F2;
+    --coral: #C0392B;
+    --coral-bg: #FDECEA;
+    --amber: #B45309;
+    --amber-bg: #FEF3C7;
+    --purple: #5B21B6;
+    --purple-bg: #F0ECFE;
+  }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.7;
+  }
+
+  /* ── Cover ── */
+  .cover {
+    background: linear-gradient(135deg, #1A1208 0%, #3D2600 60%, #5C3A00 100%);
+    color: #fff;
+    padding: 64px 48px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 80% 20%, rgba(193,127,36,0.35) 0%, transparent 60%);
+  }
+  .cover-inner { position: relative; max-width: 800px; margin: 0 auto; }
+  .cover-label {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--brand); margin-bottom: 20px; font-weight: 700;
+  }
+  .cover-title {
+    font-size: 38px; font-weight: 900; letter-spacing: -0.03em;
+    line-height: 1.15; margin-bottom: 14px; color: #fff;
+  }
+  .cover-title span { color: var(--brand); }
+  .cover-subtitle { font-size: 14px; color: rgba(255,255,255,0.6); margin-bottom: 36px; }
+  .cover-meta {
+    display: flex; gap: 32px; flex-wrap: wrap;
+  }
+  .cover-meta-item { }
+  .cover-meta-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 4px; }
+  .cover-meta-value { font-size: 14px; font-weight: 700; color: rgba(255,255,255,0.9); }
+
+  /* ── Body ── */
+  .body-wrap { max-width: 860px; margin: 0 auto; padding: 48px 24px 80px; }
+
+  /* Section */
+  .section { margin-bottom: 52px; }
+  .section-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 18px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* Card */
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px 28px; }
+  .card + .card { margin-top: 12px; }
+
+  /* Grid */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+
+  /* KPI strip */
+  .kpi-strip {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    background: var(--border); gap: 1px; border-radius: 14px;
+    border: 1px solid var(--border); overflow: hidden; margin-bottom: 48px;
+  }
+  .kpi-cell { background: var(--surface); padding: 20px 16px; text-align: center; }
+  .kpi-label { font-size: 10px; color: var(--text-muted); margin-bottom: 8px; font-weight: 500; }
+  .kpi-value { font-size: 28px; font-weight: 900; letter-spacing: -0.03em; color: var(--text-primary); line-height: 1; }
+  .kpi-value.brand { color: var(--brand); }
+  .kpi-value.teal { color: var(--teal); }
+  .kpi-value.coral { color: var(--coral); }
+  .kpi-value.blue { color: var(--blue); }
+  .kpi-sub { font-size: 11px; color: var(--text-secondary); margin-top: 5px; }
+
+  /* Badge */
+  .badge {
+    display: inline-flex; align-items: center;
+    font-size: 10px; font-weight: 700; letter-spacing: 0.05em;
+    padding: 3px 10px; border-radius: 100px;
+  }
+  .badge-brand { background: var(--brand-bg); color: var(--brand); }
+  .badge-teal { background: var(--teal-bg); color: var(--teal); }
+  .badge-blue { background: var(--blue-bg); color: var(--blue); }
+  .badge-coral { background: var(--coral-bg); color: var(--coral); }
+  .badge-amber { background: var(--amber-bg); color: var(--amber); }
+  .badge-purple { background: var(--purple-bg); color: var(--purple); }
+  .badge-gray { background: var(--surface2); color: var(--text-secondary); }
+
+  /* Stat row */
+  .stat-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 11px 0; border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .stat-row:last-child { border-bottom: none; }
+  .stat-label { color: var(--text-secondary); }
+  .stat-value { font-weight: 700; color: var(--text-primary); }
+
+  /* Chart */
+  .chart-area { margin: 20px 0 10px; }
+  svg.spark { width: 100%; overflow: visible; }
+
+  /* Keyword table */
+  .kw-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .kw-table th {
+    text-align: left; padding: 9px 14px; font-size: 11px; font-weight: 700;
+    color: var(--text-secondary); background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+  }
+  .kw-table th:not(:first-child) { text-align: center; }
+  .kw-table td { padding: 11px 14px; border-bottom: 1px solid var(--border); }
+  .kw-table td:not(:first-child) { text-align: center; }
+  .kw-table tr:last-child td { border-bottom: none; }
+  .kw-num { font-weight: 700; font-size: 16px; color: var(--blue); }
+  .kw-bar-wrap { width: 80px; display: inline-block; background: var(--surface2); border-radius: 4px; height: 6px; overflow: hidden; }
+  .kw-bar { height: 6px; border-radius: 4px; background: var(--brand); }
+
+  /* Result cards */
+  .result-card {
+    background: linear-gradient(135deg, var(--teal-bg), #f0fbf7);
+    border: 1px solid #9FD9C9;
+    border-radius: 14px; padding: 22px 24px;
+    text-align: center;
+  }
+  .result-card-label { font-size: 11px; color: var(--teal); font-weight: 700; margin-bottom: 8px; letter-spacing: 0.05em; }
+  .result-card-value { font-size: 36px; font-weight: 900; color: var(--teal); letter-spacing: -0.03em; }
+  .result-card-unit { font-size: 14px; font-weight: 500; }
+  .result-card-sub { font-size: 11px; color: var(--teal); margin-top: 6px; opacity: 0.8; }
+
+  /* Gauge */
+  .gauge-wrap { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .gauge-svg { width: 140px; height: 80px; overflow: visible; }
+  .gauge-label { font-size: 22px; font-weight: 900; color: var(--teal); }
+  .gauge-sub { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+
+  /* Insight box */
+  .insight-box {
+    background: var(--brand-bg); border-left: 3px solid var(--brand);
+    border-radius: 0 10px 10px 0; padding: 14px 18px;
+    font-size: 13px; color: var(--text-primary); line-height: 1.7;
+  }
+  .insight-title { font-weight: 700; color: var(--brand); margin-bottom: 4px; font-size: 12px; letter-spacing: 0.05em; }
+
+  /* Issue tags */
+  .tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-left: 8px; }
+  .tag-bad { background: var(--coral-bg); color: var(--coral); }
+  .tag-ok { background: var(--teal-bg); color: var(--teal); }
+  .tag-warn { background: var(--amber-bg); color: var(--amber); }
+
+  /* Conclusion */
+  .conclusion-box {
+    background: linear-gradient(135deg, #1A1208 0%, #3D2600 100%);
+    border-radius: 14px; padding: 28px 32px; color: #fff;
+  }
+  .conclusion-title { font-size: 13px; font-weight: 700; color: var(--brand); margin-bottom: 10px; letter-spacing: 0.08em; }
+  .conclusion-text { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.85); }
+
+  /* Footer */
+  .footer {
+    text-align: center; font-size: 11px; color: var(--text-muted);
+    padding: 24px 0 0; border-top: 1px solid var(--border);
+    margin-top: 24px;
+  }
+
+  /* Section divider */
+  .divider { height: 1px; background: var(--border); margin: 40px 0; }
+
+  .card-title {
+    font-size: 14px; font-weight: 700; color: var(--text-primary);
+    margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
+  }
+  .card-title .icon { font-size: 18px; }
+
+  @media (max-width: 640px) {
+    .cover { padding: 40px 24px; }
+    .cover-title { font-size: 26px; }
+    .kpi-strip, .grid2, .grid3, .grid4 { grid-template-columns: 1fr 1fr; }
+    .result-card-value { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ COVER ══ -->
+<div class="cover">
+  <div class="cover-inner">
+    <div class="cover-label">MEO Analysis Report · 2026 © MDS</div>
+    <h1 class="cover-title">永平寺<span>だるまぷりん</span><br>MEO効果予測レポート</h1>
+    <div class="cover-subtitle">Googleマップ上位表示施策の分析データ・効果予測・競合現況</div>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">対象サイト</div>
+        <div class="cover-meta-value">daruma-pudding.com</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">分析期間</div>
+        <div class="cover-meta-value">Apr 2026（Similarweb）</div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="cover-meta-label">分析提供</div>
+        <div class="cover-meta-value">MDS Inc.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ BODY ══ -->
+<div class="body-wrap">
+
+  <!-- KPI Strip -->
+  <div class="kpi-strip" style="margin-top: 40px;">
+    <div class="kpi-cell">
+      <div class="kpi-label">貢献売上予測（月）</div>
+      <div class="kpi-value brand">¥225,700</div>
+      <div class="kpi-sub">MEO導入後の試算</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">予想リーチ数</div>
+      <div class="kpi-value teal">1,258</div>
+      <div class="kpi-sub">回 / 月（TOP5到達時）</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">月間来店予想</div>
+      <div class="kpi-value blue">37</div>
+      <div class="kpi-sub">回 / 月（来店・予約含む）</div>
+    </div>
+    <div class="kpi-cell">
+      <div class="kpi-label">現サイト月間訪問</div>
+      <div class="kpi-value coral">871</div>
+      <div class="kpi-sub">↓ 前月比 減少中</div>
+    </div>
+  </div>
+
+  <!-- Section 1: 現状トラフィック -->
+  <div class="section">
+    <div class="section-label">01 · 現状Webサイトトラフィック分析</div>
+    <div class="grid2">
+
+      <!-- Chart card -->
+      <div class="card">
+        <div class="card-title"><span class="icon">📉</span>訪問数推移（Feb → Apr 2026）</div>
+        <div class="chart-area">
+          <svg class="spark" viewBox="0 0 300 110" height="110" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="grad1" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#2563EB" stop-opacity="0.22"/>
+                <stop offset="100%" stop-color="#2563EB" stop-opacity="0.02"/>
+              </linearGradient>
+            </defs>
+            <!-- Area -->
+            <path d="M0,8 L150,38 L300,50 L300,100 L0,100 Z" fill="url(#grad1)"/>
+            <!-- Line -->
+            <polyline points="0,8 150,38 300,50" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Dots -->
+            <circle cx="0" cy="8" r="5" fill="#2563EB" stroke="#fff" stroke-width="2"/>
+            <circle cx="150" cy="38" r="4" fill="#2563EB"/>
+            <circle cx="300" cy="50" r="5" fill="#C0392B" stroke="#fff" stroke-width="2"/>
+            <!-- Value labels -->
+            <text x="8" y="6" font-size="10" fill="#2563EB" font-weight="bold" font-family="sans-serif">~1,400</text>
+            <text x="158" y="36" font-size="10" fill="#5C5A54" font-family="sans-serif">~1,010</text>
+            <text x="255" y="46" font-size="10" fill="#C0392B" font-weight="bold" font-family="sans-serif">871</text>
+            <!-- X axis labels -->
+            <text x="0" y="112" font-size="10" fill="#9C9A93" font-family="sans-serif">Feb</text>
+            <text x="138" y="112" font-size="10" fill="#9C9A93" font-family="sans-serif">Mar</text>
+            <text x="278" y="112" font-size="10" fill="#9C9A93" font-family="sans-serif">Apr</text>
+          </svg>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">月間訪問数（Apr）</span>
+          <span class="stat-value">871 <span class="tag tag-bad">↓ 減少</span></span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">直帰率</span>
+          <span class="stat-value">37.32% <span class="tag tag-warn">要改善</span></span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">1訪問あたりページ数</span>
+          <span class="stat-value">2.7 <span class="tag tag-ok">良好</span></span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">平均滞在時間</span>
+          <span class="stat-value">40秒 <span class="tag tag-bad">短い</span></span>
+        </div>
+      </div>
+
+      <!-- Keyword card -->
+      <div class="card">
+        <div class="card-title"><span class="icon">🔍</span>流入キーワード Top 5（Apr 2026）</div>
+        <table class="kw-table">
+          <thead>
+            <tr>
+              <th>キーワード</th>
+              <th>流入数</th>
+              <th>シェア</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                福井県永平寺町達磨プリン
+                <br><span class="badge badge-amber" style="margin-top:3px; font-size:9px;">指名系</span>
+              </td>
+              <td><span class="kw-num">180</span></td>
+              <td>
+                <div class="kw-bar-wrap"><div class="kw-bar" style="width:100%;"></div></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                永平寺 だるまプリン
+                <br><span class="badge badge-amber" style="margin-top:3px; font-size:9px;">指名系</span>
+              </td>
+              <td><span class="kw-num">120</span></td>
+              <td>
+                <div class="kw-bar-wrap"><div class="kw-bar" style="width:67%;"></div></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                だるまぷりん
+                <br><span class="badge badge-amber" style="margin-top:3px; font-size:9px;">指名系</span>
+              </td>
+              <td><span class="kw-num">90</span></td>
+              <td>
+                <div class="kw-bar-wrap"><div class="kw-bar" style="width:50%;"></div></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                だるまぷりん いちご
+                <br><span class="badge badge-amber" style="margin-top:3px; font-size:9px;">指名系</span>
+              </td>
+              <td><span class="kw-num">30</span></td>
+              <td>
+                <div class="kw-bar-wrap"><div class="kw-bar" style="width:17%;"></div></div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                永平寺だるまぷりん
+                <br><span class="badge badge-amber" style="margin-top:3px; font-size:9px;">指名系</span>
+              </td>
+              <td><span class="kw-num">10</span></td>
+              <td>
+                <div class="kw-bar-wrap"><div class="kw-bar" style="width:6%;"></div></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="margin-top:14px;" class="insight-box">
+          <div class="insight-title">⚠ 課題：全キーワードが「指名検索」</div>
+          「永平寺 プリン」「福井 お土産」など、まだ店を知らない新規ユーザーからの流入がゼロ。MEO対策でこの新規層の獲得が可能。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2: MDS キーワード分析 -->
+  <div class="section">
+    <div class="section-label">02 · MDS キーワード分析 — 対策3キーワード</div>
+    <div class="card">
+      <div class="card-title"><span class="icon">📊</span>弊社キーワード分析（以下3つのキーワードにMEO対策を実施）</div>
+      <table class="kw-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>キーワード</th>
+            <th>月間検索数</th>
+            <th>評価</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="color:var(--text-muted); font-weight:700;">1</td>
+            <td style="font-weight:700;">seacret（永平寺エリア関連）</td>
+            <td><span class="kw-num">1,000</span><span style="font-size:11px; color:var(--text-muted);"> 回/月</span></td>
+            <td><span class="badge badge-teal">高ボリューム</span></td>
+          </tr>
+          <tr>
+            <td style="color:var(--text-muted); font-weight:700;">2</td>
+            <td style="font-weight:700;">seacret（関連カテゴリ）</td>
+            <td><span class="kw-num">600</span><span style="font-size:11px; color:var(--text-muted);"> 回/月</span></td>
+            <td><span class="badge badge-blue">中ボリューム</span></td>
+          </tr>
+          <tr>
+            <td style="color:var(--text-muted); font-weight:700;">3</td>
+            <td style="font-weight:700;">永平寺 お土産</td>
+            <td><span class="kw-num">100</span><span style="font-size:11px; color:var(--text-muted);"> 回/月</span></td>
+            <td><span class="badge badge-amber">ロングテール</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:16px; display:flex; gap:12px; align-items:stretch; flex-wrap:wrap;">
+        <div style="flex:1; min-width:200px; background:var(--surface2); border-radius:10px; padding:14px 16px;">
+          <div style="font-size:11px; color:var(--text-muted); margin-bottom:4px;">合計月間検索数</div>
+          <div style="font-size:26px; font-weight:900; color:var(--blue); letter-spacing:-0.02em;">1,700<span style="font-size:13px; font-weight:500; color:var(--text-secondary);"> 回/月</span></div>
+        </div>
+        <div style="flex:1; min-width:200px; background:var(--surface2); border-radius:10px; padding:14px 16px;">
+          <div style="font-size:11px; color:var(--text-muted); margin-bottom:4px;">競合強度スコア</div>
+          <div style="font-size:26px; font-weight:900; color:var(--teal); letter-spacing:-0.02em;">30%<span style="font-size:13px; font-weight:500; color:var(--text-secondary);"> 競合弱い</span></div>
+          <div style="font-size:11px; color:var(--text-muted); margin-top:3px;">0〜30pt = 競合弱い（勝ちやすい）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 3: 競合分析 ゲージ -->
+  <div class="section">
+    <div class="section-label">03 · あなたの競合分析</div>
+    <div class="grid2">
+      <div class="card" style="display:flex; flex-direction:column; align-items:center; justify-content:center; padding: 32px 24px;">
+        <div class="gauge-wrap">
+          <svg class="gauge-svg" viewBox="0 0 140 80">
+            <!-- Track -->
+            <path d="M 10,75 A 60,60 0 0,1 130,75" fill="none" stroke="#E2DFD7" stroke-width="12" stroke-linecap="round"/>
+            <!-- Value arc (30% → about 54deg out of 180deg) -->
+            <path d="M 10,75 A 60,60 0 0,1 130,75" fill="none" stroke="#E2DFD7" stroke-width="12" stroke-linecap="round"/>
+            <path d="M 10,75 A 60,60 0 0,1 57,20" fill="none" stroke="#0D7A5F" stroke-width="12" stroke-linecap="round"/>
+            <!-- Center text -->
+            <text x="70" y="68" text-anchor="middle" font-size="20" font-weight="900" fill="#0D7A5F" font-family="sans-serif">30%</text>
+          </svg>
+          <div style="font-size:18px; font-weight:900; color:var(--teal); margin-top:-4px;">競合弱い</div>
+          <div style="font-size:11px; color:var(--text-muted); margin-top:6px;">スコア 0〜30pt — 上位獲得チャンス大</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">競合スコア基準</div>
+        <div class="stat-row">
+          <span class="stat-label">0 〜 30pt</span>
+          <span><span class="badge badge-teal">競合弱い ← 今ここ</span></span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">31 〜 60pt</span>
+          <span><span class="badge badge-amber">競合やや強い</span></span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">61 〜 90pt</span>
+          <span><span class="badge badge-coral">競合は強い</span></span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">91 〜 100pt</span>
+          <span><span class="badge badge-gray">請負不可</span></span>
+        </div>
+        <div style="margin-top:14px;" class="insight-box">
+          <div class="insight-title">✅ チャンスポイント</div>
+          対策3キーワードの競合スコアは30%（弱い）。早期に施策を開始すれば上位獲得が十分見込める状態。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 4: 効果予測 -->
+  <div class="section">
+    <div class="section-label">04 · 効果予測 — MEO導入後の試算</div>
+    <div class="grid4" style="margin-bottom:16px;">
+      <div class="result-card">
+        <div class="result-card-label">貢献売上予測（月）</div>
+        <div class="result-card-value">¥225,700</div>
+        <div class="result-card-sub">MDSが貢献できる売上試算</div>
+      </div>
+      <div class="result-card">
+        <div class="result-card-label">合計検索数</div>
+        <div class="result-card-value">1,700<span class="result-card-unit">回</span></div>
+        <div class="result-card-sub">3キーワード月間合計</div>
+      </div>
+      <div class="result-card">
+        <div class="result-card-label">予想リーチ数</div>
+        <div class="result-card-value">1,258<span class="result-card-unit">回</span></div>
+        <div class="result-card-sub">TOP5到達時 74%タップ</div>
+      </div>
+      <div class="result-card">
+        <div class="result-card-label">月間来店予想</div>
+        <div class="result-card-value">37<span class="result-card-unit">回</span></div>
+        <div class="result-card-sub">3%が来店・予約アクション</div>
+      </div>
+    </div>
+    <div class="card">
+      <div style="font-size:13px; color:var(--text-secondary); line-height:1.8;">
+        <strong style="color:var(--text-primary);">【試算の根拠】</strong><br>
+        月間合計検索数 <strong>1,700回</strong> のキーワードで TOP5 に入った場合、約 <strong>74%</strong> のユーザーがタップ（予想リーチ：1,258回）。<br>
+        そのうち <strong>3%</strong> が実際に来店や予約などのアクションを行うと想定 → 月間 <strong>37回</strong> の集客が期待できる。<br>
+        客単価をもとに換算した貢献売上試算が <strong>¥225,700 / 月</strong> となる。
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 5: 課題サマリー -->
+  <div class="section">
+    <div class="section-label">05 · 現状の課題サマリー</div>
+    <div class="card">
+      <div class="card-title">Webサイト × MEO 観点での評価</div>
+      <div class="stat-row">
+        <span class="stat-label">流入キーワードの質</span>
+        <span><span class="tag tag-bad">全て指名検索 — 新規流入ゼロ</span></span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">訪問数トレンド（Feb→Apr）</span>
+        <span><span class="tag tag-bad">右肩下がり（約38%減）</span></span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">平均滞在時間（40秒）</span>
+        <span><span class="tag tag-bad">極めて短い — コンテンツ改善余地あり</span></span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">直帰率（37.32%）</span>
+        <span><span class="tag tag-warn">やや高い — 改善余地あり</span></span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">1訪問あたりページ数（2.7）</span>
+        <span><span class="tag tag-ok">比較的良好</span></span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Googleマップ最適化</span>
+        <span><span class="tag tag-bad">未対策 — 即座に着手すべき</span></span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">競合強度スコア</span>
+        <span><span class="tag tag-ok">30% — 競合弱く今が好機</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 6: 結論 -->
+  <div class="section">
+    <div class="section-label">06 · 結論</div>
+    <div class="conclusion-box">
+      <div class="conclusion-title">📌 MDS MEO分析の結論</div>
+      <div class="conclusion-text">
+        弊社のMEOで短期的な集客の向上は十分可能であると予測します。<br><br>
+        対策3キーワードの競合スコアは <strong style="color:var(--brand);">30%（弱い）</strong> であり、施策開始後に早期でのGoogleマップ上位表示が見込めます。月間 <strong style="color:var(--brand);">1,258リーチ・37件</strong> の来店誘導・<strong style="color:var(--brand);">¥225,700</strong> の貢献売上が期待値として算出されています。<br><br>
+        一方、現状のWebサイトは平均滞在時間40秒・訪問数の右肩下がりという課題があります。MEO対策と並行して、<strong style="color:rgba(255,255,255,0.9);">写真クオリティの改善・HP導線の見直し・SNSとの連携によるリピーター獲得</strong> にも取り組むことで、より高い集客効果が実現できます。
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>※ 上記データはMDS数万のクライアントデータに基づき独自に分析したものです。</div>
+    <div style="margin-top:4px;">2026 © MDS — 本資料は内部・提案用途限り</div>
+  </div>
+
+</div>
+</body>
+</html>
