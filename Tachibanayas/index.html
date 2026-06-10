@@ -1,0 +1,2014 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>立花屋 | 享保三年創業 京の和菓子</title>
+<meta name="description" content="享保三年（1708年）創業。三百余年、京都の四季と共に歩んできた老舗和菓子店。職人の技が生み出す、本物の味わいをお届けします。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ─── Reset ──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* ─── Design Tokens ──────────────────────────────── */
+:root {
+  --ink:        #080508;
+  --ink-mid:    #110B0E;
+  --ink-light:  #1A1116;
+  --ink-card:   #1E1418;
+  --gold:       #C8A45A;
+  --gold-light: #E2C17A;
+  --gold-dim:   rgba(200,164,90,0.12);
+  --gold-border:rgba(200,164,90,0.28);
+  --sakura:     #C47B8A;
+  --matcha:     #5A7A56;
+  --cream:      #F5EEE4;
+  --muted:      #8A7B6E;
+  --border:     rgba(200,164,90,0.18);
+  --font-ja:    'Shippori Mincho', 'Georgia', serif;
+  --font-en:    'Cormorant Garamond', 'Georgia', serif;
+  --font-body:  'Noto Sans JP', sans-serif;
+  --font-label: 'Montserrat', sans-serif;
+  --ease:       cubic-bezier(0.4, 0, 0.2, 1);
+  --max-w: 1140px;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--ink);
+  color: var(--cream);
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+.container { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
+
+/* ─── Shared Components ──────────────────────────── */
+.gold-line {
+  display: block;
+  width: 40px; height: 1px;
+  background: var(--gold);
+  margin-bottom: 24px;
+}
+.label-en {
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 16px;
+}
+.section-title {
+  font-family: var(--font-ja);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+  color: var(--cream);
+}
+.section-desc {
+  font-size: 0.88rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 2;
+  margin-top: 20px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-label);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s var(--ease);
+  white-space: nowrap;
+}
+.btn--gold {
+  background: var(--gold);
+  color: var(--ink);
+  padding: 15px 36px;
+  font-weight: 600;
+}
+.btn--gold:hover { background: var(--gold-light); }
+.btn--outline {
+  border: 1px solid var(--gold-border);
+  color: var(--gold);
+  padding: 14px 34px;
+}
+.btn--outline:hover { background: var(--gold-dim); border-color: var(--gold); }
+.btn--arrow::after { content: '→'; font-size: 1em; }
+
+/* ─── Reveal Animation ───────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+.reveal-d3 { transition-delay: 0.3s; }
+.reveal-d4 { transition-delay: 0.4s; }
+.reveal-d5 { transition-delay: 0.5s; }
+
+/* ─── NAV ────────────────────────────────────────── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  transition: background 0.4s, border-color 0.4s;
+}
+.nav.scrolled {
+  background: rgba(8,5,8,0.92);
+  backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+}
+.nav__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav__logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1;
+}
+.nav__logo-ja {
+  font-family: var(--font-ja);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--cream);
+}
+.nav__logo-en {
+  font-family: var(--font-en);
+  font-size: 0.62rem;
+  letter-spacing: 0.26em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.nav__links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+.nav__links a {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: rgba(245,238,228,0.6);
+  transition: color 0.25s;
+}
+.nav__links a:hover { color: var(--cream); }
+.nav__cta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.nav__cart {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.nav__cart:hover { color: var(--gold); }
+.nav__cart svg { width: 16px; height: 16px; }
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 6px;
+}
+.nav__hamburger span {
+  width: 24px; height: 1px;
+  background: var(--cream);
+  transition: transform 0.3s;
+}
+.nav__mobile {
+  display: none;
+  flex-direction: column;
+  background: rgba(8,5,8,0.97);
+  border-top: 1px solid var(--border);
+  padding: 24px 40px;
+  gap: 20px;
+}
+.nav__mobile.open { display: flex; }
+.nav__mobile a {
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: rgba(245,238,228,0.7);
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+.nav__mobile a:last-child { border-bottom: none; }
+
+/* ─── HERO ───────────────────────────────────────── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+/* Layer 0: Real photo */
+.hero__photo-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1696528759739-dd247eb2b401?w=1800&q=80&fit=crop&auto=format');
+  background-size: cover;
+  background-position: center 40%;
+  filter: saturate(0.6);
+}
+/* Layer 1: Dark gradient overlay */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 60% 40%, rgba(100,30,40,0.55) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 20% 80%, rgba(50,35,15,0.55) 0%, transparent 60%),
+    linear-gradient(160deg, rgba(8,5,8,0.92) 0%, rgba(14,8,14,0.88) 35%, rgba(8,5,8,0.90) 70%, rgba(10,8,4,0.90) 100%);
+  z-index: 1;
+}
+/* Layer 2: Pattern */
+.hero__pattern {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='36'%3E%3Cellipse cx='30' cy='36' rx='30' ry='30' fill='none' stroke='%23C8A45A' stroke-width='0.6'/%3E%3Cellipse cx='0' cy='36' rx='30' ry='30' fill='none' stroke='%23C8A45A' stroke-width='0.6'/%3E%3Cellipse cx='60' cy='36' rx='30' ry='30' fill='none' stroke='%23C8A45A' stroke-width='0.6'/%3E%3Cellipse cx='15' cy='18' rx='30' ry='30' fill='none' stroke='%23C8A45A' stroke-width='0.6'/%3E%3Cellipse cx='45' cy='18' rx='30' ry='30' fill='none' stroke='%23C8A45A' stroke-width='0.6'/%3E%3Cellipse cx='30' cy='0' rx='30' ry='30' fill='none' stroke='%23C8A45A' stroke-width='0.6'/%3E%3C/svg%3E");
+  background-size: 60px 36px;
+}
+.hero__glow {
+  position: absolute;
+  top: 20%; right: 8%;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(196,123,138,0.14) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 2;
+}
+.hero__content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 120px 40px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+.hero__eyebrow-line { width: 40px; height: 1px; background: var(--gold); }
+.hero__eyebrow span {
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.hero__title {
+  font-family: var(--font-ja);
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.25;
+  color: var(--cream);
+  margin-bottom: 28px;
+}
+.hero__title em { font-style: normal; color: var(--gold-light); }
+.hero__desc {
+  font-size: 0.88rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 2.1;
+  margin-bottom: 48px;
+  max-width: 400px;
+}
+.hero__actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* Hero right — real photo frame */
+.hero__right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero__visual {
+  position: relative;
+  width: 380px;
+  height: 440px;
+}
+/* Real photo in frame */
+.hero__photo-frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border: 1px solid var(--gold-border);
+}
+.hero__photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.75) saturate(0.9);
+  transition: transform 6s ease, filter 0.4s;
+}
+.hero__visual:hover .hero__photo-frame img {
+  transform: scale(1.04);
+  filter: brightness(0.85) saturate(1);
+}
+/* Gradient fade at bottom of photo */
+.hero__photo-fade {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 55%;
+  background: linear-gradient(to top, rgba(8,5,8,0.85) 0%, transparent 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+.hero__corner {
+  position: absolute;
+  width: 24px; height: 24px;
+  z-index: 3;
+}
+.hero__corner--tl { top: -1px; left: -1px; border-top: 1px solid var(--gold); border-left: 1px solid var(--gold); }
+.hero__corner--tr { top: -1px; right: -1px; border-top: 1px solid var(--gold); border-right: 1px solid var(--gold); }
+.hero__corner--bl { bottom: -1px; left: -1px; border-bottom: 1px solid var(--gold); border-left: 1px solid var(--gold); }
+.hero__corner--br { bottom: -1px; right: -1px; border-bottom: 1px solid var(--gold); border-right: 1px solid var(--gold); }
+/* Product mini cards float over photo */
+.hero__product-cards {
+  position: absolute;
+  bottom: 24px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 4;
+}
+.hero__mini-card {
+  background: rgba(14,8,12,0.88);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--gold-border);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero__mini-card-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.hero__mini-card-dot--sakura { background: var(--sakura); }
+.hero__mini-card-dot--matcha { background: var(--matcha); }
+.hero__mini-card-dot--gold   { background: var(--gold); }
+.hero__mini-card-name {
+  font-family: var(--font-ja);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--cream);
+  flex: 1;
+}
+.hero__mini-card-price {
+  font-family: var(--font-label);
+  font-size: 0.63rem;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
+.hero__scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  z-index: 3;
+}
+.hero__scroll span {
+  font-family: var(--font-label);
+  font-size: 0.58rem;
+  letter-spacing: 0.24em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.hero__scroll-line {
+  width: 1px; height: 50px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollPulse 2.4s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); transform-origin: top; }
+  50%       { opacity: 1;   transform: scaleY(1);   transform-origin: top; }
+}
+
+/* ─── HISTORY BAND ───────────────────────────────── */
+.history-band {
+  background: var(--ink-mid);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 36px 40px;
+}
+.history-band__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+.history-item {
+  text-align: center;
+  flex: 1;
+  min-width: 140px;
+  padding: 8px 20px;
+  border-right: 1px solid var(--border);
+}
+.history-item:last-child { border-right: none; }
+.history-item__num {
+  font-family: var(--font-en);
+  font-size: 2.4rem;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.history-item__num sup { font-size: 1rem; vertical-align: super; margin-left: 2px; }
+.history-item__label {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 300;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+/* ─── STORY ──────────────────────────────────────── */
+.story-section { padding: 120px 40px; }
+.story-section__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 100px;
+  align-items: center;
+}
+.story__visual {
+  position: relative;
+  height: 520px;
+}
+/* Real photo background */
+.story__photo-wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border: 1px solid var(--gold-border);
+}
+.story__photo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.55) saturate(0.75);
+}
+/* Gold corner marks */
+.story__corner {
+  position: absolute;
+  width: 28px; height: 28px;
+  z-index: 2;
+}
+.story__corner--tl { top: -1px; left: -1px; border-top: 1px solid var(--gold); border-left: 1px solid var(--gold); }
+.story__corner--tr { top: -1px; right: -1px; border-top: 1px solid var(--gold); border-right: 1px solid var(--gold); }
+.story__corner--bl { bottom: -1px; left: -1px; border-bottom: 1px solid var(--gold); border-left: 1px solid var(--gold); }
+.story__corner--br { bottom: -1px; right: -1px; border-bottom: 1px solid var(--gold); border-right: 1px solid var(--gold); }
+/* Year overlay */
+.story__year-mark {
+  position: absolute;
+  top: 24px; left: 24px;
+  font-family: var(--font-en);
+  font-size: 0.62rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  z-index: 2;
+}
+/* Quote card floats over photo */
+.story__quote {
+  position: absolute;
+  bottom: -20px; right: -28px;
+  background: rgba(14,8,12,0.94);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--gold-border);
+  padding: 24px 28px;
+  max-width: 220px;
+  z-index: 3;
+}
+.story__quote::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: -1px;
+  width: 20px; height: 20px;
+  border-top: 1px solid var(--gold);
+  border-left: 1px solid var(--gold);
+}
+.story__quote-text {
+  font-family: var(--font-ja);
+  font-size: 0.82rem;
+  font-weight: 500;
+  line-height: 1.9;
+  letter-spacing: 0.08em;
+  color: var(--cream);
+}
+.story__quote-attr {
+  font-family: var(--font-label);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-top: 12px;
+  text-transform: uppercase;
+}
+.story__heading {
+  font-family: var(--font-ja);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  color: var(--cream);
+  margin-bottom: 32px;
+}
+.story__heading em { font-style: normal; color: var(--gold-light); }
+.story__body {
+  font-size: 0.86rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 2.2;
+  margin-bottom: 20px;
+}
+
+/* ─── SEASON BAND ────────────────────────────────── */
+.season-band {
+  background: var(--ink-mid);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 70px 40px;
+  overflow: hidden;
+  position: relative;
+}
+.season-band__bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 100% at 50% 50%, rgba(196,123,138,0.05) 0%, transparent 60%);
+}
+.season-band__inner { max-width: var(--max-w); margin: 0 auto; position: relative; z-index: 1; }
+.season-band__header { text-align: center; margin-bottom: 60px; }
+.season-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--border);
+}
+
+/* Season card with photo */
+.season-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-right: 1px solid var(--border);
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.season-card:last-child { border-right: none; }
+/* Photo layer */
+.season-card__photo {
+  position: absolute;
+  inset: 0;
+}
+.season-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.35) saturate(0.6);
+  transition: filter 0.5s var(--ease), transform 0.7s var(--ease);
+}
+.season-card:hover .season-card__photo img {
+  filter: brightness(0.50) saturate(0.9);
+  transform: scale(1.06);
+}
+/* Gradient overlay */
+.season-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8,5,8,0.88) 0%, transparent 60%);
+  transition: opacity 0.4s;
+}
+/* Content sits on top */
+.season-card__content {
+  position: relative;
+  z-index: 2;
+  padding: 32px 28px;
+  text-align: center;
+}
+.season-card__kanji {
+  font-family: var(--font-ja);
+  font-size: 2.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+  transition: color 0.3s;
+}
+.season-card--haru .season-card__kanji { color: rgba(196,123,138,0.85); }
+.season-card--natsu .season-card__kanji { color: rgba(90,122,86,0.85); }
+.season-card--aki   .season-card__kanji { color: rgba(200,140,80,0.85); }
+.season-card--fuyu  .season-card__kanji { color: rgba(160,180,210,0.85); }
+.season-card:hover .season-card__kanji { opacity: 1; color: var(--cream) !important; }
+.season-card__name {
+  font-family: var(--font-label);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+.season-card__products { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.season-card__products li {
+  font-family: var(--font-ja);
+  font-size: 0.76rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: rgba(245,238,228,0.55);
+  transition: color 0.25s;
+}
+.season-card:hover .season-card__products li { color: rgba(245,238,228,0.85); }
+
+/* ─── PRODUCTS ───────────────────────────────────── */
+.products-section { padding: 120px 40px; }
+.products-section__header {
+  max-width: var(--max-w);
+  margin: 0 auto 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.product-grid {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+.product-card {
+  position: relative;
+  background: var(--ink-card);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.35s;
+  display: flex;
+  flex-direction: column;
+}
+.product-card:hover { border-color: var(--gold); }
+.product-card__visual {
+  height: 240px;
+  position: relative;
+  overflow: hidden;
+}
+/* Real photo */
+.product-card__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.65) saturate(0.8);
+  transition: transform 0.7s var(--ease), filter 0.4s;
+}
+.product-card:hover .product-card__visual img {
+  transform: scale(1.06);
+  filter: brightness(0.75) saturate(1);
+}
+/* Gradient fade over photo */
+.product-card__visual-fade {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 50%;
+  background: linear-gradient(to top, var(--ink-card) 0%, transparent 100%);
+  pointer-events: none;
+}
+.product-card__badge {
+  position: absolute;
+  top: 14px; left: 14px;
+  font-family: var(--font-label);
+  font-size: 0.54rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 5px 11px;
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 600;
+  z-index: 2;
+}
+.product-card__badge--sakura { background: var(--sakura); color: var(--cream); }
+.product-card__badge--new { background: var(--matcha); color: var(--cream); }
+.product-card__body {
+  padding: 26px 28px 30px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.product-card__cat {
+  font-family: var(--font-label);
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.product-card__name {
+  font-family: var(--font-ja);
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--cream);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.product-card__desc {
+  font-size: 0.76rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.9;
+  flex: 1;
+}
+.product-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+.product-card__price {
+  font-family: var(--font-en);
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--cream);
+}
+.product-card__price span {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  color: var(--muted);
+  margin-left: 2px;
+}
+.product-card__btn {
+  font-family: var(--font-label);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.25s;
+}
+.product-card:hover .product-card__btn { gap: 14px; }
+.product-card__btn::after { content: '→'; }
+
+/* ─── CRAFT ──────────────────────────────────────── */
+.craft-section {
+  padding: 120px 40px;
+  background: var(--ink-mid);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.craft-section__bg {
+  position: absolute;
+  top: 0; right: 0;
+  width: 50%; height: 100%;
+  background: linear-gradient(to left, rgba(200,164,90,0.03) 0%, transparent 100%);
+}
+.craft-section__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.craft__steps { display: flex; flex-direction: column; }
+.craft__step {
+  display: flex;
+  gap: 28px;
+  padding: 36px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+.craft__step:first-child { padding-top: 0; }
+.craft__step:last-child { border-bottom: none; padding-bottom: 0; }
+.craft__step-num {
+  font-family: var(--font-en);
+  font-size: 2.4rem;
+  font-weight: 300;
+  color: rgba(200,164,90,0.2);
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 56px;
+}
+.craft__step-title {
+  font-family: var(--font-ja);
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--cream);
+  margin-bottom: 8px;
+}
+.craft__step-desc {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 2;
+}
+
+/* Craft right: real photo */
+.craft__right { position: relative; }
+.craft__photo-frame {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--gold-border);
+}
+.craft__photo-frame::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: -1px;
+  width: 36px; height: 36px;
+  border-top: 1px solid var(--gold);
+  border-left: 1px solid var(--gold);
+  z-index: 2;
+}
+.craft__photo-frame::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; right: -1px;
+  width: 36px; height: 36px;
+  border-bottom: 1px solid var(--gold);
+  border-right: 1px solid var(--gold);
+  z-index: 2;
+}
+.craft__photo-frame img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.6) saturate(0.75);
+  display: block;
+  transition: transform 0.7s var(--ease);
+}
+.craft__photo-frame:hover img { transform: scale(1.04); }
+.craft__photo-caption {
+  margin-top: 20px;
+  text-align: right;
+}
+.craft__photo-caption p {
+  font-family: var(--font-ja);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: rgba(245,238,228,0.6);
+  line-height: 1.8;
+}
+
+/* ─── GIFT ───────────────────────────────────────── */
+.gift-section {
+  padding: 120px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.gift-section__bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 80% at 80% 50%, rgba(196,123,138,0.06) 0%, transparent 55%);
+}
+.gift-section__inner { max-width: var(--max-w); margin: 0 auto; position: relative; z-index: 1; }
+.gift-section__header { text-align: center; margin-bottom: 72px; }
+.gift-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.gift-card {
+  position: relative;
+  border: 1px solid var(--gold-border);
+  background: var(--ink-card);
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.35s;
+}
+.gift-card:hover { border-color: var(--gold); }
+.gift-card::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: -1px;
+  width: 60px; height: 60px;
+  border-top: 1px solid var(--gold);
+  border-left: 1px solid var(--gold);
+  opacity: 0;
+  transition: opacity 0.35s;
+  z-index: 2;
+}
+.gift-card:hover::before { opacity: 1; }
+.gift-card::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; right: -1px;
+  width: 60px; height: 60px;
+  border-bottom: 1px solid var(--gold);
+  border-right: 1px solid var(--gold);
+  opacity: 0;
+  transition: opacity 0.35s;
+  z-index: 2;
+}
+.gift-card:hover::after { opacity: 1; }
+/* Gift card top photo */
+.gift-card__photo {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+}
+.gift-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.5) saturate(0.7);
+  transition: transform 0.7s var(--ease), filter 0.4s;
+}
+.gift-card:hover .gift-card__photo img {
+  transform: scale(1.05);
+  filter: brightness(0.6) saturate(0.9);
+}
+.gift-card__photo-fade {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 60%;
+  background: linear-gradient(to top, var(--ink-card) 0%, transparent 100%);
+}
+.gift-card__body { padding: 28px 36px 36px; position: relative; z-index: 1; }
+.gift-card__num {
+  font-family: var(--font-en);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  margin-bottom: 16px;
+  display: block;
+}
+.gift-card__title {
+  font-family: var(--font-ja);
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--cream);
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+.gift-card__desc {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 2;
+  margin-bottom: 24px;
+}
+.gift-card__range {
+  font-family: var(--font-en);
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--gold-light);
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.gift-card__range-label {
+  font-family: var(--font-label);
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* ─── TESTIMONIALS ───────────────────────────────── */
+.testimonials-section {
+  background: var(--ink-mid);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 120px 40px;
+}
+.testimonials-section__inner { max-width: var(--max-w); margin: 0 auto; }
+.testimonials-section__header { text-align: center; margin-bottom: 72px; }
+.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.testimonial-card {
+  background: var(--ink);
+  border: 1px solid var(--border);
+  padding: 36px;
+}
+.testimonial-card__quote-mark {
+  font-family: var(--font-en);
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--gold);
+  opacity: 0.3;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.testimonial-card__text {
+  font-family: var(--font-ja);
+  font-size: 0.82rem;
+  font-weight: 400;
+  line-height: 2.1;
+  letter-spacing: 0.06em;
+  color: rgba(245,238,228,0.7);
+  margin-bottom: 24px;
+}
+.testimonial-card__author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.testimonial-card__avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--ink-card);
+  border: 1px solid var(--gold-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-ja);
+  font-size: 0.78rem;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.testimonial-card__name {
+  font-family: var(--font-ja);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--cream);
+}
+.testimonial-card__detail {
+  font-family: var(--font-label);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* ─── CTA ────────────────────────────────────────── */
+.cta-section {
+  padding: 120px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 50% 50%, rgba(200,164,90,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 50% at 20% 80%, rgba(196,123,138,0.04) 0%, transparent 50%);
+}
+.cta-section__inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+.cta-section__title {
+  font-family: var(--font-ja);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  color: var(--cream);
+  margin-bottom: 24px;
+}
+.cta-section__title em { font-style: normal; color: var(--gold-light); }
+.cta-section__desc {
+  font-size: 0.86rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 2;
+  margin-bottom: 48px;
+}
+.cta-section__actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.cta-section__note {
+  margin-top: 24px;
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* ─── FOOTER ─────────────────────────────────────── */
+footer {
+  background: #040306;
+  padding: 80px 40px 36px;
+  border-top: 1px solid var(--border);
+}
+.footer__inner { max-width: var(--max-w); margin: 0 auto; }
+.footer__top {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr 1fr 1fr;
+  gap: 56px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 32px;
+}
+.footer__brand-name {
+  font-family: var(--font-ja);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--cream);
+  display: block;
+  margin-bottom: 4px;
+}
+.footer__brand-en {
+  font-family: var(--font-en);
+  font-size: 0.7rem;
+  letter-spacing: 0.26em;
+  color: var(--gold);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 20px;
+}
+.footer__brand-desc {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 2;
+  margin-bottom: 24px;
+}
+.footer__brand-address {
+  font-style: normal;
+  font-size: 0.75rem;
+  color: rgba(138,123,110,0.6);
+  line-height: 2;
+  font-weight: 300;
+}
+.footer__col h4 {
+  font-family: var(--font-label);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.footer__col ul { list-style: none; }
+.footer__col li { margin-bottom: 12px; }
+.footer__col a {
+  font-size: 0.8rem;
+  color: rgba(138,123,110,0.65);
+  font-weight: 300;
+  transition: color 0.2s;
+  letter-spacing: 0.04em;
+}
+.footer__col a:hover { color: var(--gold); }
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer__bottom p { font-size: 0.72rem; color: rgba(138,123,110,0.4); font-weight: 300; }
+
+/* ─── Mobile Sticky CTA ──────────────────────────── */
+.mobile-sticky {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 300;
+  background: var(--ink-card);
+  border-top: 1px solid var(--gold-border);
+  padding: 14px 20px;
+  gap: 12px;
+  align-items: center;
+}
+.mobile-sticky a {
+  flex: 1;
+  text-align: center;
+  padding: 13px;
+  font-family: var(--font-label);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ─── Responsive ─────────────────────────────────── */
+@media (max-width: 1000px) {
+  .nav__links, .nav__cta { display: none; }
+  .nav__hamburger { display: flex; }
+  .hero__content { grid-template-columns: 1fr; gap: 48px; padding-top: 100px; }
+  .hero__right { display: none; }
+  .story-section__inner { grid-template-columns: 1fr; gap: 48px; }
+  .story__visual { height: 320px; }
+  .story__quote { right: 0; bottom: 20px; }
+  .season-grid { grid-template-columns: repeat(2, 1fr); }
+  .craft-section__inner { grid-template-columns: 1fr; gap: 48px; }
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .gift-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .footer__top { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .history-item { border-right: none; border-bottom: 1px solid var(--border); }
+  .history-item:last-child { border-bottom: none; }
+  .mobile-sticky { display: flex; }
+  body { padding-bottom: 70px; }
+}
+@media (max-width: 640px) {
+  .nav__inner, .hero__content,
+  .story-section, .season-band, .products-section,
+  .craft-section, .gift-section, .testimonials-section,
+  .cta-section, footer,
+  .history-band { padding-left: 20px; padding-right: 20px; }
+  .hero__content { padding-left: 20px; padding-right: 20px; }
+  .season-grid { grid-template-columns: 1fr; }
+  .product-grid { grid-template-columns: 1fr; }
+  .footer__top { grid-template-columns: 1fr; }
+  .products-section__header { flex-direction: column; gap: 20px; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#top" class="nav__logo">
+      <span class="nav__logo-ja">立花屋</span>
+      <span class="nav__logo-en">Tachibana-ya · Est. 1708</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="#story">店について</a></li>
+      <li><a href="#seasons">四季の菓子</a></li>
+      <li><a href="#products">商品一覧</a></li>
+      <li><a href="#gift">ギフト</a></li>
+      <li><a href="#contact">お問い合わせ</a></li>
+    </ul>
+    <div class="nav__cta">
+      <a href="#products" class="nav__cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        ご購入はこちら
+      </a>
+      <a href="#products" class="btn btn--gold btn--arrow">お買い物</a>
+    </div>
+    <div class="nav__hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+  <div class="nav__mobile" id="mobileMenu">
+    <a href="#story">店について</a>
+    <a href="#seasons">四季の菓子</a>
+    <a href="#products">商品一覧</a>
+    <a href="#gift">ギフト</a>
+    <a href="#contact">お問い合わせ</a>
+    <a href="#products" style="color:var(--gold)">お買い物はこちら →</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero" id="top">
+  <!-- Layer 0: Real food photo -->
+  <div class="hero__photo-bg"></div>
+  <!-- Layer 1: Dark overlay -->
+  <div class="hero__bg"></div>
+  <!-- Layer 2: Pattern + glow -->
+  <div class="hero__pattern"></div>
+  <div class="hero__glow"></div>
+
+  <div class="hero__content">
+    <div class="hero__left">
+      <div class="hero__eyebrow">
+        <div class="hero__eyebrow-line"></div>
+        <span>享保三年（1708年）創業 · 京都</span>
+      </div>
+      <h1 class="hero__title">
+        三百余年、<br>
+        京の心を<br>
+        <em>かたちにして。</em>
+      </h1>
+      <p class="hero__desc">
+        職人の手から生まれる、一菓ひとかし。<br>
+        素材の声に耳を傾け、四季の彩りと<br>
+        京都の美意識を一つひとつの菓子に宿す。
+      </p>
+      <div class="hero__actions">
+        <a href="#products" class="btn btn--gold btn--arrow">商品を見る</a>
+        <a href="#story" class="btn btn--outline">店の物語</a>
+      </div>
+    </div>
+
+    <!-- Hero right: Real wagashi photo in frame -->
+    <div class="hero__right reveal reveal-d2">
+      <div class="hero__visual">
+        <div class="hero__photo-frame">
+          <img
+            src="https://images.unsplash.com/photo-1758781375545-10edb9de6af7?w=700&q=80&fit=crop&auto=format"
+            alt="団子 — 立花屋の和菓子"
+            loading="eager"
+          >
+        </div>
+        <div class="hero__photo-fade"></div>
+        <div class="hero__corner hero__corner--tl"></div>
+        <div class="hero__corner hero__corner--tr"></div>
+        <div class="hero__corner hero__corner--bl"></div>
+        <div class="hero__corner hero__corner--br"></div>
+        <div class="hero__product-cards">
+          <div class="hero__mini-card">
+            <div class="hero__mini-card-dot hero__mini-card-dot--sakura"></div>
+            <span class="hero__mini-card-name">桜餅</span>
+            <span class="hero__mini-card-price">¥ 162</span>
+          </div>
+          <div class="hero__mini-card">
+            <div class="hero__mini-card-dot hero__mini-card-dot--matcha"></div>
+            <span class="hero__mini-card-name">抹茶大福</span>
+            <span class="hero__mini-card-price">¥ 184</span>
+          </div>
+          <div class="hero__mini-card">
+            <div class="hero__mini-card-dot hero__mini-card-dot--gold"></div>
+            <span class="hero__mini-card-name">銘菓詰め合わせ</span>
+            <span class="hero__mini-card-price">¥ 3,300</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__scroll">
+    <span>Scroll</span>
+    <div class="hero__scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════ HISTORY BAND ═══════════════════ -->
+<div class="history-band">
+  <div class="history-band__inner">
+    <div class="history-item reveal">
+      <div class="history-item__num">318<sup>年</sup></div>
+      <div class="history-item__label">創業からの歴史</div>
+    </div>
+    <div class="history-item reveal reveal-d1">
+      <div class="history-item__num">1708</div>
+      <div class="history-item__label">享保三年 創業</div>
+    </div>
+    <div class="history-item reveal reveal-d2">
+      <div class="history-item__num">12<sup>代</sup></div>
+      <div class="history-item__label">代々継承される技</div>
+    </div>
+    <div class="history-item reveal reveal-d3">
+      <div class="history-item__num">40<sup>種</sup></div>
+      <div class="history-item__label">季節の菓子品目数</div>
+    </div>
+    <div class="history-item reveal reveal-d4">
+      <div class="history-item__num">4.9<sup>★</sup></div>
+      <div class="history-item__label">お客様満足度</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ STORY ═══════════════════ -->
+<section class="story-section" id="story">
+  <div class="story-section__inner">
+
+    <div class="story__visual reveal">
+      <div class="story__photo-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1767840272168-8918f23401df?w=800&q=80&fit=crop&auto=format"
+          alt="茶器 — 立花屋の世界観"
+          loading="lazy"
+        >
+      </div>
+      <span class="story__year-mark">Est. 1708 · Kyoto, Japan</span>
+      <div class="story__corner story__corner--tl"></div>
+      <div class="story__corner story__corner--tr"></div>
+      <div class="story__corner story__corner--bl"></div>
+      <div class="story__corner story__corner--br"></div>
+      <div class="story__quote">
+        <p class="story__quote-text">「一菓一心」<br>ひとつの菓子に<br>心を込めて</p>
+        <p class="story__quote-attr">十二代 立花屋主人</p>
+      </div>
+    </div>
+
+    <div class="story__text">
+      <span class="label-en">Our Story</span>
+      <div class="gold-line"></div>
+      <h2 class="story__heading reveal">
+        京の四季と共に<br>歩んできた、<br>老舗の<em>矜持</em>
+      </h2>
+      <p class="story__body reveal reveal-d1">
+        享保三年（1708年）、初代立花屋が京都・西陣の地に小さな菓子屋を開いて以来、
+        三百余年。代々の職人たちは時代の波を越え、変わらぬ一つの問いを持ち続けてきました。
+      </p>
+      <p class="story__body reveal reveal-d2">
+        「この一菓で、誰かの心を動かすことができるか」。
+        春の桜、夏の青楓、秋の紅葉、冬の雪——京都の四季は私たちの菓子の師です。
+        自然が見せる一瞬の美を、練り切りや上生菓子の意匠へと写しとる。
+      </p>
+      <p class="story__body reveal reveal-d3">
+        素材は国内産にこだわり、北海道産の小豆、宇治の抹茶、丹波の黒豆を使用。
+        添加物を使わない昔ながらの製法で、本物の味わいをお届けします。
+      </p>
+      <div class="reveal reveal-d4" style="margin-top:40px;">
+        <a href="#products" class="btn btn--outline btn--arrow">商品を見る</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ SEASON ═══════════════════ -->
+<section class="season-band" id="seasons">
+  <div class="season-band__bg"></div>
+  <div class="season-band__inner">
+    <div class="season-band__header reveal">
+      <span class="label-en">Four Seasons</span>
+      <div class="gold-line" style="margin:0 auto 16px;"></div>
+      <h2 class="section-title">四季の和菓子</h2>
+      <p class="section-desc" style="max-width:480px;margin:0 auto;">
+        京都の自然が移ろうように、菓子の意匠も季節と共に変わります。
+      </p>
+    </div>
+
+    <div class="season-grid">
+      <div class="season-card season-card--haru reveal">
+        <div class="season-card__photo">
+          <img
+            src="https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?w=600&q=75&fit=crop&auto=format"
+            alt="春の和菓子"
+            loading="lazy"
+          >
+        </div>
+        <div class="season-card__overlay"></div>
+        <div class="season-card__content">
+          <div class="season-card__kanji">春</div>
+          <div class="season-card__name">Spring</div>
+          <ul class="season-card__products">
+            <li>桜餅</li><li>道明寺</li><li>草餅</li><li>菜の花きんとん</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="season-card season-card--natsu reveal reveal-d1">
+        <div class="season-card__photo">
+          <img
+            src="https://images.unsplash.com/photo-1767840272016-36dc5dd51f79?w=600&q=75&fit=crop&auto=format"
+            alt="夏の和菓子"
+            loading="lazy"
+          >
+        </div>
+        <div class="season-card__overlay"></div>
+        <div class="season-card__content">
+          <div class="season-card__kanji">夏</div>
+          <div class="season-card__name">Summer</div>
+          <ul class="season-card__products">
+            <li>水無月</li><li>葛まんじゅう</li><li>金魚羹</li><li>涼菓</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="season-card season-card--aki reveal reveal-d2">
+        <div class="season-card__photo">
+          <img
+            src="https://images.unsplash.com/photo-1758779527956-0da4cd6ca77d?w=600&q=75&fit=crop&auto=format"
+            alt="秋の和菓子"
+            loading="lazy"
+          >
+        </div>
+        <div class="season-card__overlay"></div>
+        <div class="season-card__content">
+          <div class="season-card__kanji">秋</div>
+          <div class="season-card__name">Autumn</div>
+          <ul class="season-card__products">
+            <li>栗きんとん</li><li>月見大福</li><li>紅葉饅頭</li><li>芋羊羹</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="season-card season-card--fuyu reveal reveal-d3">
+        <div class="season-card__photo">
+          <img
+            src="https://images.unsplash.com/photo-1696527167862-35c0b8045dc5?w=600&q=75&fit=crop&auto=format"
+            alt="冬の和菓子"
+            loading="lazy"
+          >
+        </div>
+        <div class="season-card__overlay"></div>
+        <div class="season-card__content">
+          <div class="season-card__kanji">冬</div>
+          <div class="season-card__name">Winter</div>
+          <ul class="season-card__products">
+            <li>花びら餅</li><li>雪うさぎ</li><li>柚子饅頭</li><li>丹波黒豆</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ PRODUCTS ═══════════════════ -->
+<section class="products-section" id="products">
+  <div class="products-section__header reveal">
+    <div>
+      <span class="label-en">Our Products</span>
+      <div class="gold-line"></div>
+      <h2 class="section-title">お品書き</h2>
+    </div>
+    <a href="#contact" class="btn btn--outline btn--arrow">すべての商品を見る</a>
+  </div>
+
+  <div class="product-grid">
+
+    <!-- 1: 桜餅 -->
+    <div class="product-card reveal">
+      <div class="product-card__visual">
+        <img
+          src="https://images.unsplash.com/photo-1758781375545-10edb9de6af7?w=600&q=80&fit=crop&auto=format"
+          alt="桜餅"
+          loading="lazy"
+        >
+        <div class="product-card__visual-fade"></div>
+        <span class="product-card__badge product-card__badge--sakura">旬の一品</span>
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__cat">上生菓子</div>
+        <div class="product-card__name">桜餅（道明寺）</div>
+        <div class="product-card__desc">
+          塩漬けの桜の葉で包んだ道明寺粉の餅。北海道産こし餡の上品な甘みと、桜葉の香りが絶妙な一品です。
+        </div>
+        <div class="product-card__footer">
+          <div class="product-card__price">¥ 162<span>（税込）</span></div>
+          <div class="product-card__btn">購入する</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2: 抹茶大福 -->
+    <div class="product-card reveal reveal-d1">
+      <div class="product-card__visual">
+        <img
+          src="https://images.unsplash.com/photo-1767840272016-36dc5dd51f79?w=600&q=80&fit=crop&auto=format"
+          alt="抹茶大福"
+          loading="lazy"
+        >
+        <div class="product-card__visual-fade"></div>
+        <span class="product-card__badge product-card__badge--new">人気商品</span>
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__cat">上生菓子</div>
+        <div class="product-card__name">抹茶大福</div>
+        <div class="product-card__desc">
+          宇治産一番摘み抹茶を練り込んだ求肥に、なめらかな抹茶餡を包みました。香り高く、後味の爽やかな一菓です。
+        </div>
+        <div class="product-card__footer">
+          <div class="product-card__price">¥ 184<span>（税込）</span></div>
+          <div class="product-card__btn">購入する</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3: 村雨菓子 -->
+    <div class="product-card reveal reveal-d2">
+      <div class="product-card__visual">
+        <img
+          src="https://images.unsplash.com/photo-1758779527956-0da4cd6ca77d?w=600&q=80&fit=crop&auto=format"
+          alt="村雨菓子"
+          loading="lazy"
+        >
+        <div class="product-card__visual-fade"></div>
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__cat">干菓子</div>
+        <div class="product-card__name">村雨菓子</div>
+        <div class="product-card__desc">
+          蒸した米粉をそぼろ状にした素朴な干菓子。口に含むとほろりとほぐれ、上品な甘みが広がります。
+        </div>
+        <div class="product-card__footer">
+          <div class="product-card__price">¥ 173<span>（税込）</span></div>
+          <div class="product-card__btn">購入する</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4: 銘菓詰め合わせ -->
+    <div class="product-card reveal">
+      <div class="product-card__visual">
+        <img
+          src="https://images.unsplash.com/photo-1696528759739-dd247eb2b401?w=600&q=80&fit=crop&auto=format"
+          alt="京銘菓詰め合わせ"
+          loading="lazy"
+        >
+        <div class="product-card__visual-fade"></div>
+        <span class="product-card__badge">京銘菓</span>
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__cat">京都銘菓</div>
+        <div class="product-card__name">京銘菓 詰め合わせ</div>
+        <div class="product-card__desc">
+          立花屋を代表する銘菓を一箱に。季節限定品を含む10点の詰め合わせ。贈り物にも最適な一品です。
+        </div>
+        <div class="product-card__footer">
+          <div class="product-card__price">¥ 1,296<span>（税込）</span></div>
+          <div class="product-card__btn">購入する</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5: 焼き菓子 -->
+    <div class="product-card reveal reveal-d1">
+      <div class="product-card__visual">
+        <img
+          src="https://images.unsplash.com/photo-1696528431003-ff8d38196652?w=600&q=80&fit=crop&auto=format"
+          alt="焼き菓子詰め合わせ"
+          loading="lazy"
+        >
+        <div class="product-card__visual-fade"></div>
+        <span class="product-card__badge product-card__badge--new">定番人気</span>
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__cat">焼き菓子</div>
+        <div class="product-card__name">焼き菓子詰め合わせ</div>
+        <div class="product-card__desc">
+          どら焼き・最中・饅頭など、立花屋の焼き菓子を厳選した詰め合わせ。日持ちもよく、お土産に最適です。
+        </div>
+        <div class="product-card__footer">
+          <div class="product-card__price">¥ 1,296<span>（税込）</span></div>
+          <div class="product-card__btn">購入する</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6: ギフトボックス -->
+    <div class="product-card reveal reveal-d2">
+      <div class="product-card__visual">
+        <img
+          src="https://images.unsplash.com/photo-1767840272168-8918f23401df?w=600&q=80&fit=crop&auto=format"
+          alt="季節のギフトボックス"
+          loading="lazy"
+        >
+        <div class="product-card__visual-fade"></div>
+        <span class="product-card__badge">贈り物</span>
+      </div>
+      <div class="product-card__body">
+        <div class="product-card__cat">ギフトボックス</div>
+        <div class="product-card__name">季節のギフトボックス</div>
+        <div class="product-card__desc">
+          桐箱に入れた特選ギフト。熨斗・包装紙・メッセージカードをご用意。慶事・お中元・お歳暮に。
+        </div>
+        <div class="product-card__footer">
+          <div class="product-card__price">¥ 3,300<span>（税込）</span></div>
+          <div class="product-card__btn">購入する</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ CRAFT ═══════════════════ -->
+<section class="craft-section" id="craft">
+  <div class="craft-section__bg"></div>
+  <div class="craft-section__inner">
+    <div>
+      <span class="label-en reveal">Craftsmanship</span>
+      <div class="gold-line reveal"></div>
+      <h2 class="section-title reveal" style="margin-bottom:56px;">職人の技、<br>受け継がれる心</h2>
+
+      <div class="craft__steps">
+        <div class="craft__step reveal">
+          <div class="craft__step-num">01</div>
+          <div>
+            <div class="craft__step-title">厳選素材の吟味</div>
+            <p class="craft__step-desc">北海道十勝産の小豆、宇治の最高級抹茶、丹波の黒豆——素材は産地と農家を訪ねて直接選定。季節ごとに状態を確認し、最上のものだけを使用します。</p>
+          </div>
+        </div>
+        <div class="craft__step reveal reveal-d1">
+          <div class="craft__step-num">02</div>
+          <div>
+            <div class="craft__step-title">小豆の煮炊き</div>
+            <p class="craft__step-desc">前日から水に浸した小豆を、朝四時から薪で炊き始めます。焦がさず、つぶさず、丁寧に。餡は一日かけてゆっくりと仕上げます。</p>
+          </div>
+        </div>
+        <div class="craft__step reveal reveal-d2">
+          <div class="craft__step-num">03</div>
+          <div>
+            <div class="craft__step-title">意匠の造形</div>
+            <p class="craft__step-desc">上生菓子の意匠は、その日の季節・天候・行事に合わせて職人が構想します。一つひとつ手仕事で仕上げるため、完全に同じ菓子は世に二つとありません。</p>
+          </div>
+        </div>
+        <div class="craft__step reveal reveal-d3">
+          <div class="craft__step-num">04</div>
+          <div>
+            <div class="craft__step-title">当日仕上げ・当日出荷</div>
+            <p class="craft__step-desc">鮮度と風味を最大限に届けるため、製造した当日のうちに発送します。添加物を一切使わないからこそ、できる限り早くお客様の手元へ。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="craft__right reveal reveal-d2">
+      <div class="craft__photo-frame">
+        <img
+          src="https://images.unsplash.com/photo-1696528431003-ff8d38196652?w=700&q=80&fit=crop&auto=format"
+          alt="職人の技"
+          loading="lazy"
+        >
+      </div>
+      <div class="craft__photo-caption">
+        <p>手が覚えている、<br>三百年の記憶。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ GIFT ═══════════════════ -->
+<section class="gift-section" id="gift">
+  <div class="gift-section__bg"></div>
+  <div class="gift-section__inner">
+    <div class="gift-section__header reveal">
+      <span class="label-en">Gifts & Presents</span>
+      <div class="gold-line" style="margin:0 auto 16px;"></div>
+      <h2 class="section-title">贈り物に、<br>京の和菓子を</h2>
+      <p class="section-desc" style="max-width:520px;margin:0 auto;">
+        熨斗・包装紙・桐箱・メッセージカードをご用意。<br>
+        大切な方への贈り物を、丁寧にお包みします。
+      </p>
+    </div>
+
+    <div class="gift-grid">
+      <div class="gift-card reveal">
+        <div class="gift-card__photo">
+          <img src="https://images.unsplash.com/photo-1696528759739-dd247eb2b401?w=600&q=75&fit=crop&auto=format" alt="お中元・お歳暮" loading="lazy">
+          <div class="gift-card__photo-fade"></div>
+        </div>
+        <div class="gift-card__body">
+          <span class="gift-card__num">01 / Gift</span>
+          <div class="gift-card__title">お中元・お歳暮</div>
+          <p class="gift-card__desc">夏と冬の定番ギフトとして、毎年ご愛用いただいている詰め合わせをご用意。法人・個人のまとめ注文も承ります。FAX注文にも対応。</p>
+          <div class="gift-card__range">¥ 1,500 〜 ¥ 5,000<span class="gift-card__range-label">（税込）</span></div>
+        </div>
+      </div>
+
+      <div class="gift-card reveal reveal-d1">
+        <div class="gift-card__photo">
+          <img src="https://images.unsplash.com/photo-1767840272168-8918f23401df?w=600&q=75&fit=crop&auto=format" alt="慶事・内祝い" loading="lazy">
+          <div class="gift-card__photo-fade"></div>
+        </div>
+        <div class="gift-card__body">
+          <span class="gift-card__num">02 / Gift</span>
+          <div class="gift-card__title">慶事・内祝い</div>
+          <p class="gift-card__desc">結婚・出産・入学・還暦など、お祝いの席にふさわしい特選詰め合わせ。お熨斗の表書きをお伝えいただければ、丁寧にお書きします。</p>
+          <div class="gift-card__range">¥ 2,000 〜 ¥ 8,000<span class="gift-card__range-label">（税込）</span></div>
+        </div>
+      </div>
+
+      <div class="gift-card reveal reveal-d2">
+        <div class="gift-card__photo">
+          <img src="https://images.unsplash.com/photo-1758779527956-0da4cd6ca77d?w=600&q=75&fit=crop&auto=format" alt="法人・企業ギフト" loading="lazy">
+          <div class="gift-card__photo-fade"></div>
+        </div>
+        <div class="gift-card__body">
+          <span class="gift-card__num">03 / Gift</span>
+          <div class="gift-card__title">法人・企業ギフト</div>
+          <p class="gift-card__desc">周年記念・取引先への御礼・会議お土産など、法人様向けに対応。オリジナル包装紙・箱のご相談も承ります。</p>
+          <div class="gift-card__range">¥ 3,000 〜<span class="gift-card__range-label">（税込・要相談）</span></div>
+        </div>
+      </div>
+
+      <div class="gift-card reveal reveal-d3">
+        <div class="gift-card__photo">
+          <img src="https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?w=600&q=75&fit=crop&auto=format" alt="季節の特選セット" loading="lazy">
+          <div class="gift-card__photo-fade"></div>
+        </div>
+        <div class="gift-card__body">
+          <span class="gift-card__num">04 / Gift</span>
+          <div class="gift-card__title">季節の特選セット</div>
+          <p class="gift-card__desc">春・夏・秋・冬、その季節ならではの菓子を詰め合わせた限定セット。旬の素材を使った特選品を桐箱に入れてお届けします。</p>
+          <div class="gift-card__range">¥ 2,500 〜 ¥ 5,500<span class="gift-card__range-label">（税込）</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ TESTIMONIALS ═══════════════════ -->
+<section class="testimonials-section" id="testimonials">
+  <div class="testimonials-section__inner">
+    <div class="testimonials-section__header reveal">
+      <span class="label-en">Customer Voices</span>
+      <div class="gold-line" style="margin:0 auto 16px;"></div>
+      <h2 class="section-title">お客様の声</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="testimonial-card__quote-mark">"</div>
+        <p class="testimonial-card__text">毎年お中元で注文しています。受け取った方から「品があって美しい」と大変喜ばれます。包装も丁寧で、贈り物として恥ずかしくない。次世代に残したいお店です。</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar">田</div>
+          <div>
+            <div class="testimonial-card__name">田中 和子様</div>
+            <div class="testimonial-card__detail">Tokyo · Repeat Customer</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-d1">
+        <div class="testimonial-card__quote-mark">"</div>
+        <p class="testimonial-card__text">抹茶大福の香りと上品な甘さに感動しました。素材の良さが口の中でわかる。添加物なしで作られているとのことで、安心して家族に食べさせられます。</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar">佐</div>
+          <div>
+            <div class="testimonial-card__name">佐藤 誠一様</div>
+            <div class="testimonial-card__detail">Osaka · First Order</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-d2">
+        <div class="testimonial-card__quote-mark">"</div>
+        <p class="testimonial-card__text">取引先への手土産として使っています。三百年の歴史がある店と伝えると、話のきっかけにもなる。品物の質はもちろん、桐箱の上質感も格が違います。</p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__avatar">山</div>
+          <div>
+            <div class="testimonial-card__name">山下 健二様</div>
+            <div class="testimonial-card__detail">Kyoto · Corporate Client</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CTA ═══════════════════ -->
+<section class="cta-section" id="contact">
+  <div class="cta-section__bg"></div>
+  <div class="cta-section__inner reveal">
+    <span class="label-en">Visit Our Store</span>
+    <div class="gold-line" style="margin:0 auto 32px;"></div>
+    <h2 class="cta-section__title">京の和菓子を、<br><em>あなたの食卓へ。</em></h2>
+    <p class="cta-section__desc">
+      オンラインでのご購入はもちろん、FAXでのご注文・法人ご注文も承っております。
+      ご不明な点はお気軽にお問い合わせください。
+    </p>
+    <div class="cta-section__actions">
+      <a href="https://www.kyowagashi.jp/?mode=cate&cbid=2131000&csid=0" class="btn btn--gold btn--arrow" target="_blank" rel="noopener">オンラインショップへ</a>
+      <a href="mailto:info@kyowagashi.jp" class="btn btn--outline">メールで問い合わせる</a>
+    </div>
+    <p class="cta-section__note">配送対応 · 熨斗・包装無料 · 法人注文歓迎</p>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <div class="footer__inner">
+    <div class="footer__top">
+      <div>
+        <span class="footer__brand-name">立花屋</span>
+        <span class="footer__brand-en">Tachibana-ya · Est. 1708</span>
+        <p class="footer__brand-desc">享保三年（1708年）創業。京都・西陣に根ざした老舗和菓子店。職人の手仕事で作る、本物の和菓子をお届けします。</p>
+        <address class="footer__brand-address">
+          〒602-8006 京都府京都市上京区西陣<br>
+          TEL: 075-000-0000（平日 9:00〜17:00）<br>
+          FAX: 075-000-0001
+        </address>
+      </div>
+      <div class="footer__col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#products">商品一覧</a></li>
+          <li><a href="#seasons">四季の菓子</a></li>
+          <li><a href="#gift">ギフト・贈り物</a></li>
+          <li><a href="#">新商品</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#story">店について</a></li>
+          <li><a href="#craft">職人の技</a></li>
+          <li><a href="#">よくある質問</a></li>
+          <li><a href="#">採用情報</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Policy</h4>
+        <ul>
+          <li><a href="#">配送・返品について</a></li>
+          <li><a href="#">お支払い方法</a></li>
+          <li><a href="#">プライバシーポリシー</a></li>
+          <li><a href="#">特定商取引法に基づく表示</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2024 立花屋 Tachibana-ya. All Rights Reserved.</p>
+      <p style="font-family:var(--font-en);font-size:0.7rem;color:rgba(138,123,110,0.3);letter-spacing:0.1em;">
+        Photos: <a href="https://unsplash.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:2px;">Unsplash</a> (Free License) · Est. 1708 · Kyoto, Japan
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile Sticky Bar -->
+<div class="mobile-sticky">
+  <a href="https://www.kyowagashi.jp/?mode=cate&cbid=2131000&csid=0" class="btn btn--gold" style="font-size:0.65rem;" target="_blank" rel="noopener">ご購入はこちら</a>
+  <a href="mailto:info@kyowagashi.jp" class="btn btn--outline" style="font-size:0.65rem;">お問い合わせ</a>
+</div>
+
+<script>
+/* ── Scroll Nav ── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+/* ── Hamburger ── */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+/* ── Reveal on Scroll ── */
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+/* ── Number Counter ── */
+function animateCount(el, target, duration = 1800) {
+  const start = performance.now();
+  const isDecimal = target % 1 !== 0;
+  const update = (now) => {
+    const t = Math.min((now - start) / duration, 1);
+    const val = (1 - Math.pow(1 - t, 4)) * target;
+    el.textContent = isDecimal ? val.toFixed(1) : Math.floor(val);
+    if (t < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const numEl = entry.target.querySelector('.history-item__num');
+    if (!numEl) return;
+    const sup = numEl.querySelector('sup');
+    const supText = sup ? sup.textContent : '';
+    const raw = parseFloat(numEl.textContent.replace(supText, '').trim());
+    if (!isNaN(raw)) {
+      numEl.innerHTML = '<span class="cv">0</span>' + (sup ? `<sup>${supText}</sup>` : '');
+      animateCount(numEl.querySelector('.cv'), raw);
+    }
+    counterObs.unobserve(entry.target);
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.history-item').forEach(el => counterObs.observe(el));
+
+/* ── Parallax on hero photo ── */
+const heroBg = document.querySelector('.hero__photo-bg');
+window.addEventListener('scroll', () => {
+  if (heroBg) {
+    heroBg.style.transform = `translateY(${window.scrollY * 0.25}px)`;
+  }
+}, { passive: true });
+</script>
+</body>
+</html>
