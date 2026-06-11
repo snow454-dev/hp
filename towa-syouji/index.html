@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>東和商事株式会社 | 教育・外食・不動産 ― 京都で100年続く企業へ</title>
+<meta name="description" content="京都市伏見区に拠点を置く東和商事株式会社。ITTO個別指導学院・美ね寅・不動産賃貸の3事業を展開。地域に根ざした「おもてなし」で、お客様と地域社会に貢献します。">
+<link rel="canonical" href="https://towa-syouji.com/">
+<!-- OGP -->
+<meta property="og:title" content="東和商事株式会社 | 教育・外食・不動産 京都">
+<meta property="og:description" content="ITTO個別指導学院・美ね寅・不動産賃貸の3事業で地域に貢献。京都の「おもてなし」を大切に、100年続く企業を目指します。">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ─── Reset ──────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+
+/* ─── Tokens ─────────────────────────────── */
+:root{
+  --ink:       #0C1018;
+  --ink-mid:   #141C28;
+  --ink-light: #1C2636;
+  --ink-card:  #1A2230;
+  --gold:      #C8A45A;
+  --gold-l:    #E2C17A;
+  --gold-dim:  rgba(200,164,90,0.12);
+  --gold-bd:   rgba(200,164,90,0.25);
+  --cream:     #F0EDE8;
+  --muted:     #7A8EA8;
+  --border:    rgba(200,164,90,0.16);
+  /* business accents */
+  --edu:       #5B8FD0;
+  --edu-dim:   rgba(91,143,208,0.12);
+  --rest:      #D4704A;
+  --rest-dim:  rgba(212,112,74,0.12);
+  --prop:      #4A8060;
+  --prop-dim:  rgba(74,128,96,0.12);
+  /* type */
+  --fja:  'Shippori Mincho','Georgia',serif;
+  --fen:  'Cormorant Garamond','Georgia',serif;
+  --fbody:'Noto Sans JP',sans-serif;
+  --flbl: 'Montserrat',sans-serif;
+  --ease: cubic-bezier(.4,0,.2,1);
+  --mw:   1140px;
+}
+
+body{font-family:var(--fbody);background:var(--ink);color:var(--cream);line-height:1.8;overflow-x:hidden}
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 40px}
+
+/* ─── Shared ─────────────────────────────── */
+.gold-line{display:block;width:40px;height:1px;background:var(--gold);margin-bottom:22px}
+.label{font-family:var(--flbl);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:14px}
+.h2{font-family:var(--fja);font-size:clamp(1.9rem,3.8vw,3rem);font-weight:500;letter-spacing:.06em;line-height:1.35;color:var(--cream)}
+.body-text{font-size:.86rem;color:var(--muted);font-weight:300;line-height:2.1}
+
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--flbl);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:all .3s var(--ease);white-space:nowrap}
+.btn-gold{background:var(--gold);color:var(--ink);padding:14px 34px;font-weight:600}
+.btn-gold:hover{background:var(--gold-l)}
+.btn-outline{border:1px solid var(--gold-bd);color:var(--gold);padding:13px 32px}
+.btn-outline:hover{background:var(--gold-dim);border-color:var(--gold)}
+.btn::after{content:'→'}
+
+/* ─── Reveal ─────────────────────────────── */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .85s var(--ease),transform .85s var(--ease)}
+.rv.on{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+
+/* ─── NAV ────────────────────────────────── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;transition:background .4s,border-color .4s}
+.nav.scrolled{background:rgba(12,16,24,.94);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:var(--mw);margin:0 auto;padding:0 40px;height:74px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;flex-direction:column;line-height:1}
+.nav-logo-ja{font-family:var(--fja);font-size:1.15rem;font-weight:600;letter-spacing:.18em;color:var(--cream)}
+.nav-logo-en{font-family:var(--fen);font-size:.58rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-top:3px}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:.8rem;font-weight:300;letter-spacing:.06em;color:rgba(240,237,232,.6);transition:color .25s}
+.nav-links a:hover{color:var(--cream)}
+.nav-cta{display:flex;align-items:center;gap:16px}
+.nav-tel{display:flex;flex-direction:column;text-align:right}
+.nav-tel span{font-family:var(--flbl);font-size:.55rem;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+.nav-tel strong{font-family:var(--fen);font-size:1.1rem;font-weight:400;letter-spacing:.04em;color:var(--cream)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+.burger span{width:24px;height:1px;background:var(--cream);transition:transform .3s}
+.mob-menu{display:none;flex-direction:column;background:rgba(12,16,24,.97);border-top:1px solid var(--border);padding:24px 40px;gap:18px}
+.mob-menu.open{display:flex}
+.mob-menu a{font-size:.88rem;font-weight:300;color:rgba(240,237,232,.7);padding-bottom:14px;border-bottom:1px solid var(--border)}
+.mob-menu a:last-child{border-bottom:none;color:var(--gold)}
+
+/* ─── HERO ───────────────────────────────── */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero-photo{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1558862107-d49ef2a04d72?w=1920&q=80&fit=crop&auto=format');background-size:cover;background-position:center 30%}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(110deg,rgba(12,16,24,.92) 0%,rgba(12,16,24,.75) 50%,rgba(12,16,24,.55) 100%)}
+.hero-content{position:relative;z-index:2;width:100%;max-width:var(--mw);margin:0 auto;padding:120px 40px 80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.hero-eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:32px}
+.hero-eyebrow-line{width:36px;height:1px;background:var(--gold)}
+.hero-eyebrow span{font-family:var(--flbl);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.hero-title{font-family:var(--fja);font-size:clamp(2.6rem,5.5vw,4.8rem);font-weight:500;letter-spacing:.06em;line-height:1.25;color:var(--cream);margin-bottom:24px}
+.hero-title em{font-style:normal;color:var(--gold-l)}
+.hero-sub{font-size:.88rem;color:rgba(240,237,232,.65);font-weight:300;line-height:2.1;margin-bottom:44px;max-width:420px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+/* Hero right: 3 business pills */
+.hero-biz{display:flex;flex-direction:column;gap:16px}
+.hero-biz-card{background:rgba(20,28,40,.82);backdrop-filter:blur(18px);border:1px solid var(--gold-bd);padding:24px 28px;display:flex;align-items:center;gap:20px;transition:border-color .3s}
+.hero-biz-card:hover{border-color:var(--gold)}
+.hero-biz-icon{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--fja);font-size:1.1rem;font-weight:600}
+.icon-edu{background:var(--edu-dim);color:var(--edu)}
+.icon-rest{background:var(--rest-dim);color:var(--rest)}
+.icon-prop{background:var(--prop-dim);color:var(--prop)}
+.hero-biz-name{font-family:var(--fja);font-size:.95rem;font-weight:500;letter-spacing:.1em;color:var(--cream)}
+.hero-biz-sub{font-size:.72rem;color:var(--muted);font-weight:300;letter-spacing:.04em}
+.hero-biz-arrow{margin-left:auto;font-family:var(--flbl);font-size:.6rem;color:var(--gold);opacity:.6}
+.hero-scroll{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:2}
+.hero-scroll span{font-family:var(--flbl);font-size:.56rem;letter-spacing:.24em;color:var(--muted);text-transform:uppercase}
+.hero-scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,var(--gold),transparent);animation:sp 2.4s ease-in-out infinite}
+@keyframes sp{0%,100%{opacity:.3;transform:scaleY(.6);transform-origin:top}50%{opacity:1;transform:scaleY(1);transform-origin:top}}
+
+/* ─── CONCEPT BAND ───────────────────────── */
+.concept-band{background:var(--ink-mid);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:40px}
+.concept-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;gap:0;flex-wrap:wrap}
+.concept-item{flex:1;min-width:200px;text-align:center;padding:16px 24px;border-right:1px solid var(--border)}
+.concept-item:last-child{border-right:none}
+.concept-icon{font-family:var(--fja);font-size:2rem;margin-bottom:6px;opacity:.7}
+.concept-title{font-family:var(--fja);font-size:1.05rem;font-weight:500;letter-spacing:.14em;color:var(--cream);margin-bottom:4px}
+.concept-desc{font-size:.72rem;color:var(--muted);font-weight:300;letter-spacing:.04em}
+
+/* ─── ABOUT / VISION ─────────────────────── */
+.about-section{padding:120px 40px}
+.about-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:1fr 1.15fr;gap:100px;align-items:center}
+.about-photo{position:relative;height:520px}
+.about-photo-wrap{position:absolute;inset:0;overflow:hidden;border:1px solid var(--gold-bd)}
+.about-photo-wrap img{width:100%;height:100%;object-fit:cover;filter:brightness(.55) saturate(.8)}
+.about-corner{position:absolute;width:28px;height:28px;z-index:2}
+.about-corner.tl{top:-1px;left:-1px;border-top:1px solid var(--gold);border-left:1px solid var(--gold)}
+.about-corner.tr{top:-1px;right:-1px;border-top:1px solid var(--gold);border-right:1px solid var(--gold)}
+.about-corner.bl{bottom:-1px;left:-1px;border-bottom:1px solid var(--gold);border-left:1px solid var(--gold)}
+.about-corner.br{bottom:-1px;right:-1px;border-bottom:1px solid var(--gold);border-right:1px solid var(--gold)}
+.about-badge{position:absolute;bottom:24px;right:-24px;background:rgba(20,28,40,.94);backdrop-filter:blur(16px);border:1px solid var(--gold-bd);padding:20px 24px;z-index:3}
+.about-badge::before{content:'';position:absolute;top:-1px;left:-1px;width:20px;height:20px;border-top:1px solid var(--gold);border-left:1px solid var(--gold)}
+.about-badge-year{font-family:var(--fen);font-size:2.2rem;font-weight:300;color:var(--gold);line-height:1}
+.about-badge-text{font-family:var(--flbl);font-size:.55rem;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;margin-top:4px}
+.about-text{}
+.about-heading{font-family:var(--fja);font-size:clamp(1.7rem,3.5vw,2.7rem);font-weight:500;line-height:1.5;letter-spacing:.06em;color:var(--cream);margin-bottom:28px}
+.about-heading em{font-style:normal;color:var(--gold-l)}
+.about-p{font-size:.84rem;color:var(--muted);font-weight:300;line-height:2.2;margin-bottom:16px}
+
+/* ─── NUMBERS ────────────────────────────── */
+.numbers-section{background:var(--ink-mid);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:56px 40px}
+.numbers-inner{max-width:var(--mw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0}
+.num-item{flex:1;min-width:150px;text-align:center;padding:12px 20px;border-right:1px solid var(--border)}
+.num-item:last-child{border-right:none}
+.num-val{font-family:var(--fen);font-size:2.8rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:4px}
+.num-val sup{font-size:1.1rem;vertical-align:super;margin-left:2px}
+.num-label{font-size:.7rem;font-weight:300;color:var(--muted);letter-spacing:.1em}
+
+/* ─── THREE BUSINESSES ───────────────────── */
+.biz-section{padding:120px 40px}
+.biz-section-header{max-width:var(--mw);margin:0 auto 72px;text-align:center}
+.biz-grid{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+
+.biz-card{position:relative;overflow:hidden;cursor:pointer;background:var(--ink-card);border:1px solid var(--border);transition:border-color .35s;display:flex;flex-direction:column}
+.biz-card:hover{border-color:var(--gold)}
+/* Photo top */
+.biz-card-photo{height:260px;position:relative;overflow:hidden}
+.biz-card-photo img{width:100%;height:100%;object-fit:cover;filter:brightness(.55) saturate(.75);transition:transform .7s var(--ease),filter .4s}
+.biz-card:hover .biz-card-photo img{transform:scale(1.06);filter:brightness(.65) saturate(.9)}
+.biz-card-photo-fade{position:absolute;bottom:0;left:0;right:0;height:60%;background:linear-gradient(to top,var(--ink-card) 0%,transparent 100%)}
+/* accent bar */
+.biz-card-bar{position:absolute;top:0;left:0;width:3px;height:100%}
+.bar-edu{background:var(--edu)}
+.bar-rest{background:var(--rest)}
+.bar-prop{background:var(--prop)}
+/* Tags */
+.biz-card-tag{position:absolute;top:16px;left:16px;font-family:var(--flbl);font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;padding:5px 12px;font-weight:600;z-index:2}
+.tag-edu{background:var(--edu);color:#fff}
+.tag-rest{background:var(--rest);color:#fff}
+.tag-prop{background:var(--prop);color:#fff}
+/* Body */
+.biz-card-body{padding:28px 28px 32px;flex:1;display:flex;flex-direction:column}
+.biz-card-title{font-family:var(--fja);font-size:1.2rem;font-weight:500;letter-spacing:.1em;color:var(--cream);margin-bottom:14px}
+.biz-card-desc{font-size:.78rem;color:var(--muted);font-weight:300;line-height:2;flex:1;margin-bottom:20px}
+.biz-card-bullets{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.biz-card-bullets li{font-size:.76rem;color:rgba(240,237,232,.65);font-weight:300;padding-left:16px;position:relative}
+.biz-card-bullets li::before{content:'—';position:absolute;left:0;color:var(--gold);font-size:.7rem}
+.biz-card-link{font-family:var(--flbl);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:8px;transition:gap .25s;margin-top:auto}
+.link-edu{color:var(--edu)}
+.link-rest{color:var(--rest)}
+.link-prop{color:var(--prop)}
+.biz-card:hover .biz-card-link{gap:14px}
+.biz-card-link::after{content:'→'}
+
+/* ─── VISION ─────────────────────────────── */
+.vision-section{position:relative;padding:0;overflow:hidden;min-height:520px;display:flex;align-items:center}
+.vision-photo{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1522547902298-51566e4fb383?w=1800&q=80&fit=crop&auto=format');background-size:cover;background-position:center 40%}
+.vision-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to right,rgba(12,16,24,.96) 0%,rgba(12,16,24,.85) 50%,rgba(12,16,24,.6) 100%)}
+.vision-content{position:relative;z-index:2;max-width:var(--mw);margin:0 auto;padding:100px 40px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.vision-text{}
+.vision-title{font-family:var(--fja);font-size:clamp(2rem,4vw,3.4rem);font-weight:500;letter-spacing:.06em;line-height:1.35;color:var(--cream);margin-bottom:28px}
+.vision-title em{font-style:normal;color:var(--gold-l)}
+.vision-body{font-size:.84rem;color:rgba(240,237,232,.65);font-weight:300;line-height:2.2;margin-bottom:32px}
+.vision-pillars{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.vision-pillar{background:rgba(20,28,40,.7);border:1px solid var(--gold-bd);padding:20px 22px;backdrop-filter:blur(10px)}
+.vision-pillar-ja{font-family:var(--fja);font-size:1rem;font-weight:500;letter-spacing:.1em;color:var(--gold);margin-bottom:6px}
+.vision-pillar-desc{font-size:.72rem;color:var(--muted);font-weight:300;line-height:1.8}
+
+/* ─── RECRUIT ────────────────────────────── */
+.recruit-section{padding:120px 40px;background:var(--ink-mid);border-top:1px solid var(--border)}
+.recruit-inner{max-width:var(--mw);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.recruit-roles{display:flex;flex-direction:column;gap:16px;margin-top:40px}
+.recruit-role{background:var(--ink-card);border:1px solid var(--border);padding:28px;transition:border-color .3s}
+.recruit-role:hover{border-color:var(--gold)}
+.recruit-role-tag{font-family:var(--flbl);font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;background:var(--gold-dim);color:var(--gold);display:inline-block;margin-bottom:12px}
+.recruit-role-title{font-family:var(--fja);font-size:1.05rem;font-weight:500;letter-spacing:.08em;color:var(--cream);margin-bottom:8px}
+.recruit-role-desc{font-size:.76rem;color:var(--muted);font-weight:300;line-height:1.9}
+.recruit-cta{background:var(--ink-card);border:1px solid var(--gold-bd);padding:40px;margin-top:40px}
+.recruit-cta-title{font-family:var(--fja);font-size:1.3rem;font-weight:500;letter-spacing:.08em;color:var(--cream);margin-bottom:16px}
+.recruit-cta-desc{font-size:.8rem;color:var(--muted);font-weight:300;line-height:2;margin-bottom:28px}
+.recruit-conditions{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:32px}
+.recruit-conditions li{font-size:.76rem;color:rgba(240,237,232,.65);font-weight:300;display:flex;gap:12px}
+.recruit-conditions li::before{content:'✓';color:var(--gold);flex-shrink:0}
+
+/* ─── CONTACT ────────────────────────────── */
+.contact-section{padding:120px 40px;position:relative;overflow:hidden}
+.contact-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 50%,rgba(200,164,90,.05) 0%,transparent 60%)}
+.contact-inner{max-width:780px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.contact-title{font-family:var(--fja);font-size:clamp(1.9rem,4vw,3rem);font-weight:500;line-height:1.4;letter-spacing:.06em;color:var(--cream);margin-bottom:22px}
+.contact-title em{font-style:normal;color:var(--gold-l)}
+.contact-desc{font-size:.84rem;color:var(--muted);font-weight:300;line-height:2.1;margin-bottom:44px}
+.contact-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.contact-info{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;padding-top:32px;border-top:1px solid var(--border)}
+.contact-info-item{display:flex;flex-direction:column;align-items:center;gap:4px}
+.contact-info-label{font-family:var(--flbl);font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.contact-info-val{font-family:var(--fen);font-size:1.3rem;font-weight:300;color:var(--cream);letter-spacing:.04em}
+.contact-info-note{font-size:.68rem;color:var(--muted);font-weight:300}
+
+/* ─── FOOTER ─────────────────────────────── */
+footer{background:#070A10;padding:72px 40px 32px;border-top:1px solid var(--border)}
+.footer-inner{max-width:var(--mw);margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;padding-bottom:52px;border-bottom:1px solid var(--border);margin-bottom:28px}
+.footer-brand-ja{font-family:var(--fja);font-size:1.25rem;font-weight:600;letter-spacing:.2em;color:var(--cream);display:block;margin-bottom:4px}
+.footer-brand-en{font-family:var(--fen);font-size:.62rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:18px}
+.footer-brand-desc{font-size:.76rem;color:var(--muted);font-weight:300;line-height:2;margin-bottom:20px}
+.footer-address{font-style:normal;font-size:.72rem;color:rgba(122,142,168,.6);line-height:2;font-weight:300}
+.footer-col h4{font-family:var(--flbl);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:10px}
+.footer-col a{font-size:.78rem;color:rgba(122,142,168,.65);font-weight:300;transition:color .2s}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.footer-bottom p{font-size:.7rem;color:rgba(122,142,168,.4);font-weight:300}
+
+/* ─── Mobile Sticky ──────────────────────── */
+.sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:300;background:var(--ink-card);border-top:1px solid var(--gold-bd);padding:12px 20px;gap:10px;align-items:center}
+.sticky-cta a{flex:1;text-align:center;padding:12px;font-family:var(--flbl);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+
+/* ─── Responsive ─────────────────────────── */
+@media(max-width:960px){
+  .nav-links,.nav-cta{display:none}
+  .burger{display:flex}
+  .hero-content{grid-template-columns:1fr;gap:40px;padding-top:100px}
+  .hero-biz{display:none}
+  .about-inner{grid-template-columns:1fr;gap:48px}
+  .about-photo{height:280px}
+  .about-badge{right:0;bottom:16px}
+  .biz-grid{grid-template-columns:1fr}
+  .vision-content{grid-template-columns:1fr;gap:40px}
+  .recruit-inner{grid-template-columns:1fr;gap:40px}
+  .footer-top{grid-template-columns:1fr 1fr;gap:36px}
+  .numbers-inner{justify-content:center}
+  .num-item{border-right:none;border-bottom:1px solid var(--border);min-width:160px}
+  .num-item:last-child{border-bottom:none}
+  .sticky-cta{display:flex}
+  body{padding-bottom:68px}
+}
+@media(max-width:600px){
+  .wrap,.nav-inner,.hero-content,.about-section,.biz-section,.vision-content,.recruit-section,.contact-section,footer,.numbers-section,.concept-band{padding-left:20px;padding-right:20px}
+  .hero-content{padding-left:20px;padding-right:20px}
+  .footer-top{grid-template-columns:1fr}
+  .concept-item{border-right:none;border-bottom:1px solid var(--border)}
+  .concept-item:last-child{border-bottom:none}
+  .vision-pillars{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════ NAV ════════ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">
+      <span class="nav-logo-ja">東和商事</span>
+      <span class="nav-logo-en">Towa Shooji Co., Ltd.</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">企業理念</a></li>
+      <li><a href="#business">事業内容</a></li>
+      <li><a href="#vision">ビジョン</a></li>
+      <li><a href="#recruit">採用情報</a></li>
+      <li><a href="#contact">お問い合わせ</a></li>
+    </ul>
+    <div class="nav-cta">
+      <div class="nav-tel">
+        <span>平日 9:00〜17:30</span>
+        <strong>075-622-8811</strong>
+      </div>
+      <a href="#contact" class="btn btn-gold">お問い合わせ</a>
+    </div>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+  <div class="mob-menu" id="mobMenu">
+    <a href="#about">企業理念</a>
+    <a href="#business">事業内容</a>
+    <a href="#vision">ビジョン</a>
+    <a href="#recruit">採用情報</a>
+    <a href="#contact" style="color:var(--gold)">お問い合わせ →</a>
+    <a href="tel:0756228811">📞 075-622-8811</a>
+  </div>
+</nav>
+
+<!-- ════════ HERO ════════ -->
+<section class="hero" id="top">
+  <div class="hero-photo" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span>京都市伏見区 · 地域密着型サービス企業</span>
+      </div>
+      <h1 class="hero-title">
+        人と人の<br>
+        心のつながりで、<br>
+        <em>京都を豊かに。</em>
+      </h1>
+      <p class="hero-sub">
+        教育・外食・不動産の3事業を通じて、<br>
+        京都に根ざした「おもてなし」のサービスを提供。<br>
+        100年続く企業を目指し、地域と共に歩みます。
+      </p>
+      <div class="hero-btns">
+        <a href="#business" class="btn btn-gold">事業内容を見る</a>
+        <a href="#recruit" class="btn btn-outline">採用情報・副業</a>
+      </div>
+    </div>
+
+    <div class="hero-biz rv d2">
+      <div class="hero-biz-card">
+        <div class="hero-biz-icon icon-edu">学</div>
+        <div>
+          <div class="hero-biz-name">教育事業</div>
+          <div class="hero-biz-sub">ITTO個別指導学院 · 学童クラブ</div>
+        </div>
+        <span class="hero-biz-arrow">→</span>
+      </div>
+      <div class="hero-biz-card">
+        <div class="hero-biz-icon icon-rest">食</div>
+        <div>
+          <div class="hero-biz-name">外食事業</div>
+          <div class="hero-biz-sub">美ね寅（みねとら）</div>
+        </div>
+        <span class="hero-biz-arrow">→</span>
+      </div>
+      <div class="hero-biz-card">
+        <div class="hero-biz-icon icon-prop">住</div>
+        <div>
+          <div class="hero-biz-name">不動産賃貸事業</div>
+          <div class="hero-biz-sub">マンション · 駐車場管理</div>
+        </div>
+        <span class="hero-biz-arrow">→</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ════════ CONCEPT BAND ════════ -->
+<div class="concept-band">
+  <div class="concept-inner">
+    <div class="concept-item rv">
+      <div class="concept-icon">心</div>
+      <div class="concept-title">おもてなし</div>
+      <div class="concept-desc">京都に根付く真のサービス精神</div>
+    </div>
+    <div class="concept-item rv d1">
+      <div class="concept-icon">縁</div>
+      <div class="concept-title">人と人のつながり</div>
+      <div class="concept-desc">地域と共に育む信頼関係</div>
+    </div>
+    <div class="concept-item rv d2">
+      <div class="concept-icon">継</div>
+      <div class="concept-title">100年企業</div>
+      <div class="concept-desc">次世代へ継承する価値の創造</div>
+    </div>
+    <div class="concept-item rv d3">
+      <div class="concept-icon">喜</div>
+      <div class="concept-title">お客様の満足</div>
+      <div class="concept-desc">喜びを生み出し、価値を届ける</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ ABOUT ════════ -->
+<section class="about-section" id="about">
+  <div class="about-inner">
+    <div class="about-photo rv">
+      <div class="about-photo-wrap">
+        <img src="https://images.unsplash.com/photo-1478436127897-769e1b3f0f36?w=900&q=80&fit=crop&auto=format" alt="京都 伏見稲荷" loading="lazy">
+      </div>
+      <div class="about-corner tl"></div>
+      <div class="about-corner tr"></div>
+      <div class="about-corner bl"></div>
+      <div class="about-corner br"></div>
+      <div class="about-badge">
+        <div class="about-badge-year">京都</div>
+        <div class="about-badge-text">Kyoto Based · Fushimi Ward</div>
+      </div>
+    </div>
+
+    <div class="about-text">
+      <span class="label rv">Our Concept</span>
+      <div class="gold-line rv"></div>
+      <h2 class="about-heading rv">
+        時代が変わっても、<br>
+        変わらない<em>「良い存在」</em>で<br>
+        あり続けること。
+      </h2>
+      <p class="about-p rv d1">
+        私たちは、教育・外食・不動産賃貸の3事業を柱に、京都・伏見区を中心に地域密着型のサービスを展開しています。ITTO個別指導学院4校の運営、児童館・学童クラブを通じた子どもたちの成長支援、「美ね寅」での食体験の提供、そしてマンション・駐車場管理による快適な居住環境づくり。
+      </p>
+      <p class="about-p rv d2">
+        「お客様の喜びのために最大限のサービスを提供する」——この使命のもと、TOPを目指すことも大切ですが、喜びを生み出し価値あるものを提供し続けることを重視。感謝と希望を持つ組織として、地域社会と従業員の双方に豊かさをお届けします。
+      </p>
+      <div class="rv d3" style="margin-top:36px">
+        <a href="#business" class="btn btn-outline">3つの事業を見る</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ NUMBERS ════════ -->
+<div class="numbers-section">
+  <div class="numbers-inner">
+    <div class="num-item rv">
+      <div class="num-val">3<sup>事業</sup></div>
+      <div class="num-label">教育 · 外食 · 不動産</div>
+    </div>
+    <div class="num-item rv d1">
+      <div class="num-val">4<sup>校</sup></div>
+      <div class="num-label">ITTO個別指導学院</div>
+    </div>
+    <div class="num-item rv d2">
+      <div class="num-val">京都</div>
+      <div class="num-label">伏見区を中心に地域密着</div>
+    </div>
+    <div class="num-item rv d3">
+      <div class="num-val">100<sup>年</sup></div>
+      <div class="num-label">続く企業を目指して</div>
+    </div>
+    <div class="num-item rv d4">
+      <div class="num-val">24<sup>h</sup></div>
+      <div class="num-label">メール問い合わせ受付</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ THREE BUSINESSES ════════ -->
+<section class="biz-section" id="business">
+  <div class="biz-section-header rv">
+    <span class="label">Our Business</span>
+    <div class="gold-line" style="margin:0 auto 16px"></div>
+    <h2 class="h2">3つの事業で、<br>地域の暮らしを支える</h2>
+    <p class="body-text" style="max-width:520px;margin:16px auto 0">
+      教育・食・住まいという暮らしの根幹に関わる3事業を展開。<br>地域の情報力とネットワークを活かし、価値を創造し続けます。
+    </p>
+  </div>
+
+  <div class="biz-grid">
+    <!-- 教育 -->
+    <div class="biz-card rv">
+      <div class="biz-card-bar bar-edu"></div>
+      <div class="biz-card-photo">
+        <img src="https://images.unsplash.com/photo-1583468991267-3f068b607ae1?w=700&q=80&fit=crop&auto=format" alt="ITTO個別指導学院 教育事業" loading="lazy">
+        <div class="biz-card-photo-fade"></div>
+        <span class="biz-card-tag tag-edu">Education</span>
+      </div>
+      <div class="biz-card-body">
+        <div class="biz-card-title">教育事業</div>
+        <div class="biz-card-desc">子どもたちの可能性を最大限に引き出す、個別指導と地域福祉の融合。</div>
+        <ul class="biz-card-bullets">
+          <li>ITTO個別指導学院 京都市内4校運営</li>
+          <li>児童館・学童クラブの運営</li>
+          <li>小中高生の学習サポート</li>
+          <li>一人ひとりに寄り添う指導スタイル</li>
+        </ul>
+        <div class="biz-card-link link-edu">詳しく見る</div>
+      </div>
+    </div>
+
+    <!-- 外食 -->
+    <div class="biz-card rv d1">
+      <div class="biz-card-bar bar-rest"></div>
+      <div class="biz-card-photo">
+        <img src="https://images.unsplash.com/photo-1608060146923-7b8ab13e22bb?w=700&q=80&fit=crop&auto=format" alt="美ね寅 外食事業" loading="lazy">
+        <div class="biz-card-photo-fade"></div>
+        <span class="biz-card-tag tag-rest">Restaurant</span>
+      </div>
+      <div class="biz-card-body">
+        <div class="biz-card-title">外食事業</div>
+        <div class="biz-card-desc">京都の伝統と「おもてなし」を活かした、満足度の高い食体験を提供。</div>
+        <ul class="biz-card-bullets">
+          <li>「美ね寅（みねとら）」の運営</li>
+          <li>京都の食文化を大切にした料理</li>
+          <li>居心地の良い空間づくり</li>
+          <li>地域のお客様に愛される店舗</li>
+        </ul>
+        <div class="biz-card-link link-rest">詳しく見る</div>
+      </div>
+    </div>
+
+    <!-- 不動産 -->
+    <div class="biz-card rv d2">
+      <div class="biz-card-bar bar-prop"></div>
+      <div class="biz-card-photo">
+        <img src="https://images.unsplash.com/photo-1700553559487-e75dc4de307a?w=700&q=80&fit=crop&auto=format" alt="不動産賃貸事業" loading="lazy">
+        <div class="biz-card-photo-fade"></div>
+        <span class="biz-card-tag tag-prop">Real Estate</span>
+      </div>
+      <div class="biz-card-body">
+        <div class="biz-card-title">不動産賃貸事業</div>
+        <div class="biz-card-desc">居住者や利用者に寄り添った管理サービスで、快適な暮らしを実現。</div>
+        <ul class="biz-card-bullets">
+          <li>マンションの管理・賃貸運営</li>
+          <li>駐車場の管理・運営</li>
+          <li>地域密着の丁寧な対応</li>
+          <li>入居者の安心・快適な居住環境</li>
+        </ul>
+        <div class="biz-card-link link-prop">詳しく見る</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ VISION ════════ -->
+<section class="vision-section" id="vision">
+  <div class="vision-photo"></div>
+  <div class="vision-overlay"></div>
+  <div class="vision-content">
+    <div class="vision-text">
+      <span class="label rv">Our Vision</span>
+      <div class="gold-line rv"></div>
+      <h2 class="vision-title rv">
+        100年続く企業として、<br>
+        地域に<em>「良い存在」</em><br>
+        であり続ける。
+      </h2>
+      <p class="vision-body rv d1">
+        時代の変化に柔軟に対応しながら、お客様・社員・地域社会にとって「良い存在」であり続けることが私たちのビジョンです。京都に根付く「おもてなし」の心を大切にしながら、人と人とのつながりを重視し、最大限のサービスを追求していきます。
+      </p>
+      <div class="rv d2">
+        <a href="#contact" class="btn btn-gold">私たちと共に働く</a>
+      </div>
+    </div>
+    <div class="vision-pillars rv d1">
+      <div class="vision-pillar">
+        <div class="vision-pillar-ja">感謝</div>
+        <div class="vision-pillar-desc">お客様・社員・地域へ、常に感謝の心を忘れない</div>
+      </div>
+      <div class="vision-pillar">
+        <div class="vision-pillar-ja">希望</div>
+        <div class="vision-pillar-desc">変化を恐れず、新しい可能性に向かって前進する</div>
+      </div>
+      <div class="vision-pillar">
+        <div class="vision-pillar-ja">貢献</div>
+        <div class="vision-pillar-desc">地域社会のインフラとして、暮らしを豊かにする</div>
+      </div>
+      <div class="vision-pillar">
+        <div class="vision-pillar-ja">誠実</div>
+        <div class="vision-pillar-desc">ブレない価値観で、信頼され続ける企業であること</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ RECRUIT ════════ -->
+<section class="recruit-section" id="recruit">
+  <div class="recruit-inner">
+    <div>
+      <span class="label rv">Recruit</span>
+      <div class="gold-line rv"></div>
+      <h2 class="h2 rv" style="margin-bottom:20px">共に、地域を<br>豊かにする仲間へ</h2>
+      <p class="body-text rv d1">
+        弊社ではブランドアウェアネス向上やホームページ戦略を形にするため、副業・業務委託メンバーを積極的に募集しています。デジタルマーケティングに強みを持つ方のご応募をお待ちしています。
+      </p>
+      <div class="recruit-roles">
+        <div class="recruit-role rv d1">
+          <span class="recruit-role-tag">副業 / 業務委託</span>
+          <div class="recruit-role-title">Webマーケター・LP制作</div>
+          <div class="recruit-role-desc">SEO対策、LPのデザイン・制作、データ分析による改善提案。Instagram/TikTokとホームページの連携強化をお任せします。</div>
+        </div>
+        <div class="recruit-role rv d2">
+          <span class="recruit-role-tag">副業 / 業務委託</span>
+          <div class="recruit-role-title">SNS運用サポート</div>
+          <div class="recruit-role-desc">教育事業・外食事業のInstagram/TikTok運用支援。コンテンツ企画から投稿管理、分析まで幅広くお任せします。</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="recruit-cta rv d2">
+        <div class="recruit-cta-title">私たちが求める人材</div>
+        <div class="recruit-cta-desc">弊社のビジョン「地域に根ざし、100年続く企業」を共に実現できる方を歓迎します。</div>
+        <ul class="recruit-conditions">
+          <li>Webマーケティング・SEOの基礎知識がある方</li>
+          <li>LP制作・デザインのスキルをお持ちの方</li>
+          <li>データ分析（GA4等）に慣れた方</li>
+          <li>地域密着の仕事に関心がある方</li>
+          <li>ランニングコストを意識した内製化に興味がある方</li>
+        </ul>
+        <a href="#contact" class="btn btn-gold">応募・相談する</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CONTACT ════════ -->
+<section class="contact-section" id="contact">
+  <div class="contact-bg"></div>
+  <div class="contact-inner rv">
+    <span class="label">Contact Us</span>
+    <div class="gold-line" style="margin:0 auto 28px"></div>
+    <h2 class="contact-title">
+      お気軽に<em>ご相談</em><br>ください。
+    </h2>
+    <p class="contact-desc">
+      事業に関するお問い合わせ、採用・副業のご相談、<br>
+      その他何でもお気軽にお問い合わせください。<br>
+      担当者より2営業日以内にご連絡いたします。
+    </p>
+    <div class="contact-btns">
+      <a href="https://towa-syouji.com/index.html#contact" class="btn btn-gold" target="_blank" rel="noopener">メールでお問い合わせ</a>
+      <a href="tel:0756228811" class="btn btn-outline">電話で問い合わせる</a>
+    </div>
+    <div class="contact-info">
+      <div class="contact-info-item">
+        <span class="contact-info-label">Phone</span>
+        <span class="contact-info-val">075-622-8811</span>
+        <span class="contact-info-note">平日 9:00〜17:30</span>
+      </div>
+      <div class="contact-info-item">
+        <span class="contact-info-label">Address</span>
+        <span class="contact-info-val" style="font-family:var(--fbody);font-size:.88rem;letter-spacing:.04em">京都市伏見区中島鳥羽離宮町72</span>
+        <span class="contact-info-note">〒612-8459</span>
+      </div>
+      <div class="contact-info-item">
+        <span class="contact-info-label">Mail</span>
+        <span class="contact-info-val" style="font-size:.88rem;font-family:var(--fbody)">24時間受付</span>
+        <span class="contact-info-note">メールフォームより</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <span class="footer-brand-ja">東和商事株式会社</span>
+        <span class="footer-brand-en">Towa Shooji Co., Ltd.</span>
+        <p class="footer-brand-desc">
+          教育・外食・不動産賃貸の3事業を通じ、京都・伏見区を中心に地域密着型のサービスを展開。お客様と従業員の満足を重視し、100年続く企業を目指します。
+        </p>
+        <address class="footer-address">
+          〒612-8459 京都府京都市伏見区中島鳥羽離宮町72<br>
+          TEL: 075-622-8811（平日 9:00〜17:30）<br>
+          代表取締役: 加藤 信太郎
+        </address>
+      </div>
+      <div class="footer-col">
+        <h4>Business</h4>
+        <ul>
+          <li><a href="#business">教育事業</a></li>
+          <li><a href="#business">外食事業</a></li>
+          <li><a href="#business">不動産賃貸事業</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">企業理念</a></li>
+          <li><a href="#vision">ビジョン</a></li>
+          <li><a href="https://towa-syouji.com/index.html" target="_blank" rel="noopener">会社概要</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Recruit</h4>
+        <ul>
+          <li><a href="#recruit">採用情報</a></li>
+          <li><a href="#recruit">副業・業務委託</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 東和商事株式会社. All Rights Reserved.</p>
+      <p style="font-family:var(--fen);font-size:.68rem;color:rgba(122,142,168,.3);letter-spacing:.1em">
+        Photos: <a href="https://unsplash.com" target="_blank" rel="noopener" style="text-decoration:underline;text-underline-offset:2px">Unsplash</a> (Free License) · Kyoto, Japan
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile Sticky -->
+<div class="sticky-cta">
+  <a href="tel:0756228811" class="btn btn-outline" style="font-size:.62rem">📞 電話する</a>
+  <a href="#contact" class="btn btn-gold" style="font-size:.62rem">お問い合わせ</a>
+</div>
+
+<script>
+/* Nav scroll */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60), {passive:true});
+
+/* Hamburger */
+const burger = document.getElementById('burger');
+const mob = document.getElementById('mobMenu');
+burger.addEventListener('click', () => mob.classList.toggle('open'));
+mob.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mob.classList.remove('open')));
+
+/* Reveal */
+const rvObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('on'); });
+}, {threshold:.1, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el => rvObs.observe(el));
+
+/* Parallax hero */
+const heroBg = document.getElementById('heroBg');
+window.addEventListener('scroll', () => {
+  if(heroBg) heroBg.style.transform = `translateY(${scrollY * 0.22}px)`;
+}, {passive:true});
+</script>
+</body>
+</html>
