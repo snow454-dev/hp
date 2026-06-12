@@ -2,521 +2,579 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>東武スーパー｜LIVE HEALTHY, LIVE LONGER AND LIVE HAPPY</title>
-<meta name="description" content="北海道・中標津、北見の地域とともに歩むスーパーマーケット。ネット宅配「たすかーる」、カーピックアップなど、暮らしを支えるライフステーションです。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Jost:ital,wght@0,400;0,600;1,500&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MEOサービス概要レポート</title>
 <style>
-:root{
-  --navy:#0B3D6E;
-  --blue:#1D6FBF;
-  --sky:#5BA8E5;
-  --ice:#EDF5FC;
-  --ice-deep:#DCEBF8;
-  --sun:#F2920A;       /* たすかーるCTA・アクセント */
-  --leaf:#3E9E6E;      /* 健康・食育アクセント */
-  --ink:#20354A;
-  --line:#C9DDF0;
-  --radius:18px;
-  --disp:'Zen Maru Gothic','Noto Sans JP',sans-serif;
-  --body:'Noto Sans JP',sans-serif;
-  --en:'Jost','Noto Sans JP',sans-serif;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:var(--body);color:var(--ink);background:#fff;line-height:1.9;font-size:15.5px;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-ul{list-style:none}
-:focus-visible{outline:3px solid var(--sun);outline-offset:2px;border-radius:4px}
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap');
 
-/* ===== Header ===== */
-.header{position:fixed;inset:0 0 auto;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.header-in{max-width:1180px;margin:0 auto;padding:0 22px;height:70px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:900;font-size:21px;color:var(--navy);letter-spacing:.04em}
-.logo-mark{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--navy));display:grid;place-items:center;color:#fff;font-family:var(--en);font-weight:600;font-size:17px;flex-shrink:0}
-.logo small{display:block;font-family:var(--en);font-weight:400;font-size:9.5px;letter-spacing:.22em;color:var(--blue);line-height:1}
-.gnav{display:flex;align-items:center;gap:26px}
-.gnav a{font-size:14px;font-weight:500;color:var(--ink);position:relative;padding:6px 0}
-.gnav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2.5px;background:var(--blue);border-radius:2px;transition:right .25s}
-.gnav a:hover::after{right:0}
-.nav-cta{background:var(--sun);color:#fff !important;padding:10px 20px;border-radius:999px;font-weight:700;font-size:13.5px;box-shadow:0 4px 14px rgba(242,146,10,.35);transition:transform .2s}
-.nav-cta:hover{transform:translateY(-2px)}
-.nav-cta::after{display:none}
-.menu-btn{display:none;width:44px;height:44px;border:none;background:none;cursor:pointer;flex-direction:column;justify-content:center;gap:6px;align-items:center}
-.menu-btn span{width:24px;height:2.5px;background:var(--navy);border-radius:2px;transition:.3s}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ===== Hero ===== */
-.hero{position:relative;min-height:92vh;display:flex;align-items:center;background:
-  radial-gradient(1100px 600px at 85% -10%,#ffffff 0%,transparent 55%),
-  linear-gradient(160deg,var(--ice) 0%,var(--ice-deep) 55%,#CFE4F6 100%);
-  padding:130px 22px 110px;overflow:hidden}
-.hero-in{max-width:1180px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;position:relative;z-index:2}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--en);font-weight:600;letter-spacing:.28em;font-size:12.5px;color:var(--blue);margin-bottom:22px}
-.hero-eyebrow::before{content:"";width:34px;height:2px;background:var(--blue)}
-.hero h1{font-family:var(--disp);font-weight:900;font-size:clamp(30px,4.6vw,52px);line-height:1.45;color:var(--navy);letter-spacing:.03em}
-.hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,rgba(91,168,229,.45) 62%)}
-.hero-lead{margin-top:24px;max-width:33em;font-size:15.5px;color:#3D5670}
-.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
-.btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:15px;padding:16px 30px;border-radius:999px;transition:transform .2s,box-shadow .2s;font-family:var(--disp)}
-.btn-primary{background:var(--sun);color:#fff;box-shadow:0 8px 22px rgba(242,146,10,.38)}
-.btn-secondary{background:#fff;color:var(--navy);border:2px solid var(--navy)}
-.btn:hover{transform:translateY(-3px)}
-.btn .arr{font-family:var(--en);font-weight:600}
-/* 縦書きシグネチャー */
-.hero-tate{writing-mode:vertical-rl;font-family:var(--disp);font-weight:700;font-size:clamp(18px,2vw,24px);letter-spacing:.42em;color:var(--navy);border-right:1px solid rgba(11,61,110,.3);padding-right:22px;height:340px;align-self:center}
-.hero-tate b{color:var(--blue);font-weight:900}
-/* 背景の英字とウェーブ */
-.hero-en{position:absolute;bottom:11%;left:0;width:100%;white-space:nowrap;font-family:var(--en);font-style:italic;font-weight:500;font-size:clamp(54px,9vw,120px);color:rgba(29,111,191,.08);letter-spacing:.04em;user-select:none;pointer-events:none;z-index:1}
-.hero-wave{position:absolute;bottom:-2px;left:0;width:100%;z-index:2}
-.hero-wave svg{display:block;width:100%;height:90px}
-/* 雪の結晶のような点 */
-.dot{position:absolute;border-radius:50%;background:rgba(255,255,255,.85);box-shadow:0 0 12px rgba(255,255,255,.9)}
-.d1{width:10px;height:10px;top:18%;left:8%}
-.d2{width:6px;height:6px;top:30%;left:78%}
-.d3{width:8px;height:8px;top:62%;left:14%}
-.d4{width:5px;height:5px;top:14%;left:55%}
-.d5{width:7px;height:7px;top:70%;left:62%}
+  :root {
+    --bg: #F7F6F3;
+    --surface: #FFFFFF;
+    --surface2: #F1EFE9;
+    --text-primary: #1C1B19;
+    --text-secondary: #6B6A66;
+    --text-muted: #9B9A96;
+    --border: #E4E2DB;
+    --border-strong: #CCCAC2;
+    --teal-bg: #E1F5EE;
+    --teal-text: #0F6E56;
+    --teal-border: #5DCAA5;
+    --blue-bg: #E6F1FB;
+    --blue-text: #185FA5;
+    --purple-bg: #EEEDFE;
+    --purple-text: #3C3489;
+    --coral-bg: #FAECE7;
+    --coral-text: #993C1D;
+    --amber-bg: #FAEEDA;
+    --amber-text: #854F0B;
+    --green-bg: #EAF3DE;
+    --green-text: #3B6D11;
+  }
 
-/* ===== セクション共通 ===== */
-section{padding:96px 22px}
-.wrap{max-width:1180px;margin:0 auto}
-.sec-head{margin-bottom:50px}
-.sec-en{font-family:var(--en);font-weight:600;letter-spacing:.26em;font-size:12.5px;color:var(--blue);display:flex;align-items:center;gap:10px}
-.sec-en::before{content:"";width:30px;height:2px;background:var(--blue)}
-.sec-title{font-family:var(--disp);font-weight:900;font-size:clamp(24px,3.2vw,36px);color:var(--navy);margin-top:10px;letter-spacing:.04em}
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.7;
+    padding: 40px 20px 80px;
+  }
 
-/* ===== News ===== */
-.news{background:#fff;padding:64px 22px}
-.news-list{border-top:1px solid var(--line)}
-.news-item{display:grid;grid-template-columns:110px 110px 1fr;gap:18px;align-items:center;padding:20px 6px;border-bottom:1px solid var(--line);transition:background .2s}
-.news-item:hover{background:var(--ice)}
-.news-date{font-family:var(--en);font-weight:600;color:var(--blue);font-size:14px}
-.news-tag{font-size:11.5px;font-weight:700;text-align:center;padding:4px 0;border-radius:999px;background:var(--ice-deep);color:var(--navy)}
-.news-tag.t-sale{background:#FDEBD2;color:#A35F00}
-.news-tag.t-event{background:#DEF2E7;color:#1F7A4D}
-.news-link{margin-top:26px;text-align:right}
-.news-link a{font-weight:700;color:var(--blue);font-size:14px}
+  .wrapper {
+    max-width: 860px;
+    margin: 0 auto;
+  }
 
-/* ===== About ===== */
-.about{background:linear-gradient(180deg,var(--ice) 0%,#fff 100%)}
-.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
-.about-copy h3{font-family:var(--disp);font-weight:900;font-size:clamp(21px,2.4vw,28px);color:var(--navy);line-height:1.7;margin-bottom:22px}
-.about-copy p{color:#3D5670;margin-bottom:16px}
-.about-motto{margin-top:30px;background:var(--navy);color:#fff;border-radius:var(--radius);padding:26px 30px;position:relative;overflow:hidden}
-.about-motto::after{content:"“";position:absolute;right:14px;top:-26px;font-family:var(--en);font-size:120px;color:rgba(255,255,255,.12)}
-.about-motto .en{font-family:var(--en);font-weight:600;font-size:17px;letter-spacing:.08em;font-style:italic}
-.about-motto .ja{font-size:13px;color:var(--sky);margin-top:6px}
-.pillar{display:grid;gap:16px}
-.pillar-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;display:flex;gap:18px;align-items:flex-start;box-shadow:0 6px 20px rgba(11,61,110,.06)}
-.pillar-ico{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:23px;flex-shrink:0}
-.p1 .pillar-ico{background:var(--ice-deep)}
-.p2 .pillar-ico{background:#DEF2E7}
-.p3 .pillar-ico{background:#FDEBD2}
-.pillar-card h4{font-family:var(--disp);font-weight:700;color:var(--navy);font-size:16.5px;margin-bottom:4px}
-.pillar-card p{font-size:13.5px;color:#4A627C}
+  /* Header */
+  .report-header {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+  }
+  .report-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+  .report-title {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+  .report-subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
 
-/* ===== たすかーる ===== */
-.taskal{background:var(--navy);color:#fff;position:relative;overflow:hidden}
-.taskal::before{content:"TASKAL DELIVERY";position:absolute;top:30px;right:-10px;font-family:var(--en);font-style:italic;font-weight:600;font-size:clamp(40px,7vw,90px);color:rgba(255,255,255,.05);white-space:nowrap}
-.taskal .sec-en{color:var(--sky)}
-.taskal .sec-en::before{background:var(--sky)}
-.taskal .sec-title{color:#fff}
-.taskal-lead{max-width:38em;color:#BCD6EE;margin-top:-30px;margin-bottom:46px}
-.taskal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:46px}
-.step{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:var(--radius);padding:30px 26px;position:relative}
-.step-no{font-family:var(--en);font-style:italic;font-weight:600;font-size:38px;color:var(--sky);line-height:1}
-.step h4{font-family:var(--disp);font-weight:700;font-size:17.5px;margin:14px 0 8px}
-.step p{font-size:13.5px;color:#BCD6EE}
-.taskal-biz{background:rgba(91,168,229,.14);border:1px dashed rgba(91,168,229,.5);border-radius:var(--radius);padding:24px 28px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-bottom:40px}
-.taskal-biz .b-ico{font-size:30px}
-.taskal-biz h4{font-family:var(--disp);font-weight:700;font-size:16.5px}
-.taskal-biz p{font-size:13.5px;color:#BCD6EE}
-.taskal-cta{text-align:center}
-.taskal-cta .btn-primary{font-size:17px;padding:19px 46px}
-.taskal-cta .note{font-size:12.5px;color:#8FB6DB;margin-top:14px}
+  /* Section */
+  .section { margin-bottom: 48px; }
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
 
-/* ===== Services ===== */
-.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-.svc-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 24px;box-shadow:0 6px 20px rgba(11,61,110,.06);transition:transform .25s,box-shadow .25s}
-.svc-card:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(11,61,110,.12)}
-.svc-ico{width:58px;height:58px;border-radius:16px;display:grid;place-items:center;font-size:27px;margin-bottom:18px;background:linear-gradient(135deg,var(--ice),var(--ice-deep))}
-.svc-card h4{font-family:var(--disp);font-weight:700;color:var(--navy);font-size:17px;margin-bottom:8px}
-.svc-card .en{font-family:var(--en);font-size:10.5px;letter-spacing:.18em;color:var(--blue);display:block;margin-bottom:10px;font-weight:600}
-.svc-card p{font-size:13.5px;color:#4A627C}
+  /* Cards */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+  }
 
-/* ===== Stores ===== */
-.stores{background:linear-gradient(180deg,#fff 0%,var(--ice) 100%)}
-.store-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.store-card{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:0 8px 26px rgba(11,61,110,.08)}
-.store-visual{height:170px;position:relative;display:flex;align-items:flex-end;padding:22px;color:#fff}
-.sv-a{background:linear-gradient(135deg,var(--blue) 0%,var(--navy) 100%)}
-.sv-b{background:linear-gradient(135deg,var(--sky) 0%,var(--blue) 100%)}
-.store-visual::after{content:"";position:absolute;inset:auto 0 0;height:40px;background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" fill="white"/></svg>') bottom/100% 100% no-repeat}
-.store-visual h3{font-family:var(--disp);font-weight:900;font-size:24px;position:relative;z-index:1;text-shadow:0 2px 8px rgba(11,61,110,.4)}
-.store-visual .area{position:absolute;top:18px;left:22px;font-family:var(--en);font-weight:600;letter-spacing:.2em;font-size:11px;background:rgba(255,255,255,.2);padding:5px 14px;border-radius:999px;backdrop-filter:blur(4px)}
-.store-body{padding:26px 28px 30px}
-.store-dl{display:grid;grid-template-columns:84px 1fr;gap:8px 14px;font-size:14px;margin-bottom:20px}
-.store-dl dt{font-weight:700;color:var(--blue);font-size:13px;display:flex;align-items:center;gap:6px}
-.store-dl dd{color:#3D5670}
-.store-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
-.badge{font-size:11.5px;font-weight:700;padding:5px 13px;border-radius:999px;background:var(--ice-deep);color:var(--navy)}
-.badge.bd-sun{background:#FDEBD2;color:#A35F00}
-.badge.bd-leaf{background:#DEF2E7;color:#1F7A4D}
-.store-actions{display:flex;gap:12px;flex-wrap:wrap}
-.btn-sm{font-size:13.5px;padding:11px 22px}
-.btn-map{background:var(--navy);color:#fff}
-.btn-flyer{background:#fff;color:var(--navy);border:2px solid var(--line)}
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
 
-/* ===== Recruit ===== */
-.recruit{background:#fff}
-.recruit-band{background:linear-gradient(120deg,var(--ice) 0%,var(--ice-deep) 100%);border-radius:calc(var(--radius) + 8px);padding:60px 56px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;position:relative;overflow:hidden}
-.recruit-band::after{content:"JOIN US";position:absolute;bottom:-14px;right:18px;font-family:var(--en);font-style:italic;font-weight:600;font-size:90px;color:rgba(29,111,191,.08)}
-.recruit-band h3{font-family:var(--disp);font-weight:900;font-size:clamp(21px,2.6vw,30px);color:var(--navy);line-height:1.7;margin-bottom:16px}
-.recruit-band p{color:#3D5670;font-size:14.5px}
-.recruit-band .btn{justify-self:center}
+  /* Metric strip */
+  .metric-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+  .metric-cell {
+    background: var(--surface);
+    padding: 20px 24px;
+    text-align: center;
+  }
+  .metric-cell-label { font-size: 11px; color: var(--text-muted); margin-bottom: 6px; }
+  .metric-cell-value { font-size: 26px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.02em; }
+  .metric-cell-sub { font-size: 11px; color: var(--text-secondary); margin-top: 3px; }
 
-/* ===== Footer ===== */
-.footer{background:var(--navy);color:#BCD6EE;padding:70px 22px 30px}
-.footer-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:40px;padding-bottom:46px;border-bottom:1px solid rgba(255,255,255,.14)}
-.footer .logo{color:#fff}
-.footer .logo small{color:var(--sky)}
-.footer-grid p{font-size:13px;margin-top:16px}
-.footer h5{font-family:var(--disp);font-weight:700;color:#fff;font-size:14.5px;margin-bottom:16px}
-.footer-grid ul li{margin-bottom:10px}
-.footer-grid ul a{font-size:13.5px;transition:color .2s}
-.footer-grid ul a:hover{color:#fff}
-.footer-btm{max-width:1180px;margin:24px auto 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:#7FA8CF}
-.footer-btm .en{font-family:var(--en);letter-spacing:.08em}
+  /* Badge */
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+  .badge-teal { background: var(--teal-bg); color: var(--teal-text); }
+  .badge-blue { background: var(--blue-bg); color: var(--blue-text); }
+  .badge-purple { background: var(--purple-bg); color: var(--purple-text); }
+  .badge-coral { background: var(--coral-bg); color: var(--coral-text); }
+  .badge-amber { background: var(--amber-bg); color: var(--amber-text); }
+  .badge-green { background: var(--green-bg); color: var(--green-text); }
 
-/* ===== Reveal ===== */
-.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
-.rv.on{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .rv{opacity:1;transform:none;transition:none}
-  .btn,.svc-card{transition:none}
-}
+  /* Item row */
+  .item-list { }
+  .item-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .item-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .item-row:first-child { padding-top: 0; }
+  .item-num {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    border: 1px solid var(--border-strong);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .item-title { font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+  .item-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.65; }
 
-/* ===== Responsive ===== */
-@media (max-width:980px){
-  .hero-in{grid-template-columns:1fr}
-  .hero-tate{display:none}
-  .about-grid,.store-grid,.recruit-band{grid-template-columns:1fr}
-  .svc-grid{grid-template-columns:repeat(2,1fr)}
-  .taskal-grid{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr 1fr}
-}
-@media (max-width:680px){
-  .gnav{position:fixed;inset:70px 0 auto;background:#fff;flex-direction:column;align-items:stretch;gap:0;padding:10px 22px 26px;border-bottom:1px solid var(--line);box-shadow:0 20px 30px rgba(11,61,110,.12);transform:translateY(-130%);transition:transform .3s;z-index:99}
-  .gnav.open{transform:none}
-  .gnav a{padding:15px 4px;border-bottom:1px solid var(--ice-deep);font-size:15px}
-  .nav-cta{margin-top:16px;text-align:center;justify-content:center;display:flex}
-  .menu-btn{display:flex}
-  .menu-btn.open span:nth-child(1){transform:translateY(8.5px) rotate(45deg)}
-  .menu-btn.open span:nth-child(2){opacity:0}
-  .menu-btn.open span:nth-child(3){transform:translateY(-8.5px) rotate(-45deg)}
-  section{padding:70px 18px}
-  .news-item{grid-template-columns:88px 1fr;grid-template-rows:auto auto}
-  .news-item .news-title{grid-column:1/-1}
-  .svc-grid{grid-template-columns:1fr}
-  .recruit-band{padding:40px 26px}
-  .footer-grid{grid-template-columns:1fr}
-}
+  /* Flow */
+  .flow-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin: 12px 0;
+  }
+  .flow-box {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 7px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+  .flow-arrow { color: var(--text-muted); font-size: 14px; }
+
+  /* Highlight */
+  .highlight {
+    background: var(--blue-bg);
+    border-left: 3px solid var(--blue-text);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--blue-text);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+
+  /* Plan card */
+  .plan-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .plan-card.featured { border: 2px solid var(--blue-text); }
+  .plan-badge { margin-bottom: 10px; }
+  .plan-name { font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px; }
+  .plan-price {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+  .plan-price-unit { font-size: 12px; font-weight: 400; color: var(--text-secondary); }
+  .plan-divider { height: 1px; background: var(--border); margin: 14px 0; }
+  .plan-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    padding: 3px 0;
+    line-height: 1.5;
+  }
+  .plan-check { color: var(--teal-text); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .featured-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--blue-text);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  /* Warn box */
+  .warn-box {
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+  }
+  .warn-box:last-child { margin-bottom: 0; }
+  .warn-box.amber { background: var(--amber-bg); border-left: 3px solid var(--amber-text); }
+  .warn-box.coral { background: var(--coral-bg); border-left: 3px solid var(--coral-text); }
+  .warn-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .warn-box.amber .warn-title { color: var(--amber-text); }
+  .warn-box.coral .warn-title { color: var(--coral-text); }
+  .warn-desc { font-size: 12px; line-height: 1.65; }
+  .warn-box.amber .warn-desc { color: var(--amber-text); }
+  .warn-box.coral .warn-desc { color: var(--coral-text); }
+
+  /* Example box */
+  .example-box {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .example-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+  .example-table th {
+    text-align: left;
+    padding: 6px 10px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    background: var(--border);
+    font-size: 11px;
+  }
+  .example-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-primary);
+  }
+  .example-table tr:last-child td { border-bottom: none; }
+  .num-good { color: var(--teal-text); font-weight: 700; }
+  .num-bad { color: var(--coral-text); font-weight: 700; }
+
+  /* Two-col for施策 */
+  .施策-header {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    letter-spacing: 0.06em;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Footer */
+  .report-footer {
+    margin-top: 64px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 640px) {
+    .grid2, .grid3 { grid-template-columns: 1fr; }
+    .grid4 { grid-template-columns: 1fr 1fr; }
+    .metric-strip { grid-template-columns: 1fr; }
+    .report-title { font-size: 24px; }
+    .plan-price { font-size: 22px; }
+  }
 </style>
 </head>
 <body>
+<div class="wrapper">
 
-<!-- ===== Header ===== -->
-<header class="header">
-  <div class="header-in">
-    <a class="logo" href="#top" aria-label="東武スーパー ホーム">
-      <span class="logo-mark">T</span>
-      <span>東武スーパー<small>TOBU SUPER MARKET</small></span>
-    </a>
-    <button class="menu-btn" id="menuBtn" aria-label="メニューを開く" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="gnav" id="gnav" aria-label="グローバルナビゲーション">
-      <a href="#about">私たちについて</a>
-      <a href="#service">サービス</a>
-      <a href="#stores">店舗情報</a>
-      <a href="#news">お知らせ</a>
-      <a href="#recruit">採用情報</a>
-      <a class="nav-cta" href="#taskal">ネット宅配を申し込む</a>
-    </nav>
+  <!-- Header -->
+  <div class="report-header">
+    <div class="report-eyebrow">Service Report · MDS Inc.</div>
+    <h1 class="report-title">MEOサービス概要レポート</h1>
+    <div class="report-subtitle">Googleマップ上位表示支援サービスの要点整理 — 動画文字起こしをもとに作成</div>
   </div>
-</header>
 
-<!-- ===== Hero ===== -->
-<div class="hero" id="top">
-  <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="dot d4"></span><span class="dot d5"></span>
-  <div class="hero-in">
-    <div>
-      <p class="hero-eyebrow">TOBU SUPER MARKET — HOKKAIDO</p>
-      <h1>毎日の食卓から、<br>この街の<em>「健康」と「笑顔」</em>を<br>支えていく。</h1>
-      <p class="hero-lead">東武スーパーは、北海道・中標津と北見の地域とともに歩むスーパーマーケットです。お店での買い物も、ご自宅へのお届けも。暮らしに寄り添う「地域のライフステーション」を目指しています。</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#taskal">ネット宅配「たすかーる」を申し込む<span class="arr">→</span></a>
-        <a class="btn btn-secondary" href="#stores">店舗情報・アクセス<span class="arr">→</span></a>
+  <!-- Metric Strip -->
+  <div class="metric-strip">
+    <div class="metric-cell">
+      <div class="metric-cell-label">クライアント累計</div>
+      <div class="metric-cell-value">3万+</div>
+      <div class="metric-cell-sub">4カ国展開</div>
+    </div>
+    <div class="metric-cell">
+      <div class="metric-cell-label">日本の飲食店に占める割合</div>
+      <div class="metric-cell-value">4%</div>
+      <div class="metric-cell-sub">集客実績・ノウハウを保有</div>
+    </div>
+    <div class="metric-cell">
+      <div class="metric-cell-label">MEOの検索シェア</div>
+      <div class="metric-cell-value">約70%</div>
+      <div class="metric-cell-sub">エリア×カテゴリ検索のユーザーが参照</div>
+    </div>
+  </div>
+
+  <!-- Section 1: MEOとは -->
+  <div class="section">
+    <div class="section-label">MEOとは — 4つの基本</div>
+    <div class="card">
+      <div class="item-list">
+        <div class="item-row">
+          <div class="item-num">1</div>
+          <div>
+            <div class="item-title">即時集客につながる</div>
+            <div class="item-desc">Googleマップで検索するユーザーは「今すぐ行きたい人」。SEOと違い、来店行動に直結しやすい特性がある。</div>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-num">2</div>
+          <div>
+            <div class="item-title">MEOの表示シェアが圧倒的</div>
+            <div class="item-desc">「渋谷 カフェ」などエリア×カテゴリ検索では、約7割のユーザーがSEO（通常検索結果）ではなくMEO（マップ情報）を参照してお店を探している。</div>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-num">3</div>
+          <div>
+            <div class="item-title">データで運用できる</div>
+            <div class="item-desc">検索回数・電話件数・来店数などがGoogleの公式アプリで全て確認可能。「多分集客できた」という勘に頼らず、データに基づく改善サイクルを回せる。</div>
+          </div>
+        </div>
+        <div class="item-row">
+          <div class="item-num">4</div>
+          <div>
+            <div class="item-title">予算ではなく品質で勝負できる</div>
+            <div class="item-desc">ホットペッパーや食べログは広告予算の多い大手が有利なオークション型。Googleマップは広告費で上位表示を買えない仕組みのため、対策の質次第で個人店でも大手に勝てる集客媒体。</div>
+          </div>
+        </div>
       </div>
     </div>
-    <p class="hero-tate">健康に、<b>長く</b>、幸せに生きる。</p>
   </div>
-  <p class="hero-en" aria-hidden="true">LIVE HEALTHY, LIVE LONGER AND LIVE HAPPY</p>
-  <div class="hero-wave" aria-hidden="true">
-    <svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,50 C240,90 480,10 720,40 C960,70 1200,20 1440,50 L1440,90 L0,90 Z" fill="#ffffff"/></svg>
+
+  <!-- Section 2: 対策 -->
+  <div class="section">
+    <div class="section-label">上位表示の対策 — 内部施策と外部施策</div>
+    <div class="grid2">
+      <div class="card">
+        <div class="施策-header">
+          <span class="badge badge-teal">内部施策</span>
+          ビジネスプロフィール内の最適化
+        </div>
+        <div class="item-list">
+          <div class="item-row">
+            <div class="item-num" style="font-size:10px;">①</div>
+            <div>
+              <div class="item-title">口コミ管理・返信</div>
+              <div class="item-desc">良い口コミを集め、すべての口コミに丁寧に返信する。評価の質と返信率の両方が重要。</div>
+            </div>
+          </div>
+          <div class="item-row">
+            <div class="item-num" style="font-size:10px;">②</div>
+            <div>
+              <div class="item-title">定期投稿でアクティブをアピール</div>
+              <div class="item-desc">Googleマップ上の投稿機能を活用し、「営業中・アクティブ」であることをGoogleに継続的に示す。閉店しているかもしれないお店はGoogleが嫌う。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="施策-header">
+          <span class="badge badge-purple">外部施策</span>
+          外部サイトからの評価を高める
+        </div>
+        <div class="item-list">
+          <div class="item-row">
+            <div class="item-num" style="font-size:10px;">①</div>
+            <div>
+              <div class="item-title">被リンク（関連カテゴリのサイトから）</div>
+              <div class="item-desc">飲食系・業種関連のメディアやブログからのリンク獲得が有効。無関係なサイトやスパムリンクは逆効果。</div>
+            </div>
+          </div>
+          <div class="item-row">
+            <div class="item-num" style="font-size:10px;">②</div>
+            <div>
+              <div class="item-title">NAP統一（Name / Address / Phone）</div>
+              <div class="item-desc">InstagramなどURLがないSNSでも、店名・住所・電話番号が統一されていればGoogleが「同じ店」と認識して評価に加算する。</div>
+            </div>
+          </div>
+          <div class="item-row">
+            <div class="item-num" style="font-size:10px;">③</div>
+            <div>
+              <div class="item-title">Webサイトのアクセス数・滞在時間</div>
+              <div class="item-desc">SNS経由でサイトへ誘導し滞在時間を伸ばすことで、Googleからの評価が向上。SNS運用がMEOにも間接的に効いてくる。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- Section 3: キーワード分析フロー -->
+  <div class="section">
+    <div class="section-label">MDSのキーワード分析フロー</div>
+    <div class="card">
+      <div class="highlight">
+        月間検索回数の多さではなく「予想最終リーチ数（競合の弱さを加味した、実際に到達できる集客数）」でキーワードを選ぶのが同社の特徴。
+      </div>
+      <div class="flow-row">
+        <div class="flow-box">① エリア分析</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">② 関連KW洗い出し</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">③ 競合分析</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">④ スコアリング</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-box">⑤ KW決定</div>
+      </div>
+      <div class="example-box">
+        <strong style="font-size:11px; letter-spacing:0.06em; color: var(--text-secondary);">EXAMPLE — 表参道エステ vs 表参道スパ</strong>
+        <table class="example-table">
+          <thead>
+            <tr>
+              <th>キーワード</th>
+              <th>月間検索数</th>
+              <th>競合強度</th>
+              <th>予想最終リーチ</th>
+              <th>判定</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>表参道エステ</td>
+              <td>1,200回</td>
+              <td>強い</td>
+              <td class="num-bad">36人/月</td>
+              <td class="num-bad">✗ 非推奨</td>
+            </tr>
+            <tr>
+              <td>表参道スパ</td>
+              <td>400回</td>
+              <td>弱い</td>
+              <td class="num-good">300人/月</td>
+              <td class="num-good">✓ 推奨</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="margin-top:8px; font-size:11px; color: var(--text-muted);">検索数が少なくても競合が弱ければ予想リーチは大幅に増える。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 4: MDSの4つの特徴 -->
+  <div class="section">
+    <div class="section-label">MDSサービスの4つの特徴</div>
+    <div class="grid2">
+      <div class="card">
+        <div style="margin-bottom:10px;"><span class="badge badge-teal">特徴 1</span></div>
+        <div class="item-title">申込前に効果予測を提示</div>
+        <div class="item-desc" style="margin-top:6px;">店舗情報を送るだけで、来店予測・貢献売上まで試算したレポートを申込前に無償提出。他社は「やってみてから」が普通。代理店も翌日にレポートを受け取って営業活用できる。</div>
+      </div>
+      <div class="card">
+        <div style="margin-bottom:10px;"><span class="badge badge-blue">特徴 2</span></div>
+        <div class="item-title">Google公式データの透明な管理画面</div>
+        <div class="item-desc" style="margin-top:6px;">成果を専用URLでリアルタイム確認できる管理画面を提供。表示データはGoogle提供のものをそのまま反映しており、サービス側による操作は不可。透明性が高い。</div>
+      </div>
+      <div class="card">
+        <div style="margin-bottom:10px;"><span class="badge badge-purple">特徴 3</span></div>
+        <div class="item-title">毎月のキーワード最適化</div>
+        <div class="item-desc" style="margin-top:6px;">上位表示を取ったキーワードは次のキーワードへ移行し、毎月分析をかけて最適化。「陣取り合戦」式で集客キーワードを拡大し続けることで長期的な集客力を高める。</div>
+      </div>
+      <div class="card">
+        <div style="margin-bottom:10px;"><span class="badge badge-coral">特徴 4</span></div>
+        <div class="item-title">専属メディアの制作が月額に込み</div>
+        <div class="item-desc" style="margin-top:6px;">通常立ち上げだけで30〜40万円かかるメディア制作が月額料金に含まれる。被リンク獲得のための専用メディアを1クライアント1つ作成し、外部施策の柱として機能させる。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 5: プラン比較 -->
+  <div class="section">
+    <div class="section-label">料金プラン比較</div>
+    <div class="grid3">
+      <div class="plan-card">
+        <div class="plan-badge"><span class="badge badge-teal">ベーシック</span></div>
+        <div class="plan-price">¥19,800<span class="plan-price-unit"> /月</span></div>
+        <div class="plan-divider"></div>
+        <div class="plan-feature"><span class="plan-check">✓</span> キーワード分析</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> Googleマップ登録代行</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> 専属メディア制作</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> 専属担当コンサルティング</div>
+      </div>
+      <div class="plan-card featured">
+        <span class="featured-label">おすすめ</span>
+        <div class="plan-badge"><span class="badge badge-blue">ゴールド MEO</span></div>
+        <div class="plan-price">¥42,800<span class="plan-price-unit"> /月</span></div>
+        <div class="plan-divider"></div>
+        <div class="plan-feature"><span class="plan-check">✓</span> ベーシック全内容</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> 投稿作成・キーワード分析</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> 投稿代行</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> 口コミ返信代行</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> メールサポート</div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-badge"><span class="badge badge-purple">IG + MEO</span></div>
+        <div class="plan-price">¥69,800<span class="plan-price-unit"> /月</span></div>
+        <div class="plan-divider"></div>
+        <div class="plan-feature"><span class="plan-check">✓</span> ゴールド全内容</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> Instagram運用代行</div>
+        <div class="plan-feature"><span class="plan-check">✓</span> SNS×MEO統合戦略</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 6: 業者選び注意点 -->
+  <div class="section">
+    <div class="section-label">業者選びで気をつけること</div>
+    <div class="warn-box amber">
+      <div class="warn-title">⚠ 注意① ビッグワードだけ謳う業者</div>
+      <div class="warn-desc">「渋谷 カフェ」などの超競合キーワードで上位表示を約束して長期契約を結ばせるケースが多い。月間検索数ではなく「予想最終リーチ数」で提示できる業者を選ぶこと。</div>
+    </div>
+    <div class="warn-box coral">
+      <div class="warn-title">⚠ 注意② 成果報酬型の業者</div>
+      <div class="warn-desc">「1キーワード上位表示で○円」という成果報酬型では、最初から取りやすいキーワードを提案し必ず1つ達成させる手法が横行している。実際の集客につながらないケースが多く、契約が長引く構造になっている。</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="report-footer">
+    <div>MEOサービス概要レポート — MDS動画をもとに作成</div>
+    <div>内部資料用</div>
+  </div>
+
 </div>
-
-<!-- ===== News ===== -->
-<section class="news" id="news">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="sec-en">INFORMATION</p>
-      <h2 class="sec-title">お知らせ</h2>
-    </div>
-    <ul class="news-list rv">
-      <li><a class="news-item" href="#"><span class="news-date">2026.06.12</span><span class="news-tag t-sale">セール</span><span class="news-title">今週の特売チラシを更新しました（6/13〜6/16）</span></a></li>
-      <li><a class="news-item" href="#"><span class="news-date">2026.06.10</span><span class="news-tag">宅配</span><span class="news-title">ネット宅配「たすかーる」配達エリアを拡大しました</span></a></li>
-      <li><a class="news-item" href="#"><span class="news-date">2026.06.05</span><span class="news-tag t-event">イベント</span><span class="news-title">親子で学ぶ食育教室「やさいのひみつ」参加者募集中</span></a></li>
-      <li><a class="news-item" href="#"><span class="news-date">2026.06.01</span><span class="news-tag t-event">配信</span><span class="news-title">今月のライブ配信販売は6/20（土）旬の海産物特集です</span></a></li>
-    </ul>
-    <p class="news-link"><a href="#">お知らせ一覧へ →</a></p>
-  </div>
-</section>
-
-<!-- ===== About ===== -->
-<section class="about" id="about">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="sec-en">ABOUT US</p>
-      <h2 class="sec-title">地域のライフステーションとして</h2>
-    </div>
-    <div class="about-grid">
-      <div class="about-copy rv">
-        <h3>お店は「物を売る場所」ではなく、<br>暮らしを支える場所。</h3>
-        <p>私たちは、北海道・中標津や北見といった地域の皆さまと共に歩んできました。東武の店舗は、単なる買い物の場ではありません。お客様一人ひとりの生活や健康、そして笑顔を支える「地域のライフステーション」でありたいと願っています。</p>
-        <p>ネット宅配、カーピックアップ、ライブ配信での販売、食育活動——地域のニーズに合わせて、柔軟に新しい挑戦を続けています。</p>
-        <div class="about-motto">
-          <p class="en">LIVE HEALTHY, LIVE LONGER AND LIVE HAPPY</p>
-          <p class="ja">健康に、長く、幸せに生きる。——それが私たちの合言葉です。</p>
-        </div>
-      </div>
-      <div class="pillar rv">
-        <div class="pillar-card p1">
-          <span class="pillar-ico">🏠</span>
-          <div><h4>地域とともに</h4><p>中標津・北見に根ざし、地元の生産者やお客様とのつながりを大切にしています。</p></div>
-        </div>
-        <div class="pillar-card p2">
-          <span class="pillar-ico">🥗</span>
-          <div><h4>健康な食卓を</h4><p>新鮮な食材と食育活動を通じて、毎日の「おいしくて健康」な食卓をお手伝いします。</p></div>
-        </div>
-        <div class="pillar-card p3">
-          <span class="pillar-ico">🚀</span>
-          <div><h4>変化に挑戦</h4><p>宅配・配信販売など新しいサービスに積極的に取り組み、暮らしの変化に応えます。</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== たすかーる ===== -->
-<section class="taskal" id="taskal">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="sec-en">NET DELIVERY</p>
-      <h2 class="sec-title">ネット宅配「たすかーる」</h2>
-    </div>
-    <p class="taskal-lead rv">スーパーの品揃えそのままに、ご自宅やオフィスへお届け。子育て中の方、お忙しい方、お車をお持ちでない方、そして事業所のまとめ買いにもご利用いただけます。</p>
-    <div class="taskal-grid">
-      <div class="step rv"><p class="step-no">01</p><h4>会員登録（無料）</h4><p>お電話または店頭で簡単にお申し込みいただけます。登録料・年会費は無料です。</p></div>
-      <div class="step rv"><p class="step-no">02</p><h4>商品を注文</h4><p>チラシやカタログ、お電話から注文。店頭の商品をスタッフが心を込めてお選びします。</p></div>
-      <div class="step rv"><p class="step-no">03</p><h4>ご自宅へお届け</h4><p>当日または翌日、決まった時間帯にお届け。生鮮品も冷蔵・冷凍のまま安心です。</p></div>
-    </div>
-    <div class="taskal-biz rv">
-      <span class="b-ico">🏢</span>
-      <div>
-        <h4>地元企業・事業所の皆さまへ</h4>
-        <p>飲食店・福祉施設・事務所などの定期配達、まとめ買いにも対応しています。請求書払いのご相談も承ります。</p>
-      </div>
-    </div>
-    <div class="taskal-cta rv">
-      <a class="btn btn-primary" href="#contact">たすかーるの申し込み・お問い合わせ <span class="arr">→</span></a>
-      <p class="note">お電話でも受付中：0153-XX-XXXX（受付 9:00〜18:00）</p>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Services ===== -->
-<section id="service">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="sec-en">SERVICE</p>
-      <h2 class="sec-title">便利なサービス</h2>
-    </div>
-    <div class="svc-grid">
-      <div class="svc-card rv">
-        <span class="svc-ico">🚚</span>
-        <h4>ネット宅配「たすかーる」</h4>
-        <span class="en">NET DELIVERY</span>
-        <p>店頭の商品をご自宅・事業所までお届け。重い物・かさばる物の買い物もおまかせください。</p>
-      </div>
-      <div class="svc-card rv">
-        <span class="svc-ico">🚗</span>
-        <h4>カーピックアップ</h4>
-        <span class="en">CAR PICKUP</span>
-        <p>事前にご注文いただいた商品を、お車に乗ったまま受け取れます。お急ぎの時に便利です。</p>
-      </div>
-      <div class="svc-card rv">
-        <span class="svc-ico">📱</span>
-        <h4>ライブ配信販売</h4>
-        <span class="en">LIVE SHOPPING</span>
-        <p>旬のおすすめ商品をライブ配信でご紹介。画面越しでも、対面のような買い物体験を。</p>
-      </div>
-      <div class="svc-card rv">
-        <span class="svc-ico">🌱</span>
-        <h4>食育活動</h4>
-        <span class="en">FOOD EDUCATION</span>
-        <p>親子向けの食育教室や店内ツアーを開催。地域の「食」の学びの場をつくっています。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Stores ===== -->
-<section class="stores" id="stores">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="sec-en">SHOP INFORMATION</p>
-      <h2 class="sec-title">店舗情報</h2>
-    </div>
-    <div class="store-grid">
-      <article class="store-card rv">
-        <div class="store-visual sv-a">
-          <span class="area">NAKASHIBETSU</span>
-          <h3>東武サウスヒルズ</h3>
-        </div>
-        <div class="store-body">
-          <dl class="store-dl">
-            <dt>📍 所在地</dt><dd>北海道標津郡中標津町南町（サウスヒルズ内）</dd>
-            <dt>🕐 営業時間</dt><dd>9:00〜21:00（年中無休）</dd>
-            <dt>📞 電話</dt><dd>0153-XX-XXXX</dd>
-            <dt>🅿️ 駐車場</dt><dd>大型無料駐車場完備</dd>
-          </dl>
-          <div class="store-badges">
-            <span class="badge bd-sun">たすかーる対応</span>
-            <span class="badge">カーピックアップ</span>
-            <span class="badge bd-leaf">食育イベント開催</span>
-          </div>
-          <div class="store-actions">
-            <a class="btn btn-sm btn-map" href="#">Googleマップで見る</a>
-            <a class="btn btn-sm btn-flyer" href="#">今週のチラシ</a>
-          </div>
-        </div>
-      </article>
-      <article class="store-card rv">
-        <div class="store-visual sv-b">
-          <span class="area">KITAMI · TANNO</span>
-          <h3>東武端野店</h3>
-        </div>
-        <div class="store-body">
-          <dl class="store-dl">
-            <dt>📍 所在地</dt><dd>北海道北見市端野町</dd>
-            <dt>🕐 営業時間</dt><dd>9:00〜21:00（年中無休）</dd>
-            <dt>📞 電話</dt><dd>0157-XX-XXXX</dd>
-            <dt>🅿️ 駐車場</dt><dd>無料駐車場完備</dd>
-          </dl>
-          <div class="store-badges">
-            <span class="badge bd-sun">たすかーる対応</span>
-            <span class="badge">カーピックアップ</span>
-            <span class="badge bd-leaf">地場野菜コーナー</span>
-          </div>
-          <div class="store-actions">
-            <a class="btn btn-sm btn-map" href="#">Googleマップで見る</a>
-            <a class="btn btn-sm btn-flyer" href="#">今週のチラシ</a>
-          </div>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Recruit ===== -->
-<section class="recruit" id="recruit">
-  <div class="wrap">
-    <div class="recruit-band rv">
-      <div>
-        <p class="sec-en">RECRUIT</p>
-        <h3>経験よりも、<br>「地域の役に立ちたい」という気持ちを。</h3>
-        <p>これからの地域社会は、人と人とのつながり、支え合いがますます大切になります。だからこそ私たちが求めているのは、経験よりも「地域の役に立ちたい」「人の役に立ちたい」という気持ちです。正社員・パート・アルバイト、それぞれの働き方でお待ちしています。</p>
-      </div>
-      <a class="btn btn-secondary" href="#contact">採用情報を見る <span class="arr">→</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Footer ===== -->
-<footer class="footer" id="contact">
-  <div class="footer-grid">
-    <div>
-      <a class="logo" href="#top">
-        <span class="logo-mark">T</span>
-        <span>東武スーパー<small>TOBU SUPER MARKET</small></span>
-      </a>
-      <p>LIVE HEALTHY, LIVE LONGER AND LIVE HAPPY<br>健康に、長く、幸せに生きる。<br>北海道・中標津／北見</p>
-    </div>
-    <div>
-      <h5>店舗情報</h5>
-      <ul>
-        <li><a href="#stores">東武サウスヒルズ</a></li>
-        <li><a href="#stores">東武端野店</a></li>
-        <li><a href="#news">今週のチラシ</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5>サービス</h5>
-      <ul>
-        <li><a href="#taskal">ネット宅配「たすかーる」</a></li>
-        <li><a href="#service">カーピックアップ</a></li>
-        <li><a href="#service">ライブ配信販売</a></li>
-        <li><a href="#service">食育活動</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5>企業情報</h5>
-      <ul>
-        <li><a href="#about">私たちについて</a></li>
-        <li><a href="#recruit">採用情報</a></li>
-        <li><a href="#contact">お問い合わせ</a></li>
-        <li><a href="#">プライバシーポリシー</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-btm">
-    <p class="en">© 2026 TOBU SUPER MARKET</p>
-    <p>このサイトはサンプルです。電話番号・住所はダミー表記です。</p>
-  </div>
-</footer>
-
-<script>
-// モバイルメニュー
-const btn=document.getElementById('menuBtn'),nav=document.getElementById('gnav');
-btn.addEventListener('click',()=>{
-  const open=nav.classList.toggle('open');
-  btn.classList.toggle('open',open);
-  btn.setAttribute('aria-expanded',open);
-});
-nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
-  nav.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');
-}));
-// スクロールリビール
-const io=new IntersectionObserver(es=>es.forEach(e=>{
-  if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}
-}),{threshold:.12});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-</script>
 </body>
 </html>
