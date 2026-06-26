@@ -49,36 +49,43 @@ ul{list-style:none}
 .menu-btn span{width:24px;height:2.5px;background:var(--navy);border-radius:2px;transition:.3s}
 
 /* ===== Hero ===== */
-.hero{position:relative;min-height:92vh;display:flex;align-items:center;background:
-  radial-gradient(1100px 600px at 85% -10%,#ffffff 0%,transparent 55%),
-  linear-gradient(160deg,var(--ice) 0%,var(--ice-deep) 55%,#CFE4F6 100%);
-  padding:130px 22px 110px;overflow:hidden}
-.hero-in{max-width:1180px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;position:relative;z-index:2}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--en);font-weight:600;letter-spacing:.28em;font-size:12.5px;color:var(--blue);margin-bottom:22px}
-.hero-eyebrow::before{content:"";width:34px;height:2px;background:var(--blue)}
-.hero h1{font-family:var(--disp);font-weight:900;font-size:clamp(30px,4.6vw,52px);line-height:1.45;color:var(--navy);letter-spacing:.03em}
-.hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,rgba(91,168,229,.45) 62%)}
-.hero-lead{margin-top:24px;max-width:33em;font-size:15.5px;color:#3D5670}
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;padding:130px 22px 110px;overflow:hidden;background:var(--navy)}
+/* スライドショー背景 */
+.hero-slides{position:absolute;inset:0;z-index:0}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.08);transition:opacity 1.6s ease;animation:kenburns 7s ease-out forwards;animation-play-state:paused}
+.hero-slide.active{opacity:1;animation-play-state:running}
+@keyframes kenburns{from{transform:scale(1.08)}to{transform:scale(1)}}
+.s1{background-image:url('assets/scene-1.jpg')}
+.s2{background-image:url('assets/scene-2.jpg')}
+.s3{background-image:url('assets/scene-3.jpg')}
+.s4{background-image:url('assets/scene-4.jpg')}
+.s5{background-image:url('assets/scene-5.jpg')}
+/* 文字を読みやすくするオーバーレイ */
+.hero-overlay{position:absolute;inset:0;z-index:1;background:
+  linear-gradient(100deg,rgba(11,61,110,.82) 0%,rgba(11,61,110,.55) 42%,rgba(11,61,110,.18) 70%,rgba(11,61,110,.05) 100%),
+  linear-gradient(0deg,rgba(11,61,110,.45) 0%,transparent 40%)}
+.hero-in{max-width:1180px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;position:relative;z-index:3}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--en);font-weight:600;letter-spacing:.28em;font-size:12.5px;color:#BFE0FF;margin-bottom:22px;text-shadow:0 1px 8px rgba(11,61,110,.5)}
+.hero-eyebrow::before{content:"";width:34px;height:2px;background:#BFE0FF}
+.hero h1{font-family:var(--disp);font-weight:900;font-size:clamp(30px,4.6vw,52px);line-height:1.45;color:#fff;letter-spacing:.03em;text-shadow:0 2px 18px rgba(11,61,110,.55)}
+.hero h1 em{font-style:normal;background:linear-gradient(transparent 60%,rgba(242,146,10,.85) 60%);padding:0 .05em}
+.hero-lead{margin-top:24px;max-width:33em;font-size:15.5px;color:#EAF3FC;text-shadow:0 1px 10px rgba(11,61,110,.5)}
 .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
 .btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:15px;padding:16px 30px;border-radius:999px;transition:transform .2s,box-shadow .2s;font-family:var(--disp)}
-.btn-primary{background:var(--sun);color:#fff;box-shadow:0 8px 22px rgba(242,146,10,.38)}
-.btn-secondary{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+.btn-primary{background:var(--sun);color:#fff;box-shadow:0 8px 22px rgba(242,146,10,.45)}
+.btn-secondary{background:rgba(255,255,255,.95);color:var(--navy);border:2px solid #fff}
 .btn:hover{transform:translateY(-3px)}
 .btn .arr{font-family:var(--en);font-weight:600}
 /* 縦書きシグネチャー */
-.hero-tate{writing-mode:vertical-rl;font-family:var(--disp);font-weight:700;font-size:clamp(18px,2vw,24px);letter-spacing:.42em;color:var(--navy);border-right:1px solid rgba(11,61,110,.3);padding-right:22px;height:340px;align-self:center}
-.hero-tate b{color:var(--blue);font-weight:900}
-/* 背景の英字とウェーブ */
-.hero-en{position:absolute;bottom:11%;left:0;width:100%;white-space:nowrap;font-family:var(--en);font-style:italic;font-weight:500;font-size:clamp(54px,9vw,120px);color:rgba(29,111,191,.08);letter-spacing:.04em;user-select:none;pointer-events:none;z-index:1}
-.hero-wave{position:absolute;bottom:-2px;left:0;width:100%;z-index:2}
+.hero-tate{writing-mode:vertical-rl;font-family:var(--disp);font-weight:700;font-size:clamp(18px,2vw,24px);letter-spacing:.42em;color:#fff;border-right:1px solid rgba(255,255,255,.5);padding-right:22px;height:340px;align-self:center;text-shadow:0 2px 14px rgba(11,61,110,.6)}
+.hero-tate b{color:#FFC979;font-weight:900}
+/* スライド操作 */
+.hero-nav{position:absolute;bottom:46px;left:0;width:100%;z-index:4;display:flex;justify-content:center;gap:12px}
+.hero-dot{width:36px;height:5px;border-radius:999px;border:none;background:rgba(255,255,255,.4);cursor:pointer;padding:0;transition:background .3s,width .3s}
+.hero-dot.active{background:#fff;width:54px}
+.hero-dot:hover{background:rgba(255,255,255,.75)}
+.hero-wave{position:absolute;bottom:-2px;left:0;width:100%;z-index:3}
 .hero-wave svg{display:block;width:100%;height:90px}
-/* 雪の結晶のような点 */
-.dot{position:absolute;border-radius:50%;background:rgba(255,255,255,.85);box-shadow:0 0 12px rgba(255,255,255,.9)}
-.d1{width:10px;height:10px;top:18%;left:8%}
-.d2{width:6px;height:6px;top:30%;left:78%}
-.d3{width:8px;height:8px;top:62%;left:14%}
-.d4{width:5px;height:5px;top:14%;left:55%}
-.d5{width:7px;height:7px;top:70%;left:62%}
 
 /* ===== セクション共通 ===== */
 section{padding:96px 22px}
@@ -198,6 +205,7 @@ section{padding:96px 22px}
   html{scroll-behavior:auto}
   .rv{opacity:1;transform:none;transition:none}
   .btn,.svc-card{transition:none}
+  .hero-slide{animation:none;transition:opacity .4s ease;transform:none}
 }
 
 /* ===== Responsive ===== */
@@ -252,7 +260,14 @@ section{padding:96px 22px}
 
 <!-- ===== Hero ===== -->
 <div class="hero" id="top">
-  <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="dot d4"></span><span class="dot d5"></span>
+  <div class="hero-slides" aria-hidden="true">
+    <div class="hero-slide s1 active"></div>
+    <div class="hero-slide s2"></div>
+    <div class="hero-slide s3"></div>
+    <div class="hero-slide s4"></div>
+    <div class="hero-slide s5"></div>
+  </div>
+  <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-in">
     <div>
       <p class="hero-eyebrow">TOBU SUPER MARKET — HOKKAIDO</p>
@@ -265,7 +280,13 @@ section{padding:96px 22px}
     </div>
     <p class="hero-tate">健康に、<b>長く</b>、幸せに生きる。</p>
   </div>
-  <p class="hero-en" aria-hidden="true">LIVE HEALTHY, LIVE LONGER AND LIVE HAPPY</p>
+  <div class="hero-nav" role="tablist" aria-label="ヒーロー画像の切り替え">
+    <button class="hero-dot active" data-i="0" aria-label="1枚目を表示"></button>
+    <button class="hero-dot" data-i="1" aria-label="2枚目を表示"></button>
+    <button class="hero-dot" data-i="2" aria-label="3枚目を表示"></button>
+    <button class="hero-dot" data-i="3" aria-label="4枚目を表示"></button>
+    <button class="hero-dot" data-i="4" aria-label="5枚目を表示"></button>
+  </div>
   <div class="hero-wave" aria-hidden="true">
     <svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,50 C240,90 480,10 720,40 C960,70 1200,20 1440,50 L1440,90 L0,90 Z" fill="#ffffff"/></svg>
   </div>
@@ -512,6 +533,28 @@ btn.addEventListener('click',()=>{
 nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
   nav.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');
 }));
+
+// ヒーロー スライドショー
+(function(){
+  const slides=document.querySelectorAll('.hero-slide');
+  const dots=document.querySelectorAll('.hero-dot');
+  if(!slides.length)return;
+  let i=0,timer;
+  const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function show(n){
+    i=(n+slides.length)%slides.length;
+    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+    dots.forEach((d,k)=>d.classList.toggle('active',k===i));
+  }
+  function next(){show(i+1);}
+  function start(){if(reduce)return;stop();timer=setInterval(next,5200);}
+  function stop(){clearInterval(timer);}
+  dots.forEach(d=>d.addEventListener('click',()=>{show(+d.dataset.i);start();}));
+  start();
+  // タブが非表示の間は止める
+  document.addEventListener('visibilitychange',()=>document.hidden?stop():start());
+})();
+
 // スクロールリビール
 const io=new IntersectionObserver(es=>es.forEach(e=>{
   if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}
