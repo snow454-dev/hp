@@ -1,565 +1,346 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>東武スーパー｜LIVE HEALTHY, LIVE LONGER AND LIVE HAPPY</title>
-<meta name="description" content="北海道・中標津、北見の地域とともに歩むスーパーマーケット。ネット宅配「たすかーる」、カーピックアップなど、暮らしを支えるライフステーションです。">
+<title>東武スーパー | 地域のライフステーション</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Jost:ital,wght@0,400;0,600;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@700;900&family=Noto+Sans+JP:wght@400;500;700&family=Jost:ital,wght@0,400;0,600;1,600&display=swap" rel="stylesheet">
 <style>
-:root{
-  --navy:#0B3D6E;
-  --blue:#1D6FBF;
-  --sky:#5BA8E5;
-  --ice:#EDF5FC;
-  --ice-deep:#DCEBF8;
-  --sun:#F2920A;       /* たすかーるCTA・アクセント */
-  --leaf:#3E9E6E;      /* 健康・食育アクセント */
-  --ink:#20354A;
-  --line:#C9DDF0;
-  --radius:18px;
-  --disp:'Zen Maru Gothic','Noto Sans JP',sans-serif;
-  --body:'Noto Sans JP',sans-serif;
-  --en:'Jost','Noto Sans JP',sans-serif;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:var(--body);color:var(--ink);background:#fff;line-height:1.9;font-size:15.5px;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-ul{list-style:none}
-:focus-visible{outline:3px solid var(--sun);outline-offset:2px;border-radius:4px}
+  :root{
+    --navy:#0B3D6E; --blue:#1D6FBF; --sky:#5BA8E5; --ice:#EDF5FC; --ice-deep:#DCEBF8;
+    --ink:#20354A; --ink2:#3D5670; --ink3:#4A627C; --sun:#F2920A; --line:#C9DDF0;
+    --font-display:'Zen Maru Gothic',sans-serif; --font-body:'Noto Sans JP',sans-serif; --font-en:'Jost',sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:var(--font-body);color:var(--ink);font-size:15.5px;line-height:1.9;background:#fff;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:var(--blue);text-decoration:none}
+  a:hover{color:var(--navy)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+  .btn{display:inline-block;font-family:var(--font-display);font-weight:900;border-radius:999px;transition:transform .2s;white-space:nowrap}
+  .btn:hover{transform:translateY(-3px)}
+  .btn-sun{background:var(--sun);color:#fff;box-shadow:0 8px 24px rgba(242,146,10,.45)}
+  .btn-sun:hover{color:#fff}
+  .btn-white{background:#fff;color:var(--navy)}
+  .btn-white:hover{color:var(--navy)}
+  .eyebrow{display:flex;align-items:center;gap:10px;font-family:var(--font-en);font-weight:600;letter-spacing:.26em;font-size:12.5px;color:var(--blue);margin:0}
+  .eyebrow::before{content:'';width:30px;height:2px;background:var(--blue)}
+  h2.section-title{margin:10px 0 40px;font-family:var(--font-display);font-weight:900;font-size:clamp(24px,3.4vw,30px);color:var(--navy);letter-spacing:.03em}
+  .wave{position:absolute;left:0;right:0;bottom:-1px;line-height:0}
+  .grid{display:grid;gap:22px}
+  .card-photo{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 6px 20px rgba(11,61,110,.12);transition:transform .25s,box-shadow .25s;color:#fff}
+  .card-photo:hover{transform:translateY(-6px);box-shadow:0 14px 32px rgba(11,61,110,.2)}
+  .card-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .card-photo .tint{position:absolute;inset:0}
+  .card-photo .body{position:relative;padding:30px 26px;min-height:210px;display:flex;flex-direction:column;justify-content:flex-end}
 
-/* ===== Header ===== */
-.header{position:fixed;inset:0 0 auto;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.header-in{max-width:1180px;margin:0 auto;padding:0 22px;height:70px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:900;font-size:21px;color:var(--navy);letter-spacing:.04em}
-.logo-mark{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--navy));display:grid;place-items:center;color:#fff;font-family:var(--en);font-weight:600;font-size:17px;flex-shrink:0}
-.logo small{display:block;font-family:var(--en);font-weight:400;font-size:9.5px;letter-spacing:.22em;color:var(--blue);line-height:1}
-.gnav{display:flex;align-items:center;gap:26px}
-.gnav a{font-size:14px;font-weight:500;color:var(--ink);position:relative;padding:6px 0}
-.gnav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:2.5px;background:var(--blue);border-radius:2px;transition:right .25s}
-.gnav a:hover::after{right:0}
-.nav-cta{background:var(--sun);color:#fff !important;padding:10px 20px;border-radius:999px;font-weight:700;font-size:13.5px;box-shadow:0 4px 14px rgba(242,146,10,.35);transition:transform .2s}
-.nav-cta:hover{transform:translateY(-2px)}
-.nav-cta::after{display:none}
-.menu-btn{display:none;width:44px;height:44px;border:none;background:none;cursor:pointer;flex-direction:column;justify-content:center;gap:6px;align-items:center}
-.menu-btn span{width:24px;height:2.5px;background:var(--navy);border-radius:2px;transition:.3s}
+  /* header */
+  header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  header .wrap{height:70px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .logo{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:900;font-size:21px;color:var(--navy);letter-spacing:.04em}
+  .logo .mark{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--navy));display:grid;place-items:center;color:#fff;font-family:var(--font-en);font-weight:600;font-size:17px;flex-shrink:0}
+  .logo small{display:block;font-family:var(--font-en);font-weight:400;font-size:9.5px;letter-spacing:.22em;color:var(--blue);line-height:1}
+  nav{display:flex;align-items:center;gap:clamp(10px,2vw,26px);font-size:14px;font-weight:500}
+  #nav-links{display:flex;align-items:center;gap:clamp(10px,2vw,26px)}
+  nav a{color:var(--ink);padding:6px 0}
+  .nav-cta{font-size:clamp(12px,1.6vw,14px);padding:11px clamp(14px,2.4vw,24px);box-shadow:0 6px 18px rgba(242,146,10,.45)}
+  @media (max-width:760px){ #nav-links{display:none} }
 
-/* ===== Hero ===== */
-.hero{position:relative;min-height:92vh;display:flex;align-items:center;padding:130px 22px 110px;overflow:hidden;background:var(--navy)}
-/* スライドショー背景 */
-.hero-slides{position:absolute;inset:0;z-index:0}
-.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.08);transition:opacity 1.6s ease;animation:kenburns 7s ease-out forwards;animation-play-state:paused}
-.hero-slide.active{opacity:1;animation-play-state:running}
-@keyframes kenburns{from{transform:scale(1.08)}to{transform:scale(1)}}
-.s1{background-image:url('assets/scene-1.jpg')}
-.s2{background-image:url('assets/scene-2.jpg')}
-.s3{background-image:url('assets/scene-3.jpg')}
-.s4{background-image:url('assets/scene-4.jpg')}
-.s5{background-image:url('assets/scene-5.jpg')}
-/* 文字を読みやすくするオーバーレイ */
-.hero-overlay{position:absolute;inset:0;z-index:1;background:
-  linear-gradient(100deg,rgba(11,61,110,.82) 0%,rgba(11,61,110,.55) 42%,rgba(11,61,110,.18) 70%,rgba(11,61,110,.05) 100%),
-  linear-gradient(0deg,rgba(11,61,110,.45) 0%,transparent 40%)}
-.hero-in{max-width:1180px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;position:relative;z-index:3}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--en);font-weight:600;letter-spacing:.28em;font-size:12.5px;color:#BFE0FF;margin-bottom:22px;text-shadow:0 1px 8px rgba(11,61,110,.5)}
-.hero-eyebrow::before{content:"";width:34px;height:2px;background:#BFE0FF}
-.hero h1{font-family:var(--disp);font-weight:900;font-size:clamp(30px,4.6vw,52px);line-height:1.45;color:#fff;letter-spacing:.03em;text-shadow:0 2px 18px rgba(11,61,110,.55)}
-.hero h1 em{font-style:normal;background:linear-gradient(transparent 60%,rgba(242,146,10,.85) 60%);padding:0 .05em}
-.hero-lead{margin-top:24px;max-width:33em;font-size:15.5px;color:#EAF3FC;text-shadow:0 1px 10px rgba(11,61,110,.5)}
-.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
-.btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:15px;padding:16px 30px;border-radius:999px;transition:transform .2s,box-shadow .2s;font-family:var(--disp)}
-.btn-primary{background:var(--sun);color:#fff;box-shadow:0 8px 22px rgba(242,146,10,.45)}
-.btn-secondary{background:rgba(255,255,255,.95);color:var(--navy);border:2px solid #fff}
-.btn:hover{transform:translateY(-3px)}
-.btn .arr{font-family:var(--en);font-weight:600}
-/* 縦書きシグネチャー */
-.hero-tate{writing-mode:vertical-rl;font-family:var(--disp);font-weight:700;font-size:clamp(18px,2vw,24px);letter-spacing:.42em;color:#fff;border-right:1px solid rgba(255,255,255,.5);padding-right:22px;height:340px;align-self:center;text-shadow:0 2px 14px rgba(11,61,110,.6)}
-.hero-tate b{color:#FFC979;font-weight:900}
-/* スライド操作 */
-.hero-nav{position:absolute;bottom:46px;left:0;width:100%;z-index:4;display:flex;justify-content:center;gap:12px}
-.hero-dot{width:36px;height:5px;border-radius:999px;border:none;background:rgba(255,255,255,.4);cursor:pointer;padding:0;transition:background .3s,width .3s}
-.hero-dot.active{background:#fff;width:54px}
-.hero-dot:hover{background:rgba(255,255,255,.75)}
-.hero-wave{position:absolute;bottom:-2px;left:0;width:100%;z-index:3}
-.hero-wave svg{display:block;width:100%;height:90px}
+  /* hero */
+  .hero{position:relative;min-height:640px;display:flex;align-items:center;padding:clamp(96px,20vw,130px) clamp(16px,4vw,22px) clamp(72px,12vw,110px);overflow:hidden;background:var(--navy)}
+  .hero .slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.08);transition:opacity 1.6s ease,transform 7s ease-out}
+  .hero .slide.active{opacity:1;transform:scale(1)}
+  .hero .scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(11,61,110,.82) 0%,rgba(11,61,110,.55) 42%,rgba(11,61,110,.18) 70%,rgba(11,61,110,.05) 100%),linear-gradient(0deg,rgba(11,61,110,.45) 0%,transparent 40%)}
+  #hero-grid{max-width:1180px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;position:relative;z-index:3}
+  .hero .eyebrow-white{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-en);font-weight:600;letter-spacing:.28em;font-size:12.5px;color:#BFE0FF;margin:0 0 22px;text-shadow:0 1px 8px rgba(11,61,110,.5)}
+  .hero .eyebrow-white::before{content:'';width:34px;height:2px;background:#BFE0FF}
+  .hero h1{margin:0;font-family:var(--font-display);font-weight:900;font-size:clamp(28px,5.6vw,46px);line-height:1.45;color:#fff;letter-spacing:.03em;text-shadow:0 2px 18px rgba(11,61,110,.55)}
+  .hero h1 em{font-style:normal;background:linear-gradient(transparent 60%,rgba(242,146,10,.85) 60%);padding:0 .05em}
+  .hero p.lead{margin:24px 0 0;max-width:33em;font-size:15.5px;color:#EAF3FC;line-height:1.9;text-shadow:0 1px 10px rgba(11,61,110,.5)}
+  #hero-vertical{writing-mode:vertical-rl;font-family:var(--font-display);font-weight:700;font-size:22px;letter-spacing:.42em;color:#fff;border-right:1px solid rgba(255,255,255,.5);padding-right:22px;height:340px;align-self:center;margin:0;text-shadow:0 2px 14px rgba(11,61,110,.6)}
+  #hero-vertical b{color:#FFC979;font-weight:900}
+  @media (max-width:860px){ #hero-grid{grid-template-columns:1fr} #hero-vertical{display:none} }
+  .dots{position:absolute;bottom:46px;left:0;width:100%;z-index:4;display:flex;justify-content:center;gap:12px}
+  .dots button{height:5px;border-radius:999px;border:none;cursor:pointer;background:rgba(255,255,255,.4);padding:0;transition:all .3s;width:36px}
+  .dots button.active{background:#fff;width:54px}
 
-/* ===== セクション共通 ===== */
-section{padding:96px 22px}
-.wrap{max-width:1180px;margin:0 auto}
-.sec-head{margin-bottom:50px}
-.sec-en{font-family:var(--en);font-weight:600;letter-spacing:.26em;font-size:12.5px;color:var(--blue);display:flex;align-items:center;gap:10px}
-.sec-en::before{content:"";width:30px;height:2px;background:var(--blue)}
-.sec-title{font-family:var(--disp);font-weight:900;font-size:clamp(24px,3.2vw,36px);color:var(--navy);margin-top:10px;letter-spacing:.04em}
+  /* news */
+  .news-row{display:flex;align-items:center;gap:20px;padding:18px 6px;border-bottom:1px solid var(--line);color:var(--ink)}
+  .news-row:hover{background:var(--ice)}
+  .news-date{font-family:var(--font-en);font-weight:600;font-size:13.5px;letter-spacing:.08em;color:var(--blue);flex-shrink:0}
+  .news-tag{flex-shrink:0;font-size:11.5px;font-weight:700;border-radius:999px;padding:4px 14px}
 
-/* ===== News ===== */
-.news{background:#fff;padding:64px 22px}
-.news-list{border-top:1px solid var(--line)}
-.news-item{display:grid;grid-template-columns:110px 110px 1fr;gap:18px;align-items:center;padding:20px 6px;border-bottom:1px solid var(--line);transition:background .2s}
-.news-item:hover{background:var(--ice)}
-.news-date{font-family:var(--en);font-weight:600;color:var(--blue);font-size:14px}
-.news-tag{font-size:11.5px;font-weight:700;text-align:center;padding:4px 0;border-radius:999px;background:var(--ice-deep);color:var(--navy)}
-.news-tag.t-sale{background:#FDEBD2;color:#A35F00}
-.news-tag.t-event{background:#DEF2E7;color:#1F7A4D}
-.news-link{margin-top:26px;text-align:right}
-.news-link a{font-weight:700;color:var(--blue);font-size:14px}
+  /* about */
+  #about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:60px;align-items:center}
+  #about-grid h3{margin:0 0 22px;font-family:var(--font-display);font-weight:900;font-size:24px;color:var(--navy);line-height:1.7}
+  #about-grid p{margin:0 0 16px;color:var(--ink2);line-height:1.9}
+  .quote-box{margin-top:30px;background:var(--navy);color:#fff;border-radius:18px;padding:26px 30px}
+  .quote-box p{margin:0;font-family:var(--font-en);font-weight:600;font-size:17px;letter-spacing:.08em;font-style:italic;color:#fff}
+  .quote-box p.sub{margin:6px 0 0;font-size:13px;color:var(--sky);font-style:normal;font-family:var(--font-body)}
+  .pillars{display:grid;gap:16px}
+  .pillar{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 6px 20px rgba(11,61,110,.12);min-height:130px}
+  .pillar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .pillar .tint{position:absolute;inset:0;background:linear-gradient(100deg,rgba(11,61,110,.88) 0%,rgba(11,61,110,.72) 55%,rgba(11,61,110,.55) 100%)}
+  .pillar .body{position:relative;padding:26px 28px}
+  .pillar strong{display:block;font-family:var(--font-display);font-weight:900;font-size:18px;color:#fff;margin-bottom:8px;text-shadow:0 1px 8px rgba(11,61,110,.5)}
+  .pillar span{font-size:13.5px;color:var(--ice-deep);line-height:1.8;text-shadow:0 1px 6px rgba(11,61,110,.5)}
 
-/* ===== About ===== */
-.about{background:linear-gradient(180deg,var(--ice) 0%,#fff 100%)}
-.about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
-.about-copy h3{font-family:var(--disp);font-weight:900;font-size:clamp(21px,2.4vw,28px);color:var(--navy);line-height:1.7;margin-bottom:22px}
-.about-copy p{color:#3D5670;margin-bottom:16px}
-.about-motto{margin-top:30px;background:var(--navy);color:#fff;border-radius:var(--radius);padding:26px 30px;position:relative;overflow:hidden}
-.about-motto::after{content:"“";position:absolute;right:14px;top:-26px;font-family:var(--en);font-size:120px;color:rgba(255,255,255,.12)}
-.about-motto .en{font-family:var(--en);font-weight:600;font-size:17px;letter-spacing:.08em;font-style:italic}
-.about-motto .ja{font-size:13px;color:var(--sky);margin-top:6px}
-.pillar{display:grid;gap:16px}
-.pillar-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;display:flex;gap:18px;align-items:flex-start;box-shadow:0 6px 20px rgba(11,61,110,.06)}
-.pillar-ico{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-size:23px;flex-shrink:0}
-.p1 .pillar-ico{background:var(--ice-deep)}
-.p2 .pillar-ico{background:#DEF2E7}
-.p3 .pillar-ico{background:#FDEBD2}
-.pillar-card h4{font-family:var(--disp);font-weight:700;color:var(--navy);font-size:16.5px;margin-bottom:4px}
-.pillar-card p{font-size:13.5px;color:#4A627C}
+  /* taskal */
+  .taskal{position:relative;background:var(--navy);color:#fff;padding:96px 22px;overflow:hidden}
+  .taskal .watermark{position:absolute;top:30px;right:-10px;font-family:var(--font-en);font-style:italic;font-weight:600;font-size:90px;color:rgba(255,255,255,.05);white-space:nowrap;pointer-events:none}
+  .taskal .eyebrow{color:var(--sky)}
+  .taskal .eyebrow::before{background:var(--sky)}
+  .taskal h2{color:#fff}
+  .taskal>.wrap{position:relative}
+  .step{background:rgba(255,255,255,.06);border:1px solid rgba(91,168,229,.35);border-radius:18px;padding:26px 28px}
+  .step .no{font-family:var(--font-en);font-style:italic;font-weight:600;font-size:28px;color:var(--sky);line-height:1}
+  .step h4{margin:12px 0 8px;font-family:var(--font-display);font-weight:900;font-size:17px;color:#fff}
+  .step p{margin:0;font-size:13.5px;color:#BCD6EE;line-height:1.8}
+  .biz-callout{background:rgba(91,168,229,.14);border:1px dashed rgba(91,168,229,.5);border-radius:18px;padding:24px 28px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin:0 0 40px}
 
-/* ===== たすかーる ===== */
-.taskal{background:var(--navy);color:#fff;position:relative;overflow:hidden}
-.taskal::before{content:"TASKAL DELIVERY";position:absolute;top:30px;right:-10px;font-family:var(--en);font-style:italic;font-weight:600;font-size:clamp(40px,7vw,90px);color:rgba(255,255,255,.05);white-space:nowrap}
-.taskal .sec-en{color:var(--sky)}
-.taskal .sec-en::before{background:var(--sky)}
-.taskal .sec-title{color:#fff}
-.taskal-lead{max-width:38em;color:#BCD6EE;margin-top:-30px;margin-bottom:46px}
-.taskal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:46px}
-.step{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:var(--radius);padding:30px 26px;position:relative}
-.step-no{font-family:var(--en);font-style:italic;font-weight:600;font-size:38px;color:var(--sky);line-height:1}
-.step h4{font-family:var(--disp);font-weight:700;font-size:17.5px;margin:14px 0 8px}
-.step p{font-size:13.5px;color:#BCD6EE}
-.taskal-biz{background:rgba(91,168,229,.14);border:1px dashed rgba(91,168,229,.5);border-radius:var(--radius);padding:24px 28px;display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-bottom:40px}
-.taskal-biz .b-ico{font-size:30px}
-.taskal-biz h4{font-family:var(--disp);font-weight:700;font-size:16.5px}
-.taskal-biz p{font-size:13.5px;color:#BCD6EE}
-.taskal-cta{text-align:center}
-.taskal-cta .btn-primary{font-size:17px;padding:19px 46px}
-.taskal-cta .note{font-size:12.5px;color:#8FB6DB;margin-top:14px}
+  /* services */
+  .service .en{font-family:var(--font-en);font-weight:600;font-size:11px;letter-spacing:.2em;color:var(--sky)}
+  .service h3{margin:6px 0 0;font-family:var(--font-display);font-weight:900;font-size:17px;color:#fff;line-height:1.6;text-shadow:0 1px 8px rgba(11,61,110,.5)}
+  .service p{margin:10px 0 0;font-size:13.5px;color:var(--ice-deep);line-height:1.8;text-shadow:0 1px 6px rgba(11,61,110,.5)}
+  .service .tint{background:linear-gradient(180deg,rgba(11,61,110,.82) 0%,rgba(11,61,110,.68) 50%,rgba(11,61,110,.86) 100%)}
 
-/* ===== Services ===== */
-.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-.svc-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 24px;box-shadow:0 6px 20px rgba(11,61,110,.06);transition:transform .25s,box-shadow .25s}
-.svc-card:hover{transform:translateY(-6px);box-shadow:0 14px 30px rgba(11,61,110,.12)}
-.svc-ico{width:58px;height:58px;border-radius:16px;display:grid;place-items:center;font-size:27px;margin-bottom:18px;background:linear-gradient(135deg,var(--ice),var(--ice-deep))}
-.svc-card h4{font-family:var(--disp);font-weight:700;color:var(--navy);font-size:17px;margin-bottom:8px}
-.svc-card .en{font-family:var(--en);font-size:10.5px;letter-spacing:.18em;color:var(--blue);display:block;margin-bottom:10px;font-weight:600}
-.svc-card p{font-size:13.5px;color:#4A627C}
+  /* stores */
+  .store{background:#fff;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 10px 30px rgba(11,61,110,.1)}
+  .store .head{height:170px;position:relative;display:flex;align-items:flex-end;padding:22px;color:#fff}
+  .store .area{position:absolute;top:18px;left:22px;font-family:var(--font-en);font-weight:600;letter-spacing:.2em;font-size:11px;background:rgba(255,255,255,.2);padding:5px 14px;border-radius:999px;backdrop-filter:blur(4px)}
+  .store .head h3{margin:0;font-family:var(--font-display);font-weight:900;font-size:24px;position:relative;z-index:1;text-shadow:0 2px 8px rgba(11,61,110,.4)}
+  .store .body{padding:26px 28px 30px}
+  .store dl{display:grid;grid-template-columns:96px 1fr;gap:8px 14px;font-size:14px;margin:0 0 20px}
+  .store dt{font-weight:700;color:var(--blue);font-size:13px}
+  .store dd{margin:0;color:var(--ink2)}
+  .badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+  .badge{font-size:11.5px;font-weight:700;border-radius:999px;padding:4px 14px}
+  .store-actions{display:flex;gap:12px;flex-wrap:wrap}
+  .store-actions a{font-family:var(--font-display);font-weight:900;font-size:13px;border-radius:999px;padding:10px 22px}
+  .store-actions a.navy{background:var(--navy);color:#fff}
+  .store-actions a.navy:hover{color:#fff}
+  .store-actions a.outline{background:#fff;color:var(--navy);border:1.5px solid var(--line)}
+  .store-actions a.outline:hover{color:var(--navy)}
 
-/* ===== Stores ===== */
-.stores{background:linear-gradient(180deg,#fff 0%,var(--ice) 100%)}
-.store-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-.store-card{background:#fff;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:0 8px 26px rgba(11,61,110,.08)}
-.store-visual{height:170px;position:relative;display:flex;align-items:flex-end;padding:22px;color:#fff}
-.sv-a{background:linear-gradient(135deg,var(--blue) 0%,var(--navy) 100%)}
-.sv-b{background:linear-gradient(135deg,var(--sky) 0%,var(--blue) 100%)}
-.store-visual::after{content:"";position:absolute;inset:auto 0 0;height:40px;background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" fill="white"/></svg>') bottom/100% 100% no-repeat}
-.store-visual h3{font-family:var(--disp);font-weight:900;font-size:24px;position:relative;z-index:1;text-shadow:0 2px 8px rgba(11,61,110,.4)}
-.store-visual .area{position:absolute;top:18px;left:22px;font-family:var(--en);font-weight:600;letter-spacing:.2em;font-size:11px;background:rgba(255,255,255,.2);padding:5px 14px;border-radius:999px;backdrop-filter:blur(4px)}
-.store-body{padding:26px 28px 30px}
-.store-dl{display:grid;grid-template-columns:84px 1fr;gap:8px 14px;font-size:14px;margin-bottom:20px}
-.store-dl dt{font-weight:700;color:var(--blue);font-size:13px;display:flex;align-items:center;gap:6px}
-.store-dl dd{color:#3D5670}
-.store-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
-.badge{font-size:11.5px;font-weight:700;padding:5px 13px;border-radius:999px;background:var(--ice-deep);color:var(--navy)}
-.badge.bd-sun{background:#FDEBD2;color:#A35F00}
-.badge.bd-leaf{background:#DEF2E7;color:#1F7A4D}
-.store-actions{display:flex;gap:12px;flex-wrap:wrap}
-.btn-sm{font-size:13.5px;padding:11px 22px}
-.btn-map{background:var(--navy);color:#fff}
-.btn-flyer{background:#fff;color:var(--navy);border:2px solid var(--line)}
+  /* recruit banner */
+  .recruit-banner{background:linear-gradient(120deg,var(--ice) 0%,var(--ice-deep) 100%);border-radius:26px;padding:clamp(36px,6vw,60px) clamp(24px,6vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;align-items:center;position:relative;overflow:hidden}
+  .recruit-banner .watermark{position:absolute;bottom:-14px;right:18px;font-family:var(--font-en);font-style:italic;font-weight:600;font-size:90px;color:rgba(29,111,191,.08);pointer-events:none}
+  .recruit-banner h3{margin:10px 0 16px;font-family:var(--font-display);font-weight:900;font-size:24px;color:var(--navy);line-height:1.7}
+  .recruit-banner p{margin:0;color:var(--ink2);font-size:14.5px;line-height:1.9}
 
-/* ===== Recruit ===== */
-.recruit{background:#fff}
-.recruit-band{background:linear-gradient(120deg,var(--ice) 0%,var(--ice-deep) 100%);border-radius:calc(var(--radius) + 8px);padding:60px 56px;display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;position:relative;overflow:hidden}
-.recruit-band::after{content:"JOIN US";position:absolute;bottom:-14px;right:18px;font-family:var(--en);font-style:italic;font-weight:600;font-size:90px;color:rgba(29,111,191,.08)}
-.recruit-band h3{font-family:var(--disp);font-weight:900;font-size:clamp(21px,2.6vw,30px);color:var(--navy);line-height:1.7;margin-bottom:16px}
-.recruit-band p{color:#3D5670;font-size:14.5px}
-.recruit-band .btn{justify-self:center}
-
-/* ===== Footer ===== */
-.footer{background:var(--navy);color:#BCD6EE;padding:70px 22px 30px}
-.footer-grid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:40px;padding-bottom:46px;border-bottom:1px solid rgba(255,255,255,.14)}
-.footer .logo{color:#fff}
-.footer .logo small{color:var(--sky)}
-.footer-grid p{font-size:13px;margin-top:16px}
-.footer h5{font-family:var(--disp);font-weight:700;color:#fff;font-size:14.5px;margin-bottom:16px}
-.footer-grid ul li{margin-bottom:10px}
-.footer-grid ul a{font-size:13.5px;transition:color .2s}
-.footer-grid ul a:hover{color:#fff}
-.footer-btm{max-width:1180px;margin:24px auto 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:#7FA8CF}
-.footer-btm .en{font-family:var(--en);letter-spacing:.08em}
-
-/* ===== Reveal ===== */
-.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
-.rv.on{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .rv{opacity:1;transform:none;transition:none}
-  .btn,.svc-card{transition:none}
-  .hero-slide{animation:none;transition:opacity .4s ease;transform:none}
-}
-
-/* ===== Responsive ===== */
-@media (max-width:980px){
-  .hero-in{grid-template-columns:1fr}
-  .hero-tate{display:none}
-  .about-grid,.store-grid,.recruit-band{grid-template-columns:1fr}
-  .svc-grid{grid-template-columns:repeat(2,1fr)}
-  .taskal-grid{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr 1fr}
-}
-@media (max-width:680px){
-  .gnav{position:fixed;inset:70px 0 auto;background:#fff;flex-direction:column;align-items:stretch;gap:0;padding:10px 22px 26px;border-bottom:1px solid var(--line);box-shadow:0 20px 30px rgba(11,61,110,.12);transform:translateY(-130%);transition:transform .3s;z-index:99}
-  .gnav.open{transform:none}
-  .gnav a{padding:15px 4px;border-bottom:1px solid var(--ice-deep);font-size:15px}
-  .nav-cta{margin-top:16px;text-align:center;justify-content:center;display:flex}
-  .menu-btn{display:flex}
-  .menu-btn.open span:nth-child(1){transform:translateY(8.5px) rotate(45deg)}
-  .menu-btn.open span:nth-child(2){opacity:0}
-  .menu-btn.open span:nth-child(3){transform:translateY(-8.5px) rotate(-45deg)}
-  section{padding:70px 18px}
-  .news-item{grid-template-columns:88px 1fr;grid-template-rows:auto auto}
-  .news-item .news-title{grid-column:1/-1}
-  .svc-grid{grid-template-columns:1fr}
-  .recruit-band{padding:40px 26px}
-  .footer-grid{grid-template-columns:1fr}
-}
+  /* footer */
+  footer{background:var(--navy);color:#BCD6EE;padding:70px 22px 30px}
+  footer .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:32px 40px;padding-bottom:46px;border-bottom:1px solid rgba(255,255,255,.14)}
+  footer h5{font-family:var(--font-display);font-weight:700;color:#fff;font-size:14.5px;margin:0 0 16px}
+  footer .col-links{display:flex;flex-direction:column;gap:10px;font-size:13.5px}
+  footer .col-links a{color:#BCD6EE}
+  footer .col-links a:hover{color:#fff}
+  footer .bottom{max-width:1180px;margin:24px auto 0;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12px;color:#7FA8CF}
 </style>
 </head>
 <body>
 
-<!-- ===== Header ===== -->
-<header class="header">
-  <div class="header-in">
-    <a class="logo" href="#top" aria-label="東武スーパー ホーム">
-      <span class="logo-mark">T</span>
-      <span>東武スーパー<small>TOBU SUPER MARKET</small></span>
-    </a>
-    <button class="menu-btn" id="menuBtn" aria-label="メニューを開く" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="gnav" id="gnav" aria-label="グローバルナビゲーション">
-      <a href="#about">私たちについて</a>
-      <a href="#service">サービス</a>
-      <a href="#stores">店舗情報</a>
-      <a href="#news">お知らせ</a>
-      <a href="#recruit">採用情報</a>
-      <a class="nav-cta" href="#taskal">ネット宅配を申し込む</a>
+<header>
+  <div class="wrap">
+    <a href="index.html" class="logo"><span class="mark">T</span><span>東武スーパー<small>TOBU SUPER MARKET</small></span></a>
+    <nav>
+      <div id="nav-links">
+        <a href="#about">私たちについて</a>
+        <a href="#service">サービス</a>
+        <a href="#stores">店舗情報</a>
+        <a href="#news">お知らせ</a>
+        <a href="recruit.html">採用情報</a>
+      </div>
+      <a href="#taskal" class="btn btn-sun nav-cta">ネット宅配を申し込む</a>
     </nav>
   </div>
 </header>
 
-<!-- ===== Hero ===== -->
-<div class="hero" id="top">
-  <div class="hero-slides" aria-hidden="true">
-    <div class="hero-slide s1 active"></div>
-    <div class="hero-slide s2"></div>
-    <div class="hero-slide s3"></div>
-    <div class="hero-slide s4"></div>
-    <div class="hero-slide s5"></div>
-  </div>
-  <div class="hero-overlay" aria-hidden="true"></div>
-  <div class="hero-in">
+<section class="hero" id="top">
+  <div class="slide active" style="background-image:url('assets/scene-1.jpg')"></div>
+  <div class="slide" style="background-image:url('assets/scene-2.jpg')"></div>
+  <div class="slide" style="background-image:url('assets/scene-3.jpg')"></div>
+  <div class="slide" style="background-image:url('assets/scene-4.jpg')"></div>
+  <div class="slide" style="background-image:url('assets/scene-5.jpg')"></div>
+  <div class="scrim" aria-hidden="true"></div>
+  <div id="hero-grid">
     <div>
-      <p class="hero-eyebrow">TOBU SUPER MARKET — HOKKAIDO</p>
+      <p class="eyebrow-white">TOBU SUPER MARKET — HOKKAIDO</p>
       <h1>毎日の食卓から、<br>この街の<em>「健康」と「笑顔」</em>を<br>支えていく。</h1>
-      <p class="hero-lead">東武スーパーは、北海道・中標津と北見の地域とともに歩むスーパーマーケットです。お店での買い物も、ご自宅へのお届けも。暮らしに寄り添う「地域のライフステーション」を目指しています。</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#taskal">ネット宅配「たすかーる」を申し込む<span class="arr">→</span></a>
-        <a class="btn btn-secondary" href="#stores">店舗情報・アクセス<span class="arr">→</span></a>
+      <p class="lead">東武スーパーは、北海道・中標津と北見の地域とともに歩むスーパーマーケットです。お店での買い物も、ご自宅へのお届けも。暮らしに寄り添う「地域のライフステーション」を目指しています。</p>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:36px">
+        <a href="#taskal" class="btn btn-sun" style="font-size:15.5px;padding:15px 34px">ネット宅配「たすかーる」を申し込む →</a>
+        <a href="#stores" class="btn btn-white" style="font-size:15.5px;padding:15px 34px">店舗情報・アクセス →</a>
       </div>
     </div>
-    <p class="hero-tate">健康に、<b>長く</b>、幸せに生きる。</p>
+    <p id="hero-vertical">健康に、<b>長く</b>、幸せに生きる。</p>
   </div>
-  <div class="hero-nav" role="tablist" aria-label="ヒーロー画像の切り替え">
-    <button class="hero-dot active" data-i="0" aria-label="1枚目を表示"></button>
-    <button class="hero-dot" data-i="1" aria-label="2枚目を表示"></button>
-    <button class="hero-dot" data-i="2" aria-label="3枚目を表示"></button>
-    <button class="hero-dot" data-i="3" aria-label="4枚目を表示"></button>
-    <button class="hero-dot" data-i="4" aria-label="5枚目を表示"></button>
-  </div>
-  <div class="hero-wave" aria-hidden="true">
-    <svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,50 C240,90 480,10 720,40 C960,70 1200,20 1440,50 L1440,90 L0,90 Z" fill="#ffffff"/></svg>
-  </div>
-</div>
+  <div class="dots" id="dots"></div>
+  <div class="wave"><svg viewBox="0 0 1440 90" preserveAspectRatio="none" style="display:block;width:100%;height:90px"><path d="M0,50 C240,90 480,10 720,40 C960,70 1200,20 1440,50 L1440,90 L0,90 Z" fill="#ffffff"/></svg></div>
+</section>
 
-<!-- ===== News ===== -->
-<section class="news" id="news">
+<section id="news" style="padding:64px 22px;background:#fff">
   <div class="wrap">
-    <div class="sec-head rv">
-      <p class="sec-en">INFORMATION</p>
-      <h2 class="sec-title">お知らせ</h2>
+    <p class="eyebrow">INFORMATION</p>
+    <h2 class="section-title" style="margin-bottom:34px">お知らせ</h2>
+    <div style="border-top:1px solid var(--line)">
+      <a href="#" class="news-row"><span class="news-date">2026.06.12</span><span class="news-tag" style="background:#FDEBD2;color:#A35F00">セール</span><span style="font-size:14.5px">今週の特売チラシを更新しました（6/13〜6/16）</span></a>
+      <a href="#" class="news-row"><span class="news-date">2026.06.10</span><span class="news-tag" style="background:var(--ice-deep);color:var(--blue)">宅配</span><span style="font-size:14.5px">ネット宅配「たすかーる」配達エリアを拡大しました</span></a>
+      <a href="#" class="news-row"><span class="news-date">2026.06.05</span><span class="news-tag" style="background:#DEF2E7;color:#1F7A4D">イベント</span><span style="font-size:14.5px">親子で学ぶ食育教室「やさいのひみつ」参加者募集中</span></a>
+      <a href="#" class="news-row"><span class="news-date">2026.06.01</span><span class="news-tag" style="background:#DEF2E7;color:#1F7A4D">配信</span><span style="font-size:14.5px">今月のライブ配信販売は6/20（土）旬の海産物特集です</span></a>
     </div>
-    <ul class="news-list rv">
-      <li><a class="news-item" href="#"><span class="news-date">2026.06.12</span><span class="news-tag t-sale">セール</span><span class="news-title">今週の特売チラシを更新しました（6/13〜6/16）</span></a></li>
-      <li><a class="news-item" href="#"><span class="news-date">2026.06.10</span><span class="news-tag">宅配</span><span class="news-title">ネット宅配「たすかーる」配達エリアを拡大しました</span></a></li>
-      <li><a class="news-item" href="#"><span class="news-date">2026.06.05</span><span class="news-tag t-event">イベント</span><span class="news-title">親子で学ぶ食育教室「やさいのひみつ」参加者募集中</span></a></li>
-      <li><a class="news-item" href="#"><span class="news-date">2026.06.01</span><span class="news-tag t-event">配信</span><span class="news-title">今月のライブ配信販売は6/20（土）旬の海産物特集です</span></a></li>
-    </ul>
-    <p class="news-link"><a href="#">お知らせ一覧へ →</a></p>
+    <p style="margin:26px 0 0;text-align:right"><a href="#" style="font-weight:700;font-size:14px">お知らせ一覧へ →</a></p>
   </div>
 </section>
 
-<!-- ===== About ===== -->
-<section class="about" id="about">
+<section id="about" style="padding:96px 22px;background:linear-gradient(180deg,var(--ice) 0%,#fff 100%)">
   <div class="wrap">
-    <div class="sec-head rv">
-      <p class="sec-en">ABOUT US</p>
-      <h2 class="sec-title">地域のライフステーションとして</h2>
-    </div>
-    <div class="about-grid">
-      <div class="about-copy rv">
+    <p class="eyebrow">ABOUT US</p>
+    <h2 class="section-title">地域のライフステーションとして</h2>
+    <div id="about-grid">
+      <div>
         <h3>お店は「物を売る場所」ではなく、<br>暮らしを支える場所。</h3>
         <p>私たちは、北海道・中標津や北見といった地域の皆さまと共に歩んできました。東武の店舗は、単なる買い物の場ではありません。お客様一人ひとりの生活や健康、そして笑顔を支える「地域のライフステーション」でありたいと願っています。</p>
         <p>ネット宅配、カーピックアップ、ライブ配信での販売、食育活動——地域のニーズに合わせて、柔軟に新しい挑戦を続けています。</p>
-        <div class="about-motto">
-          <p class="en">LIVE HEALTHY, LIVE LONGER AND LIVE HAPPY</p>
-          <p class="ja">健康に、長く、幸せに生きる。——それが私たちの合言葉です。</p>
+        <div class="quote-box">
+          <p>LIVE HEALTHY, LIVE LONGER AND LIVE HAPPY</p>
+          <p class="sub">健康に、長く、幸せに生きる。——それが私たちの合言葉です。</p>
         </div>
       </div>
-      <div class="pillar rv">
-        <div class="pillar-card p1">
-          <span class="pillar-ico">🏠</span>
-          <div><h4>地域とともに</h4><p>中標津・北見に根ざし、地元の生産者やお客様とのつながりを大切にしています。</p></div>
-        </div>
-        <div class="pillar-card p2">
-          <span class="pillar-ico">🥗</span>
-          <div><h4>健康な食卓を</h4><p>新鮮な食材と食育活動を通じて、毎日の「おいしくて健康」な食卓をお手伝いします。</p></div>
-        </div>
-        <div class="pillar-card p3">
-          <span class="pillar-ico">🚀</span>
-          <div><h4>変化に挑戦</h4><p>宅配・配信販売など新しいサービスに積極的に取り組み、暮らしの変化に応えます。</p></div>
-        </div>
+      <div class="pillars">
+        <div class="pillar"><img src="https://images.pexels.com/photos/17302468/pexels-photo-17302468.jpeg?auto=compress&cs=tinysrgb&w=640" alt="" loading="lazy"><div class="tint"></div><div class="body"><strong>地域とともに</strong><span>中標津・北見に根ざし、地元の生産者やお客様とのつながりを大切にしています。</span></div></div>
+        <div class="pillar"><img src="https://images.pexels.com/photos/33975355/pexels-photo-33975355.jpeg?auto=compress&cs=tinysrgb&w=640" alt="" loading="lazy"><div class="tint"></div><div class="body"><strong>健康な食卓を</strong><span>新鮮な食材と食育活動を通じて、毎日の「おいしくて健康」な食卓をお手伝いします。</span></div></div>
+        <div class="pillar"><img src="https://images.pexels.com/photos/28907758/pexels-photo-28907758.jpeg?auto=compress&cs=tinysrgb&w=640" alt="" loading="lazy"><div class="tint"></div><div class="body"><strong>変化に挑戦</strong><span>宅配・配信販売など新しいサービスに積極的に取り組み、暮らしの変化に応えます。</span></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== たすかーる ===== -->
-<section class="taskal" id="taskal">
+<section id="taskal" class="taskal">
+  <div class="watermark">TASKAL DELIVERY</div>
   <div class="wrap">
-    <div class="sec-head rv">
-      <p class="sec-en">NET DELIVERY</p>
-      <h2 class="sec-title">ネット宅配「たすかーる」</h2>
+    <p class="eyebrow">NET DELIVERY</p>
+    <h2 class="section-title" style="margin-bottom:18px">ネット宅配「たすかーる」</h2>
+    <p style="max-width:38em;color:#BCD6EE;margin:0 0 46px;line-height:1.9">スーパーの品揃えそのままに、ご自宅やオフィスへお届け。子育て中の方、お忙しい方、お車をお持ちでない方、そして事業所のまとめ買いにもご利用いただけます。</p>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-bottom:46px">
+      <div class="step"><div class="no">01</div><h4>会員登録（無料）</h4><p>お電話または店頭で簡単にお申し込みいただけます。登録料・年会費は無料です。</p></div>
+      <div class="step"><div class="no">02</div><h4>商品を注文</h4><p>チラシやカタログ、お電話から注文。店頭の商品をスタッフが心を込めてお選びします。</p></div>
+      <div class="step"><div class="no">03</div><h4>ご自宅へお届け</h4><p>当日または翌日、決まった時間帯にお届け。生鮮品も冷蔵・冷凍のまま安心です。</p></div>
     </div>
-    <p class="taskal-lead rv">スーパーの品揃えそのままに、ご自宅やオフィスへお届け。子育て中の方、お忙しい方、お車をお持ちでない方、そして事業所のまとめ買いにもご利用いただけます。</p>
-    <div class="taskal-grid">
-      <div class="step rv"><p class="step-no">01</p><h4>会員登録（無料）</h4><p>お電話または店頭で簡単にお申し込みいただけます。登録料・年会費は無料です。</p></div>
-      <div class="step rv"><p class="step-no">02</p><h4>商品を注文</h4><p>チラシやカタログ、お電話から注文。店頭の商品をスタッフが心を込めてお選びします。</p></div>
-      <div class="step rv"><p class="step-no">03</p><h4>ご自宅へお届け</h4><p>当日または翌日、決まった時間帯にお届け。生鮮品も冷蔵・冷凍のまま安心です。</p></div>
+    <div class="biz-callout">
+      <span style="font-size:30px">🏢</span>
+      <div><h4 style="margin:0;font-family:var(--font-display);font-weight:700;font-size:16.5px">地元企業・事業所の皆さまへ</h4><p style="margin:4px 0 0;font-size:13.5px;color:#BCD6EE;line-height:1.8">飲食店・福祉施設・事務所などの定期配達、まとめ買いにも対応しています。請求書払いのご相談も承ります。</p></div>
     </div>
-    <div class="taskal-biz rv">
-      <span class="b-ico">🏢</span>
-      <div>
-        <h4>地元企業・事業所の皆さまへ</h4>
-        <p>飲食店・福祉施設・事務所などの定期配達、まとめ買いにも対応しています。請求書払いのご相談も承ります。</p>
-      </div>
+    <div style="text-align:center">
+      <a href="#contact" class="btn btn-sun" style="font-size:17px;padding:17px 48px">たすかーるの申し込み・お問い合わせ →</a>
+      <p style="font-size:12.5px;color:#7FA8CF;margin:14px 0 0">お電話でも受付中：0153-XX-XXXX（受付 9:00〜18:00）</p>
     </div>
-    <div class="taskal-cta rv">
-      <a class="btn btn-primary" href="#contact">たすかーるの申し込み・お問い合わせ <span class="arr">→</span></a>
-      <p class="note">お電話でも受付中：0153-XX-XXXX（受付 9:00〜18:00）</p>
+  </div>
+  <div class="wave"><svg viewBox="0 0 1440 90" preserveAspectRatio="none" style="display:block;width:100%;height:90px"><path d="M0,50 C240,90 480,10 720,40 C960,70 1200,20 1440,50 L1440,90 L0,90 Z" fill="#ffffff"/></svg></div>
+</section>
+
+<section id="service" style="padding:96px 22px;background:#fff">
+  <div class="wrap">
+    <p class="eyebrow">SERVICE</p>
+    <h2 class="section-title">便利なサービス</h2>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(230px,1fr))">
+      <div class="card-photo service"><img src="https://images.pexels.com/photos/7843999/pexels-photo-7843999.jpeg?auto=compress&cs=tinysrgb&w=560" alt="" loading="lazy"><div class="tint"></div><div class="body"><div class="en">NET DELIVERY</div><h3>ネット宅配「たすかーる」</h3><p>店頭の商品をご自宅・事業所までお届け。重い物・かさばる物の買い物もおまかせください。</p></div></div>
+      <div class="card-photo service"><img src="https://images.pexels.com/photos/4506207/pexels-photo-4506207.jpeg?auto=compress&cs=tinysrgb&w=560" alt="" loading="lazy"><div class="tint"></div><div class="body"><div class="en">CAR PICKUP</div><h3>カーピックアップ</h3><p>事前にご注文いただいた商品を、お車に乗ったまま受け取れます。お急ぎの時に便利です。</p></div></div>
+      <div class="card-photo service"><img src="https://images.pexels.com/photos/27926903/pexels-photo-27926903.jpeg?auto=compress&cs=tinysrgb&w=560" alt="" loading="lazy"><div class="tint"></div><div class="body"><div class="en">LIVE SHOPPING</div><h3>ライブ配信販売</h3><p>旬のおすすめ商品をライブ配信でご紹介。画面越しでも、対面のような買い物体験を。</p></div></div>
+      <div class="card-photo service"><img src="https://images.pexels.com/photos/37321079/pexels-photo-37321079.jpeg?auto=compress&cs=tinysrgb&w=560" alt="" loading="lazy"><div class="tint"></div><div class="body"><div class="en">FOOD EDUCATION</div><h3>食育活動</h3><p>親子向けの食育教室や店内ツアーを開催。地域の「食」の学びの場をつくっています。</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- ===== Services ===== -->
-<section id="service">
+<section id="stores" style="padding:96px 22px;background:linear-gradient(180deg,#fff 0%,var(--ice) 100%)">
   <div class="wrap">
-    <div class="sec-head rv">
-      <p class="sec-en">SERVICE</p>
-      <h2 class="sec-title">便利なサービス</h2>
-    </div>
-    <div class="svc-grid">
-      <div class="svc-card rv">
-        <span class="svc-ico">🚚</span>
-        <h4>ネット宅配「たすかーる」</h4>
-        <span class="en">NET DELIVERY</span>
-        <p>店頭の商品をご自宅・事業所までお届け。重い物・かさばる物の買い物もおまかせください。</p>
-      </div>
-      <div class="svc-card rv">
-        <span class="svc-ico">🚗</span>
-        <h4>カーピックアップ</h4>
-        <span class="en">CAR PICKUP</span>
-        <p>事前にご注文いただいた商品を、お車に乗ったまま受け取れます。お急ぎの時に便利です。</p>
-      </div>
-      <div class="svc-card rv">
-        <span class="svc-ico">📱</span>
-        <h4>ライブ配信販売</h4>
-        <span class="en">LIVE SHOPPING</span>
-        <p>旬のおすすめ商品をライブ配信でご紹介。画面越しでも、対面のような買い物体験を。</p>
-      </div>
-      <div class="svc-card rv">
-        <span class="svc-ico">🌱</span>
-        <h4>食育活動</h4>
-        <span class="en">FOOD EDUCATION</span>
-        <p>親子向けの食育教室や店内ツアーを開催。地域の「食」の学びの場をつくっています。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Stores ===== -->
-<section class="stores" id="stores">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="sec-en">SHOP INFORMATION</p>
-      <h2 class="sec-title">店舗情報</h2>
-    </div>
-    <div class="store-grid">
-      <article class="store-card rv">
-        <div class="store-visual sv-a">
+    <p class="eyebrow">SHOP INFORMATION</p>
+    <h2 class="section-title">店舗情報</h2>
+    <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(340px,1fr))">
+      <article class="store">
+        <div class="head" style="background:linear-gradient(135deg,var(--blue) 0%,var(--navy) 100%)">
           <span class="area">NAKASHIBETSU</span>
           <h3>東武サウスヒルズ</h3>
+          <div class="wave" style="bottom:-1px"><svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="display:block;width:100%;height:40px"><path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" fill="#ffffff"/></svg></div>
         </div>
-        <div class="store-body">
-          <dl class="store-dl">
-            <dt>📍 所在地</dt><dd>北海道標津郡中標津町南町（サウスヒルズ内）</dd>
-            <dt>🕐 営業時間</dt><dd>9:00〜21:00（年中無休）</dd>
-            <dt>📞 電話</dt><dd>0153-XX-XXXX</dd>
-            <dt>🅿️ 駐車場</dt><dd>大型無料駐車場完備</dd>
-          </dl>
-          <div class="store-badges">
-            <span class="badge bd-sun">たすかーる対応</span>
-            <span class="badge">カーピックアップ</span>
-            <span class="badge bd-leaf">食育イベント開催</span>
-          </div>
-          <div class="store-actions">
-            <a class="btn btn-sm btn-map" href="#">Googleマップで見る</a>
-            <a class="btn btn-sm btn-flyer" href="#">今週のチラシ</a>
-          </div>
+        <div class="body">
+          <dl><dt>📍 所在地</dt><dd>北海道標津郡中標津町南町（サウスヒルズ内）</dd><dt>🕐 営業時間</dt><dd>9:00〜21:00（年中無休）</dd><dt>📞 電話</dt><dd>0153-XX-XXXX</dd><dt>🅿️ 駐車場</dt><dd>大型無料駐車場完備</dd></dl>
+          <div class="badges"><span class="badge" style="background:#FDEBD2;color:#A35F00">たすかーる対応</span><span class="badge" style="background:var(--ice-deep);color:var(--blue)">カーピックアップ</span><span class="badge" style="background:#DEF2E7;color:#1F7A4D">食育イベント開催</span></div>
+          <div class="store-actions"><a href="#" class="navy">Googleマップで見る</a><a href="#" class="outline">今週のチラシ</a></div>
         </div>
       </article>
-      <article class="store-card rv">
-        <div class="store-visual sv-b">
+      <article class="store">
+        <div class="head" style="background:linear-gradient(135deg,var(--sky) 0%,var(--blue) 100%)">
           <span class="area">KITAMI · TANNO</span>
           <h3>東武端野店</h3>
+          <div class="wave" style="bottom:-1px"><svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="display:block;width:100%;height:40px"><path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" fill="#ffffff"/></svg></div>
         </div>
-        <div class="store-body">
-          <dl class="store-dl">
-            <dt>📍 所在地</dt><dd>北海道北見市端野町</dd>
-            <dt>🕐 営業時間</dt><dd>9:00〜21:00（年中無休）</dd>
-            <dt>📞 電話</dt><dd>0157-XX-XXXX</dd>
-            <dt>🅿️ 駐車場</dt><dd>無料駐車場完備</dd>
-          </dl>
-          <div class="store-badges">
-            <span class="badge bd-sun">たすかーる対応</span>
-            <span class="badge">カーピックアップ</span>
-            <span class="badge bd-leaf">地場野菜コーナー</span>
-          </div>
-          <div class="store-actions">
-            <a class="btn btn-sm btn-map" href="#">Googleマップで見る</a>
-            <a class="btn btn-sm btn-flyer" href="#">今週のチラシ</a>
-          </div>
+        <div class="body">
+          <dl><dt>📍 所在地</dt><dd>北海道北見市端野町</dd><dt>🕐 営業時間</dt><dd>9:00〜21:00（年中無休）</dd><dt>📞 電話</dt><dd>0157-XX-XXXX</dd><dt>🅿️ 駐車場</dt><dd>無料駐車場完備</dd></dl>
+          <div class="badges"><span class="badge" style="background:#FDEBD2;color:#A35F00">たすかーる対応</span><span class="badge" style="background:var(--ice-deep);color:var(--blue)">カーピックアップ</span><span class="badge" style="background:#DEF2E7;color:#1F7A4D">地場野菜コーナー</span></div>
+          <div class="store-actions"><a href="#" class="navy">Googleマップで見る</a><a href="#" class="outline">今週のチラシ</a></div>
         </div>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ===== Recruit ===== -->
-<section class="recruit" id="recruit">
+<section id="recruit" style="padding:96px 22px;background:#fff">
   <div class="wrap">
-    <div class="recruit-band rv">
-      <div>
-        <p class="sec-en">RECRUIT</p>
+    <div class="recruit-banner">
+      <div class="watermark">JOIN US</div>
+      <div style="position:relative">
+        <p class="eyebrow">RECRUIT</p>
         <h3>経験よりも、<br>「地域の役に立ちたい」という気持ちを。</h3>
         <p>これからの地域社会は、人と人とのつながり、支え合いがますます大切になります。だからこそ私たちが求めているのは、経験よりも「地域の役に立ちたい」「人の役に立ちたい」という気持ちです。正社員・パート・アルバイト、それぞれの働き方でお待ちしています。</p>
       </div>
-      <a class="btn btn-secondary" href="#contact">採用情報を見る <span class="arr">→</span></a>
+      <div style="justify-self:center;position:relative"><a href="recruit.html" class="btn btn-sun" style="font-size:16px;padding:16px 40px">採用情報を見る →</a></div>
     </div>
   </div>
 </section>
 
-<!-- ===== Footer ===== -->
-<footer class="footer" id="contact">
-  <div class="footer-grid">
-    <div>
-      <a class="logo" href="#top">
-        <span class="logo-mark">T</span>
-        <span>東武スーパー<small>TOBU SUPER MARKET</small></span>
-      </a>
-      <p>LIVE HEALTHY, LIVE LONGER AND LIVE HAPPY<br>健康に、長く、幸せに生きる。<br>北海道・中標津／北見</p>
+<footer id="contact">
+  <div class="wrap" style="padding:0">
+    <div class="cols">
+      <div>
+        <span class="logo" style="color:#fff;font-size:21px"><span class="mark" style="background:linear-gradient(135deg,var(--sky),var(--blue))">T</span><span>東武スーパー<small style="color:var(--sky)">TOBU SUPER MARKET</small></span></span>
+        <p style="font-size:13px;margin:16px 0 0;line-height:1.9">LIVE HEALTHY, LIVE LONGER AND LIVE HAPPY<br>健康に、長く、幸せに生きる。<br>北海道・中標津／北見</p>
+      </div>
+      <div><h5>店舗情報</h5><div class="col-links"><a href="#stores">東武サウスヒルズ</a><a href="#stores">東武端野店</a><a href="#news">今週のチラシ</a></div></div>
+      <div><h5>サービス</h5><div class="col-links"><a href="#taskal">ネット宅配「たすかーる」</a><a href="#service">カーピックアップ</a><a href="#service">ライブ配信販売</a><a href="#service">食育活動</a></div></div>
+      <div><h5>企業情報</h5><div class="col-links"><a href="#about">私たちについて</a><a href="recruit.html">採用情報</a><a href="#contact">お問い合わせ</a><a href="#">プライバシーポリシー</a></div></div>
     </div>
-    <div>
-      <h5>店舗情報</h5>
-      <ul>
-        <li><a href="#stores">東武サウスヒルズ</a></li>
-        <li><a href="#stores">東武端野店</a></li>
-        <li><a href="#news">今週のチラシ</a></li>
-      </ul>
+    <div class="bottom">
+      <p style="margin:0;font-family:var(--font-en);letter-spacing:.08em">© 2026 TOBU SUPER MARKET</p>
+      <p style="margin:0">このサイトはサンプルです。電話番号・住所はダミー表記です。</p>
     </div>
-    <div>
-      <h5>サービス</h5>
-      <ul>
-        <li><a href="#taskal">ネット宅配「たすかーる」</a></li>
-        <li><a href="#service">カーピックアップ</a></li>
-        <li><a href="#service">ライブ配信販売</a></li>
-        <li><a href="#service">食育活動</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5>企業情報</h5>
-      <ul>
-        <li><a href="#about">私たちについて</a></li>
-        <li><a href="#recruit">採用情報</a></li>
-        <li><a href="#contact">お問い合わせ</a></li>
-        <li><a href="#">プライバシーポリシー</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-btm">
-    <p class="en">© 2026 TOBU SUPER MARKET</p>
-    <p>このサイトはサンプルです。電話番号・住所はダミー表記です。</p>
   </div>
 </footer>
 
 <script>
-// モバイルメニュー
-const btn=document.getElementById('menuBtn'),nav=document.getElementById('gnav');
-btn.addEventListener('click',()=>{
-  const open=nav.classList.toggle('open');
-  btn.classList.toggle('open',open);
-  btn.setAttribute('aria-expanded',open);
-});
-nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
-  nav.classList.remove('open');btn.classList.remove('open');btn.setAttribute('aria-expanded','false');
-}));
-
-// ヒーロー スライドショー
 (function(){
-  const slides=document.querySelectorAll('.hero-slide');
-  const dots=document.querySelectorAll('.hero-dot');
-  if(!slides.length)return;
-  let i=0,timer;
-  const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  function show(n){
-    i=(n+slides.length)%slides.length;
-    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
-    dots.forEach((d,k)=>d.classList.toggle('active',k===i));
+  var slides = document.querySelectorAll('.hero .slide');
+  var dotsWrap = document.getElementById('dots');
+  var i = 0;
+  slides.forEach(function(_, k){
+    var b = document.createElement('button');
+    b.setAttribute('aria-label','スライド切替');
+    if (k === 0) b.className = 'active';
+    b.addEventListener('click', function(){ go(k); });
+    dotsWrap.appendChild(b);
+  });
+  var dots = dotsWrap.querySelectorAll('button');
+  function go(k){
+    slides[i].classList.remove('active');
+    dots[i].classList.remove('active');
+    i = k;
+    slides[i].classList.add('active');
+    dots[i].classList.add('active');
   }
-  function next(){show(i+1);}
-  function start(){if(reduce)return;stop();timer=setInterval(next,5200);}
-  function stop(){clearInterval(timer);}
-  dots.forEach(d=>d.addEventListener('click',()=>{show(+d.dataset.i);start();}));
-  start();
-  // タブが非表示の間は止める
-  document.addEventListener('visibilitychange',()=>document.hidden?stop():start());
+  setInterval(function(){ go((i + 1) % slides.length); }, 5200);
 })();
-
-// スクロールリビール
-const io=new IntersectionObserver(es=>es.forEach(e=>{
-  if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}
-}),{threshold:.12});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 </script>
 </body>
 </html>
