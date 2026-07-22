@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Jost:ital,wght@0,400;0,600;1,500&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{font-family:'Noto Sans JP',sans-serif;color:#20354A;background:#fff;-webkit-font-smoothing:antialiased;line-height:1.9;}
+  a{color:#1D6FBF;text-decoration:none;}
+  a:hover{color:#0B3D6E;}
+  ::selection{background:#FDEBD2;}
+  @keyframes kb{from{transform:scale(1.06)}to{transform:scale(1.14)}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+</style>
+</helmet>
+
+<div style="font-family:'Noto Sans JP',sans-serif;color:#20354A;min-height:100vh;">
+
+  <!-- ============ HEADER ============ -->
+  <header style="position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid #C9DDF0;">
+    <div style="max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,26px);height:70px;display:flex;align-items:center;justify-content:space-between;gap:16px;">
+      <div onClick="{{ goHome }}" style="display:flex;align-items:center;gap:12px;cursor:pointer;">
+        <div style="width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#5BA8E5,#1D6FBF 55%,#0B3D6E);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Jost',sans-serif;font-weight:600;font-size:15px;letter-spacing:.02em;box-shadow:0 4px 14px rgba(11,61,110,.28);">8×8</div>
+        <div style="line-height:1.15;">
+          <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:16px;color:#0B3D6E;letter-spacing:.02em;">エイトバイエイト</div>
+          <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:9.5px;letter-spacing:.24em;color:#5BA8E5;">8×8 CONDITIONING LAB</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;">
+        <a href="TEL:080-9350-7988" style="display:inline-flex;align-items:center;gap:7px;font-family:'Jost',sans-serif;font-weight:600;font-size:15px;color:#0B3D6E;letter-spacing:.02em;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F2920A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11 11 0 0 0 3.4.55 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11 11 0 0 0 .55 3.4 1 1 0 0 1-.24 1Z"></path></svg><span style="white-space:nowrap;">080-9350-7988</span>
+        </a>
+        <button onClick="{{ goReserveTop }}" style="border:none;cursor:pointer;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#fff;background:#F2920A;padding:11px 20px;border-radius:999px;box-shadow:0 4px 14px rgba(242,146,10,.35);white-space:nowrap;">かんたん予約 →</button>
+      </div>
+    </div>
+    <div style="border-top:1px solid #EDF5FC;background:#fff;">
+      <div style="max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,26px);display:flex;gap:clamp(14px,3vw,30px);overflow-x:auto;">
+        <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="5">
+          <button onClick="{{ n.onClick }}" style="{{ n.style }}">{{ n.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ LP VIEW ============ -->
+  <sc-if value="{{ isLP }}" hint-placeholder-val="{{ true }}">
+  <main>
+
+    <!-- HERO -->
+    <section style="position:relative;overflow:hidden;background:#0B3D6E;">
+      <div aria-hidden="true" style="position:absolute;inset:0;background-image:radial-gradient(circle at 78% 22%,rgba(91,168,229,.35),transparent 55%),linear-gradient(120deg,#0B3D6E,#134a82 60%,#1D6FBF);"></div>
+      <div style="position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:clamp(48px,7vw,84px) clamp(16px,4vw,26px) clamp(90px,10vw,120px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,4vw,52px);align-items:center;">
+        <div style="animation:fadeUp .8s ease both;">
+          <p style="display:inline-flex;align-items:center;gap:10px;font-family:'Jost',sans-serif;font-weight:600;letter-spacing:.26em;font-size:12px;color:#BFE0FF;margin:0 0 20px;">
+            <span style="width:32px;height:2px;background:#BFE0FF;"></span>HIGASHI-NIHONBASHI · BAKUROCHO
+          </p>
+          <h1 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:clamp(28px,4.6vw,50px);line-height:1.5;color:#fff;letter-spacing:.02em;margin:0;text-wrap:pretty;">
+            身体が変わると、<br />毎日が変わる。<br /><em style="font-style:normal;background:linear-gradient(transparent 62%,rgba(242,146,10,.9) 62%);padding:0 .06em;">人生の質</em>をあげる<br />パーソナルジム。
+          </h1>
+          <p style="margin:22px 0 0;max-width:30em;font-size:15.5px;color:#EAF3FC;line-height:1.9;">運動と治療がひとつの場所で完結する、東日本橋・馬喰町のマシンピラティス×パーソナルジム。運動未経験でも、身体が硬くても大丈夫。40代からの健康寿命づくりを、あなたのペースで。</p>
+          <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:32px;">
+            <button onClick="{{ goReserveTop }}" style="border:none;cursor:pointer;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;color:#fff;background:#F2920A;padding:16px 30px;border-radius:999px;box-shadow:0 10px 26px rgba(242,146,10,.45);">初回体験を予約する →</button>
+            <button onClick="{{ goPricing }}" style="cursor:pointer;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;color:#fff;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.55);padding:16px 28px;border-radius:999px;">料金プランを見る</button>
+          </div>
+        </div>
+        <div style="position:relative;animation:fadeUp 1s .15s ease both;">
+          <div style="position:relative;border-radius:22px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35);aspect-ratio:16/10;background:#0B3D6E;">
+            <img src="uploads/new_88_top02_b1-1.jpg" alt="Eight×Eight トレーニング風景" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" />
+          </div>
+          <div style="position:absolute;bottom:-18px;left:-18px;background:#fff;border-radius:18px;padding:16px 20px;box-shadow:0 12px 30px rgba(11,61,110,.18);animation:floaty 4s ease-in-out infinite;">
+            <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:11px;letter-spacing:.16em;color:#3E9E6E;">TRIAL CAMPAIGN</div>
+            <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:20px;color:#0B3D6E;">初回体験 ¥500</div>
+          </div>
+        </div>
+      </div>
+      <div style="position:absolute;bottom:-1px;left:0;width:100%;line-height:0;z-index:2;">
+        <svg viewBox="0 0 1440 90" preserveAspectRatio="none" style="display:block;width:100%;height:80px;"><path d="M0,50 C240,90 480,10 720,40 C960,70 1200,20 1440,50 L1440,90 L0,90 Z" fill="#fff"></path></svg>
+      </div>
+    </section>
+
+    <!-- CAMPAIGN BANNER -->
+    <section style="background:#fff;padding:clamp(30px,5vw,52px) clamp(16px,4vw,26px) 0;">
+      <div style="max-width:1180px;margin:0 auto;background:linear-gradient(120deg,#F2920A,#f7a838);border-radius:26px;padding:clamp(24px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;align-items:center;box-shadow:0 16px 40px rgba(242,146,10,.28);">
+        <div>
+          <div style="display:inline-block;background:rgba(255,255,255,.22);color:#fff;font-family:'Jost',sans-serif;font-weight:600;letter-spacing:.16em;font-size:11px;padding:5px 14px;border-radius:999px;margin-bottom:12px;">FIRST VISIT CAMPAIGN</div>
+          <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:clamp(22px,3vw,32px);color:#fff;margin:0;line-height:1.4;">初回体験キャンペーン実施中</h2>
+          <p style="color:#fff;margin:8px 0 0;font-size:14.5px;">カウンセリング＋体験トレーニング（60分）<br /><span style="opacity:.85;">キャンペーン期限：2026年7月31日 23:59まで</span></p>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:14px;">
+          <div style="display:flex;align-items:baseline;gap:12px;color:#fff;">
+            <span style="font-size:15px;text-decoration:line-through;opacity:.75;">通常 ¥5,500</span>
+            <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:clamp(38px,6vw,58px);line-height:1;">¥500</span>
+          </div>
+          <button onClick="{{ goReserveTrial }}" style="border:none;cursor:pointer;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;color:#F2920A;background:#fff;padding:15px 30px;border-radius:999px;box-shadow:0 8px 20px rgba(0,0,0,.15);">この特別価格で予約する →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 不安な方へ -->
+    <section style="padding:clamp(56px,8vw,96px) clamp(16px,4vw,26px);">
+      <div style="max-width:820px;margin:0 auto;text-align:center;">
+        <p style="font-family:'Jost',sans-serif;font-weight:600;letter-spacing:.22em;font-size:12px;color:#1D6FBF;margin:0 0 14px;">DON'T WORRY</p>
+        <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:clamp(22px,3.2vw,34px);color:#0B3D6E;margin:0;line-height:1.5;text-wrap:pretty;">「体が硬いし運動不足…<br />本当に大丈夫かな？」という方へ</h2>
+        <p style="margin:24px 0 0;font-size:16px;line-height:2;color:#3D5670;text-wrap:pretty;">ご安心ください。エイトバイエイトに通っている方の<em style="font-style:normal;font-family:'Zen Maru Gothic',sans-serif;font-weight:900;color:#F2920A;font-size:1.15em;">8割以上</em>が、「運動はずっとしていなかった」「体がガッチガチ」と不安を抱えてスタートされています。少しずつご自身のペースで運動を重ねるうちに、今では<em style="font-style:normal;color:#3E9E6E;font-weight:700;">健康的で前向きな毎日</em>を送っていらっしゃいます。体の硬さや運動不足は、ここでは当たり前です。</p>
+      </div>
+    </section>
+
+    <!-- 運動と治療（併設）強み -->
+    <section style="background:#0B3D6E;position:relative;padding:clamp(56px,8vw,96px) clamp(16px,4vw,26px);">
+      <p aria-hidden="true" style="position:absolute;top:8px;right:2%;font-family:'Jost',sans-serif;font-style:italic;font-weight:500;font-size:clamp(48px,10vw,120px);color:rgba(255,255,255,.05);margin:0;pointer-events:none;">CONDITIONING</p>
+      <div style="max-width:1180px;margin:0 auto;position:relative;z-index:2;">
+        <div style="text-align:center;margin-bottom:clamp(30px,5vw,52px);">
+          <p style="font-family:'Jost',sans-serif;font-weight:600;letter-spacing:.22em;font-size:12px;color:#5BA8E5;margin:0 0 12px;">TRAIN &amp; TREAT IN ONE PLACE</p>
+          <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:clamp(22px,3.2vw,34px);color:#fff;margin:0;line-height:1.5;text-wrap:pretty;">運動と治療が、ひとつの場所で完結する。</h2>
+          <p style="color:#BCD6EE;max-width:34em;margin:18px auto 0;font-size:15px;line-height:1.9;">ジム内に「馬喰町はちはち接骨院」を併設。トレーニングと治療を融合させたハイブリッドなラボだから、身体の状態に合わせて安心して続けられます。</p>
+        </div>
+        <div style="border-radius:22px;overflow:hidden;margin-bottom:26px;box-shadow:0 20px 50px rgba(0,0,0,.32);aspect-ratio:16/6;">
+          <img src="uploads/IMG_2039-1536x864.jpeg" alt="施術・治療の様子（併設の接骨院）" style="width:100%;height:100%;object-fit:cover;object-position:center 32%;display:block;" />
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;">
+          <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:28px 24px;">
+            <div style="width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,rgba(91,168,229,.3),rgba(255,255,255,.08));display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2.5"></rect><path d="M9.2 4h5.6v3H9.2z"></path><path d="M8.5 13l2.4 2.4 4-4.8"></path></svg>
+            </div>
+            <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:18px;color:#fff;margin:0 0 8px;">身体のチェックから</h3>
+            <p style="color:#BCD6EE;font-size:14px;line-height:1.85;margin:0;">筋肉や骨の状態を丁寧に確認し、不調の原因を見つけます。いきなり運動は始めません。</p>
+          </div>
+          <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:28px 24px;">
+            <div style="width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,rgba(91,168,229,.3),rgba(255,255,255,.08));display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"></circle><path d="M5.5 20a6.5 6.5 0 0 1 13 0"></path></svg>
+            </div>
+            <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:18px;color:#fff;margin:0 0 8px;">あなた専用メニュー</h3>
+            <p style="color:#BCD6EE;font-size:14px;line-height:1.85;margin:0;">一人ひとりの状態や目標に合わせ、無理なく続けられるプログラムをご提案します。</p>
+          </div>
+          <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:28px 24px;">
+            <div style="width:54px;height:54px;border-radius:14px;background:linear-gradient(135deg,rgba(91,168,229,.3),rgba(255,255,255,.08));display:flex;align-items:center;justify-content:center;margin-bottom:16px;">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="5"></rect><path d="M12 8.5v7M8.5 12h7"></path></svg>
+            </div>
+            <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:18px;color:#fff;margin:0 0 8px;">接骨院を併設</h3>
+            <p style="color:#BCD6EE;font-size:14px;line-height:1.85;margin:0;">「馬喰町はちはち接骨院」を併設。運動と治療をその場で融合できます。</p>
+          </div>
+        </div>
+      </div>
+      <div style="position:absolute;bottom:-1px;left:0;width:100%;line-height:0;"><svg viewBox="0 0 1440 90" preserveAspectRatio="none" style="display:block;width:100%;height:70px;"><path d="M0,50 C240,90 480,10 720,40 C960,70 1200,20 1440,50 L1440,90 L0,90 Z" fill="#fff"></path></svg></div>
+    </section>
+
+    <!-- 3つの特徴 -->
+    <section style="padding:clamp(56px,8vw,96px) clamp(16px,4vw,26px);background:linear-gradient(#fff,#EDF5FC);">
+      <div style="max-width:1180px;margin:0 auto;">
+        <div style="text-align:center;margin-bottom:clamp(30px,5vw,52px);">
+          <p style="font-family:'Jost',sans-serif;font-weight:600;letter-spacing:.22em;font-size:12px;color:#1D6FBF;margin:0 0 12px;">OUR DIFFERENCE</p>
+          <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:clamp(22px,3.2vw,34px);color:#0B3D6E;margin:0;">エイトバイエイトの3つの特徴</h2>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px;">
+          <sc-for list="{{ features }}" as="f" hint-placeholder-count="3">
+            <div style="background:#fff;border:1px solid #C9DDF0;border-radius:18px;padding:32px 28px;box-shadow:0 6px 20px rgba(11,61,110,.06);">
+              <div style="font-family:'Jost',sans-serif;font-style:italic;font-weight:600;font-size:38px;color:#DCEBF8;line-height:1;margin-bottom:10px;">{{ f.num }}</div>
+              <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:19px;color:#0B3D6E;margin:0 0 10px;line-height:1.5;">{{ f.title }}</h3>
+              <p style="color:#4A627C;font-size:14.5px;line-height:1.9;margin:0;">{{ f.body }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- こんな方に -->
+    <section style="padding:clamp(56px,8vw,96px) clamp(16px,4vw,26px);background:#EDF5FC;">
+      <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(28px,4vw,48px);align-items:center;">
+        <div>
+          <p style="font-family:'Jost',sans-serif;font-weight:600;letter-spacing:.22em;font-size:12px;color:#1D6FBF;margin:0 0 12px;">FOR YOU</p>
+          <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:clamp(22px,3.2vw,32px);color:#0B3D6E;margin:0 0 12px;line-height:1.5;">こんな方に、ぴったりです</h2>
+          <p style="color:#4A627C;font-size:15px;line-height:1.9;margin:0;">「あなたのやりたいこと」を支える体づくりを、私たちがサポートします。今、運動不足でも、体が硬くても大丈夫。できることから、一緒に始めていきましょう。</p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #C9DDF0;border-radius:14px;padding:16px 20px;box-shadow:0 6px 20px rgba(11,61,110,.06);">
+            <div style="width:44px;height:44px;flex-shrink:0;border-radius:12px;background:#EDF5FC;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D6FBF" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 21 3l-8 18-2-8-8-2Z"></path></svg></div>
+            <span style="font-size:15px;color:#20354A;font-weight:500;">腰痛を気にせず、旅行を楽しみたい</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #C9DDF0;border-radius:14px;padding:16px 20px;box-shadow:0 6px 20px rgba(11,61,110,.06);">
+            <div style="width:44px;height:44px;flex-shrink:0;border-radius:12px;background:#EDF5FC;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D6FBF" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-6 3 12 2-6h5"></path></svg></div>
+            <span style="font-size:15px;color:#20354A;font-weight:500;">疲れにくい体で、仕事や家事をラクにこなしたい</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #C9DDF0;border-radius:14px;padding:16px 20px;box-shadow:0 6px 20px rgba(11,61,110,.06);">
+            <div style="width:44px;height:44px;flex-shrink:0;border-radius:12px;background:#EDF5FC;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D6FBF" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20 9 8l4 7 3-5 5 10Z"></path></svg></div>
+            <span style="font-size:15px;color:#20354A;font-weight:500;">趣味のゴルフや登山を、もっと長く続けたい</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:14px;background:#fff;border:1px solid #C9DDF0;border-radius:14px;padding:16px 20px;box-shadow:0 6px 20px rgba(11,61,110,.06);">
+            <div style="width:44px;height:44px;flex-shrink:0;border-radius:12px;background:#EDF5FC;display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D6FBF" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-9.5a3.5 3.5 0 0 1 7-1 3.5 3.5 0 0 1 7 1c0 5-7 9.5-7 9.5Z"></path></svg></div>
+            <span style="font-size:15px;color:#20354A;font-weight:500;">将来、家族に迷惑をかけずに過ごしたい</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STUDIO GALLERY -->
+    <section style="padding:clamp(56px,8vw,96px) clamp(16px,4vw,26px) 0;">
+      <div style="max-width:1180px;margin:0 auto;">
+        <div style="text-align:center;margin-bottom:clamp(24px,4vw,40px);">
+          <p style="font-family:'Jost',sans-serif;font-weight:600;letter-spacing:.22em;font-size:12px;color:#1D6FBF;margin:0 0 12px;">STUDIO</p>
+          <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:clamp(22px,3.2vw,34px);color:#0B3D6E;margin:0;">ラボの風景</h2>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;">
+          <div style="border-radius:18px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 8px 26px rgba(11,61,110,.1);"><img src="uploads/IMG_8173-scaled.jpg" alt="マシンピラティスの様子" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+          <div style="border-radius:18px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 8px 26px rgba(11,61,110,.1);"><img src="uploads/3-scaled.png" alt="バランスボールを使ったトレーニング" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+          <div style="border-radius:18px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 8px 26px rgba(11,61,110,.1);background:#EDF5FC;"><img src="uploads/88_pre1.png" alt="トレーニング風景" style="width:100%;height:100%;object-fit:cover;display:block;" /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- お客様の声 -->
+    <section style="padding:clamp(56px,8vw,96px) clamp(16px,4vw,26px);">
+      <div style="max-width:1180px;margin:0 auto;">
+        <div style="text-align:center;margin-bottom:clamp(30px,5vw,52px);">
+          <p style="font-family:'Jost',sans-serif;font-weight:600;letter-spacing:.22em;font-size:12px;color:#1D6FBF;margin:0 0 12px;">VOICE</p>
+          <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:clamp(22px,3.2vw,34px);color:#0B3D6E;margin:0;">お客様の声</h2>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
+          <div style="background:#fff;border:1px solid #C9DDF0;border-radius:18px;overflow:hidden;box-shadow:0 6px 20px rgba(11,61,110,.06);display:flex;flex-direction:column;">
+            <div style="aspect-ratio:3/4;overflow:hidden;background:#EDF5FC;"><img src="uploads/customer1.jpg" alt="お客様の声" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;" /></div>
+            <div style="padding:22px 24px;display:flex;flex-direction:column;gap:10px;flex:1;">
+              <div style="color:#F2920A;font-size:15px;letter-spacing:2px;">★★★★★</div>
+              <p style="font-size:14.5px;line-height:1.9;color:#20354A;margin:0;flex:1;text-wrap:pretty;">トレーニングを始めて3年。腰痛も治り、動ける身体に。今ではハーフマラソンも始めました！</p>
+              <div style="font-size:12.5px;color:#4A627C;border-top:1px solid #EDF5FC;padding-top:12px;">50代・男性 / ベーシックコース</div>
+            </div>
+          </div>
+          <div style="background:#fff;border:1px solid #C9DDF0;border-radius:18px;overflow:hidden;box-shadow:0 6px 20px rgba(11,61,110,.06);display:flex;flex-direction:column;">
+            <div style="aspect-ratio:3/4;overflow:hidden;background:#EDF5FC;"><img src="uploads/customer2.jpg" alt="お客様の声" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;" /></div>
+            <div style="padding:22px 24px;display:flex;flex-direction:column;gap:10px;flex:1;">
+              <div style="color:#F2920A;font-size:15px;letter-spacing:2px;">★★★★★</div>
+              <p style="font-size:14.5px;line-height:1.9;color:#20354A;margin:0;flex:1;text-wrap:pretty;">推しのライブに行くために週1トレ。ヒップアップして、体力もしっかり付いてきました！</p>
+              <div style="font-size:12.5px;color:#4A627C;border-top:1px solid #EDF5FC;padding-top:12px;">30代・女性 / マシンピラティス</div>
+            </div>
+          </div>
+          <div style="background:#fff;border:1px solid #C9DDF0;border-radius:18px;overflow:hidden;box-shadow:0 6px 20px rgba(11,61,110,.06);display:flex;flex-direction:column;">
+            <div style="aspect-ratio:3/4;overflow:hidden;background:#EDF5FC;"><img src="uploads/customer3.jpg" alt="お客様の声" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;" /></div>
+            <div style="padding:22px 24px;display:flex;flex-direction:column;gap:10px;flex:1;">
+              <div style="color:#F2920A;font-size:15px;letter-spacing:2px;">★★★★★</div>
+              <p style="font-size:14.5px;line-height:1.9;color:#20354A;margin:0;flex:1;text-wrap:pretty;">他のジムで痛めたヒザが完治して、登山に行けるように。先生、ありがとうございます！</p>
+              <div style="font-size:12.5px;color:#4A627C;border-top:1px solid #EDF5FC;padding-top:12px;">50代・女性 / ベーシックコース</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 代表あいさつ -->
+    <section style="padding:clamp(56px,8vw,96px) clamp(16px,4vw,26px);background:linear-gradient(#EDF5FC,#fff);">
+      <div style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(28px,4vw,48px);align-items:start;">
+        <div style="position:relative;">
+          <div style="border-radius:22px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 16px 40px rgba(11,61,110,.12);"><img src="uploads/eigth_ceo.jpg" alt="代表・小林誠" style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;" /></div>
+        </div>
+        <div>
+          <p style="font-family:'Jost',sans-serif;font-weight:600;letter-spacing:.22em;font-size:12px;color:#1D6FBF;margin:0 0 12px;">MESSAGE</p>
+          <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:clamp(21px,3vw,30px);color:#0B3D6E;margin:0 0 8px;line-height:1.5;">「運動が、生活の一部になる」<br />場所をつくりたかった。</h2>
+          <p style="font-family:'Jost',sans-serif;font-size:13px;color:#4A627C;margin:0 0 20px;letter-spacing:.06em;">代表 / スポーツトレーナー・ピラティストレーナー — 小林 誠</p>
+          <p style="color:#3D5670;font-size:15px;line-height:2;margin:0 0 16px;text-wrap:pretty;">私がトレーナーを志したきっかけは、学生時代の大きなケガでした。「身体が変わることで、気持ちまで前向きになる」——その経験から、同じように身体の不調に悩む人の力になりたいと、この道を歩み始めました。</p>
+          <p style="color:#3D5670;font-size:15px;line-height:2;margin:0 0 16px;text-wrap:pretty;">アスリートから一般の方まで診てきた中で感じたのが、「もっと身近に、自分の身体としっかり向き合える場所が必要だ」ということ。だからこそ<em style="font-style:normal;font-weight:700;color:#0B3D6E;">「運動と治療が一つの場所で完結できる拠点」</em>として、東日本橋に 8×8 Conditioning Lab を立ち上げました。</p>
+          <p style="color:#3D5670;font-size:15px;line-height:2;margin:0;text-wrap:pretty;">筋肉をムキムキにするための場所ではありません。<em style="font-style:normal;font-weight:700;color:#3E9E6E;">「階段の上り下りが楽になる」「疲れにくくなる」「健康寿命を延ばす」</em>——そんな日常を快適に過ごす身体づくりを、特に40代以上の方に届けたいと考えています。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section style="padding:clamp(56px,8vw,96px) clamp(16px,4vw,26px);">
+      <div style="max-width:820px;margin:0 auto;">
+        <div style="text-align:center;margin-bottom:clamp(28px,4vw,44px);">
+          <p style="font-family:'Jost',sans-serif;font-weight:600;letter-spacing:.22em;font-size:12px;color:#1D6FBF;margin:0 0 12px;">FAQ</p>
+          <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:clamp(22px,3.2vw,34px);color:#0B3D6E;margin:0;">よくあるご質問</h2>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="4">
+            <div onClick="{{ q.onToggle }}" style="{{ q.wrapStyle }}">
+              <div style="display:flex;align-items:flex-start;gap:14px;">
+                <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;color:#1D6FBF;font-size:19px;flex-shrink:0;">Q</span>
+                <span style="font-weight:700;font-size:15.5px;color:#0B3D6E;flex:1;">{{ q.q }}</span>
+                <span style="{{ q.iconStyle }}">＋</span>
+              </div>
+              <div style="{{ q.answerStyle }}">
+                <p style="margin:12px 0 0 33px;color:#4A627C;font-size:14.5px;line-height:1.95;">{{ q.a }}</p>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section style="padding:0 clamp(16px,4vw,26px) clamp(56px,8vw,96px);">
+      <div style="max-width:1180px;margin:0 auto;background:radial-gradient(circle at 20% 20%,#134a82,#0B3D6E);border-radius:26px;padding:clamp(40px,6vw,72px) clamp(24px,4vw,48px);text-align:center;position:relative;overflow:hidden;">
+        <p style="font-family:'Jost',sans-serif;font-weight:600;letter-spacing:.22em;font-size:12px;color:#5BA8E5;margin:0 0 14px;">START TODAY</p>
+        <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:clamp(24px,3.6vw,38px);color:#fff;margin:0 0 10px;line-height:1.5;text-wrap:pretty;">まずは、お試しください。</h2>
+        <p style="color:#BCD6EE;font-size:15px;margin:0 0 8px;">カウンセリング＋体験トレーニング（60分）</p>
+        <div style="display:flex;align-items:baseline;justify-content:center;gap:12px;margin-bottom:28px;">
+          <span style="color:#BCD6EE;text-decoration:line-through;font-size:15px;">通常 ¥5,500</span>
+          <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;color:#F2920A;font-size:clamp(36px,5vw,52px);">¥500</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center;">
+          <button onClick="{{ goReserveTrial }}" style="border:none;cursor:pointer;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;color:#fff;background:#F2920A;padding:16px 34px;border-radius:999px;box-shadow:0 10px 26px rgba(242,146,10,.45);">Webで予約する →</button>
+          <a href="TEL:080-9350-7988" style="display:inline-flex;align-items:center;gap:9px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;color:#fff;background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.55);padding:16px 30px;border-radius:999px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11 11 0 0 0 3.4.55 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11 11 0 0 0 .55 3.4 1 1 0 0 1-.24 1Z"></path></svg>電話で予約</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  </sc-if>
+
+  <!-- ============ PRICING VIEW ============ -->
+  <sc-if value="{{ isPricing }}" hint-placeholder-val="{{ false }}">
+  <main style="padding:clamp(40px,6vw,72px) clamp(16px,4vw,26px) clamp(56px,8vw,96px);background:linear-gradient(#EDF5FC,#fff);min-height:70vh;">
+    <div style="max-width:1080px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:clamp(32px,5vw,52px);">
+        <p style="font-family:'Jost',sans-serif;font-weight:600;letter-spacing:.22em;font-size:12px;color:#1D6FBF;margin:0 0 12px;">PRICE PLAN</p>
+        <h1 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:clamp(26px,3.6vw,40px);color:#0B3D6E;margin:0;">料金プラン</h1>
+        <p style="color:#4A627C;font-size:15px;margin:14px auto 0;max-width:32em;line-height:1.9;">1回あたり8,000円〜。“いつか”ではなく“今”のあなたのための、確かな自己投資です。まとめてご契約いただくほどお得になります。</p>
+      </div>
+
+      <!-- trial highlight -->
+      <div style="background:linear-gradient(120deg,#F2920A,#f7a838);border-radius:22px;padding:clamp(22px,3vw,34px);display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;align-items:center;margin-bottom:clamp(30px,4vw,44px);box-shadow:0 16px 40px rgba(242,146,10,.28);">
+        <div>
+          <div style="display:inline-block;background:rgba(255,255,255,.22);color:#fff;font-family:'Jost',sans-serif;font-weight:600;letter-spacing:.14em;font-size:11px;padding:5px 14px;border-radius:999px;margin-bottom:10px;">FIRST VISIT</div>
+          <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:clamp(20px,2.6vw,28px);color:#fff;margin:0;">初回体験（カウンセリング＋体験60分）</h2>
+          <p style="color:#fff;opacity:.9;margin:6px 0 0;font-size:13.5px;">キャンペーン期限：2026年7月31日 23:59まで</p>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+          <div style="display:flex;align-items:baseline;gap:10px;color:#fff;">
+            <span style="font-size:14px;text-decoration:line-through;opacity:.75;">¥5,500</span>
+            <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:clamp(34px,5vw,48px);line-height:1;">¥500</span>
+          </div>
+          <button onClick="{{ goReserveTrial }}" style="border:none;cursor:pointer;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;color:#F2920A;background:#fff;padding:13px 26px;border-radius:999px;">予約する →</button>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;">
+        <sc-for list="{{ plans }}" as="p" hint-placeholder-count="2">
+          <div style="background:#fff;border:1px solid #C9DDF0;border-radius:22px;overflow:hidden;box-shadow:0 8px 26px rgba(11,61,110,.08);">
+            <div style="{{ p.headStyle }}">
+              <div style="font-family:'Jost',sans-serif;font-weight:600;letter-spacing:.14em;font-size:11px;opacity:.85;">{{ p.en }}</div>
+              <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:22px;margin:4px 0 0;">{{ p.name }}</h3>
+              <p style="font-size:13px;margin:6px 0 0;opacity:.9;">{{ p.note }}</p>
+            </div>
+            <div style="padding:8px 24px 22px;">
+              <sc-for list="{{ p.rows }}" as="r" hint-placeholder-count="4">
+                <div style="display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:baseline;padding:14px 0;border-bottom:1px solid #EDF5FC;">
+                  <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;color:#0B3D6E;min-width:44px;">{{ r.count }}</span>
+                  <span style="color:#4A627C;font-size:14px;">{{ r.total }}</span>
+                  <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;color:#F2920A;white-space:nowrap;">{{ r.per }}</span>
+                </div>
+              </sc-for>
+              <div style="display:flex;justify-content:space-between;font-size:11px;color:#8aa0b8;padding-top:10px;">
+                <span>回数</span><span>料金（税込）</span><span>1回あたり</span>
+              </div>
+              <button onClick="{{ p.onReserve }}" style="width:100%;margin-top:18px;border:none;cursor:pointer;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;color:#fff;background:#0B3D6E;padding:14px;border-radius:999px;">このコースで予約 →</button>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <p style="text-align:center;color:#8aa0b8;font-size:12.5px;margin-top:24px;">※ 表示は税抜（　）内税込。回数券は有効期限があります。詳しくはカウンセリング時にご案内します。</p>
+    </div>
+  </main>
+  </sc-if>
+
+  <!-- ============ RESERVE VIEW ============ -->
+  <sc-if value="{{ isReserve }}" hint-placeholder-val="{{ false }}">
+  <main style="background:#EDF5FC;min-height:80vh;padding:clamp(28px,4vw,48px) clamp(16px,4vw,26px) clamp(56px,8vw,90px);">
+    <div style="max-width:720px;margin:0 auto;">
+
+      <!-- progress -->
+      <sc-if value="{{ showStepper }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;align-items:center;gap:6px;margin-bottom:clamp(24px,4vw,36px);">
+        <sc-for list="{{ steps }}" as="st" hint-placeholder-count="4">
+          <div style="display:flex;align-items:center;gap:6px;flex:1;">
+            <div style="{{ st.dotStyle }}">{{ st.n }}</div>
+            <span style="{{ st.labelStyle }}">{{ st.label }}</span>
+            <div style="{{ st.lineStyle }}"></div>
+          </div>
+        </sc-for>
+      </div>
+      </sc-if>
+
+      <!-- STEP 1 : course -->
+      <sc-if value="{{ isStep1 }}" hint-placeholder-val="{{ false }}">
+      <div style="animation:fadeUp .4s ease both;">
+        <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:clamp(20px,2.8vw,28px);color:#0B3D6E;margin:0 0 6px;">コースをお選びください</h2>
+        <p style="color:#4A627C;font-size:14px;margin:0 0 24px;">ご希望のメニューを1つ選んでください。</p>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <sc-for list="{{ courseCards }}" as="c" hint-placeholder-count="3">
+            <div onClick="{{ c.onSelect }}" style="{{ c.style }}">
+              <div style="width:52px;height:52px;border-radius:14px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:{{ c.iconBg }};">
+                <sc-if value="{{ c.isTrial }}" hint-placeholder-val="{{ false }}"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#A35F00" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4M5 5h11l-2 3 2 3H5"></path></svg></sc-if>
+                <sc-if value="{{ c.isBasic }}" hint-placeholder-val="{{ false }}"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1D6FBF" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5v11M17.5 6.5v11M4 9v6M20 9v6M6.5 12h11"></path></svg></sc-if>
+                <sc-if value="{{ c.isPilates }}" hint-placeholder-val="{{ false }}"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1F7A4D" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"></circle><path d="M12 7v6m0 0-4 5m4-5 4 5M8 10.5h8"></path></svg></sc-if>
+              </div>
+              <div style="flex:1;">
+                <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+                  <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:17px;color:#0B3D6E;">{{ c.name }}</span>
+                  <span style="{{ c.tagStyle }}">{{ c.tag }}</span>
+                </div>
+                <p style="color:#4A627C;font-size:13.5px;margin:4px 0 0;line-height:1.7;">{{ c.desc }}</p>
+              </div>
+              <div style="text-align:right;flex-shrink:0;">
+                <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:18px;color:#F2920A;">{{ c.price }}</div>
+                <div style="{{ c.checkStyle }}">✓</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- STEP 2 : date -->
+      <sc-if value="{{ isStep2 }}" hint-placeholder-val="{{ false }}">
+      <div style="animation:fadeUp .4s ease both;">
+        <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:clamp(20px,2.8vw,28px);color:#0B3D6E;margin:0 0 6px;">ご希望の日を選択</h2>
+        <p style="color:#4A627C;font-size:14px;margin:0 0 20px;">{{ monthLabel }}・年中無休（年末年始を除く）</p>
+        <div style="background:#fff;border:1px solid #C9DDF0;border-radius:18px;padding:clamp(16px,3vw,24px);box-shadow:0 6px 20px rgba(11,61,110,.06);">
+          <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:6px;">
+            <sc-for list="{{ weekdays }}" as="w" hint-placeholder-count="7">
+              <div style="{{ w.style }}">{{ w.d }}</div>
+            </sc-for>
+          </div>
+          <sc-for list="{{ weeks }}" as="week" hint-placeholder-count="5">
+            <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:6px;">
+              <sc-for list="{{ week }}" as="cell" hint-placeholder-count="7">
+                <button onClick="{{ cell.onClick }}" style="{{ cell.style }}">
+                  <span>{{ cell.day }}</span>
+                  <span style="{{ cell.subStyle }}">{{ cell.sub }}</span>
+                </button>
+              </sc-for>
+            </div>
+          </sc-for>
+          <div style="display:flex;gap:16px;margin-top:12px;font-size:11.5px;color:#8aa0b8;">
+            <span>◯ 予約可</span><span>△ 残りわずか</span><span>✕ 満席</span>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- STEP 3 : time -->
+      <sc-if value="{{ isStep3 }}" hint-placeholder-val="{{ false }}">
+      <div style="animation:fadeUp .4s ease both;">
+        <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:clamp(20px,2.8vw,28px);color:#0B3D6E;margin:0 0 6px;">開始時間を選択</h2>
+        <p style="color:#4A627C;font-size:14px;margin:0 0 20px;">{{ selectedDateLabel }} / 営業 7:00〜21:30（最終セッション20:00）</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:12px;">
+          <sc-for list="{{ timeSlots }}" as="t" hint-placeholder-count="8">
+            <button onClick="{{ t.onClick }}" style="{{ t.style }}">
+              <span style="font-family:'Jost',sans-serif;font-weight:600;font-size:18px;">{{ t.t }}</span>
+              <span style="{{ t.statusStyle }}">{{ t.status }}</span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- STEP 4 : form -->
+      <sc-if value="{{ isStep4 }}" hint-placeholder-val="{{ false }}">
+      <div style="animation:fadeUp .4s ease both;">
+        <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:clamp(20px,2.8vw,28px);color:#0B3D6E;margin:0 0 6px;">お客様情報の入力</h2>
+        <p style="color:#4A627C;font-size:14px;margin:0 0 22px;">確認のためご連絡します。所要1分ほどです。</p>
+
+        <!-- selection summary -->
+        <div style="background:#0B3D6E;border-radius:16px;padding:18px 20px;margin-bottom:24px;display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
+            <span style="color:#BCD6EE;font-size:12.5px;">ご希望コース</span>
+            <span style="color:#fff;font-weight:700;font-size:14.5px;">{{ summaryCourse }}</span>
+          </div>
+          <div style="height:1px;background:rgba(255,255,255,.12);"></div>
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;">
+            <span style="color:#BCD6EE;font-size:12.5px;">ご希望日時</span>
+            <span style="color:#fff;font-weight:700;font-size:14.5px;">{{ summaryDateTime }}</span>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:18px;">
+          <div>
+            <label style="display:block;font-weight:700;font-size:13.5px;color:#0B3D6E;margin-bottom:7px;">お名前 <span style="color:#F2920A;">*</span></label>
+            <input value="{{ fName }}" onInput="{{ onName }}" placeholder="山田 太郎" style="width:100%;font-family:inherit;font-size:15px;padding:13px 15px;border:1.5px solid #C9DDF0;border-radius:12px;background:#fff;color:#20354A;outline:none;" />
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;">
+            <div>
+              <label style="display:block;font-weight:700;font-size:13.5px;color:#0B3D6E;margin-bottom:7px;">電話番号 <span style="color:#F2920A;">*</span></label>
+              <input value="{{ fTel }}" onInput="{{ onTel }}" placeholder="090-1234-5678" style="width:100%;font-family:inherit;font-size:15px;padding:13px 15px;border:1.5px solid #C9DDF0;border-radius:12px;background:#fff;color:#20354A;outline:none;" />
+            </div>
+            <div>
+              <label style="display:block;font-weight:700;font-size:13.5px;color:#0B3D6E;margin-bottom:7px;">メールアドレス <span style="color:#F2920A;">*</span></label>
+              <input value="{{ fEmail }}" onInput="{{ onEmail }}" placeholder="you@example.com" style="width:100%;font-family:inherit;font-size:15px;padding:13px 15px;border:1.5px solid #C9DDF0;border-radius:12px;background:#fff;color:#20354A;outline:none;" />
+            </div>
+          </div>
+          <div>
+            <label style="display:block;font-weight:700;font-size:13.5px;color:#0B3D6E;margin-bottom:9px;">運動経験 <span style="color:#F2920A;">*</span></label>
+            <div style="display:flex;flex-wrap:wrap;gap:10px;">
+              <sc-for list="{{ expOptions }}" as="e" hint-placeholder-count="3">
+                <button onClick="{{ e.onClick }}" style="{{ e.style }}">{{ e.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+          <div>
+            <label style="display:block;font-weight:700;font-size:13.5px;color:#0B3D6E;margin-bottom:7px;">現在の悩み・ご要望 <span style="color:#8aa0b8;font-weight:400;">（任意）</span></label>
+            <textarea value="{{ fConcerns }}" onInput="{{ onConcerns }}" placeholder="例）腰痛が気になる／旅行を楽しめる体になりたい など" rows="4" style="width:100%;font-family:inherit;font-size:15px;padding:13px 15px;border:1.5px solid #C9DDF0;border-radius:12px;background:#fff;color:#20354A;outline:none;resize:vertical;line-height:1.8;"></textarea>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- STEP 5 : done -->
+      <sc-if value="{{ isDone }}" hint-placeholder-val="{{ false }}">
+      <div style="text-align:center;padding:clamp(20px,5vw,50px) 0;animation:fadeUp .5s ease both;">
+        <div style="width:88px;height:88px;border-radius:50%;background:linear-gradient(135deg,#3E9E6E,#5bc48d);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;box-shadow:0 12px 30px rgba(62,158,110,.35);font-size:44px;color:#fff;">✓</div>
+        <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:clamp(22px,3vw,30px);color:#0B3D6E;margin:0 0 10px;">ご予約ありがとうございます！</h2>
+        <p style="color:#4A627C;font-size:15px;line-height:1.9;margin:0 auto 28px;max-width:26em;">担当より確認のご連絡を差し上げます。当日は動きやすい服装でお越しください（更衣スペースあり）。</p>
+        <div style="background:#fff;border:1px solid #C9DDF0;border-radius:18px;padding:24px;max-width:420px;margin:0 auto 28px;text-align:left;box-shadow:0 6px 20px rgba(11,61,110,.06);">
+          <sc-for list="{{ confirmRows }}" as="row" hint-placeholder-count="4">
+            <div style="display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid #EDF5FC;">
+              <span style="color:#8aa0b8;font-size:13px;">{{ row.k }}</span>
+              <span style="color:#0B3D6E;font-weight:700;font-size:14px;text-align:right;">{{ row.v }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <button onClick="{{ goHome }}" style="border:none;cursor:pointer;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;color:#fff;background:#0B3D6E;padding:15px 32px;border-radius:999px;">トップに戻る</button>
+      </div>
+      </sc-if>
+
+      <!-- nav buttons -->
+      <sc-if value="{{ showNav }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;gap:12px;margin-top:clamp(24px,4vw,36px);">
+        <sc-if value="{{ showBack }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ back }}" style="flex:0 0 auto;cursor:pointer;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:15px;color:#0B3D6E;background:#fff;border:1.5px solid #C9DDF0;padding:15px 26px;border-radius:999px;">← 戻る</button>
+        </sc-if>
+        <button onClick="{{ next }}" style="{{ nextStyle }}">{{ nextLabel }}</button>
+      </div>
+      </sc-if>
+    </div>
+  </main>
+  </sc-if>
+
+  <!-- ============ FOOTER ============ -->
+  <footer style="background:#0B3D6E;color:#BCD6EE;">
+    <div style="max-width:1180px;margin:0 auto;padding:clamp(40px,6vw,64px) clamp(16px,4vw,26px) clamp(28px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:32px;">
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+          <div style="width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#5BA8E5,#1D6FBF 55%,#0B3D6E);display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Jost',sans-serif;font-weight:600;font-size:15px;border:1px solid rgba(255,255,255,.2);">8×8</div>
+          <div style="line-height:1.15;">
+            <div style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:16px;color:#fff;">エイトバイエイト</div>
+            <div style="font-family:'Jost',sans-serif;font-weight:600;font-size:9.5px;letter-spacing:.24em;color:#5BA8E5;">8×8 CONDITIONING LAB</div>
+          </div>
+        </div>
+        <p style="font-size:13.5px;line-height:1.9;margin:0;">身体が変わると、毎日が変わる。運動と治療がひとつになる、東日本橋・馬喰町のパーソナルジム。</p>
+      </div>
+      <div>
+        <h4 style="font-family:'Jost',sans-serif;font-weight:600;letter-spacing:.16em;font-size:11px;color:#5BA8E5;margin:0 0 16px;">ACCESS</h4>
+        <p style="font-size:13.5px;line-height:1.9;margin:0;">〒103-0003<br />東京都中央区日本橋横山町8-5 B1<br /><br />営業時間 7:00〜21:30（最終20:00）<br />定休日 年中無休（年末年始を除く）</p>
+      </div>
+      <div>
+        <h4 style="font-family:'Jost',sans-serif;font-weight:600;letter-spacing:.16em;font-size:11px;color:#5BA8E5;margin:0 0 16px;">MENU</h4>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="4">
+            <button onClick="{{ n.onClick }}" style="text-align:left;background:none;border:none;cursor:pointer;color:#BCD6EE;font-family:inherit;font-size:13.5px;padding:0;">{{ n.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-family:'Jost',sans-serif;font-weight:600;letter-spacing:.16em;font-size:11px;color:#5BA8E5;margin:0 0 16px;">CONTACT</h4>
+        <a href="TEL:080-9350-7988" style="display:block;font-family:'Jost',sans-serif;font-weight:600;font-size:22px;color:#fff;margin-bottom:14px;">080-9350-7988</a>
+        <button onClick="{{ goReserveTop }}" style="border:none;cursor:pointer;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#fff;background:#F2920A;padding:13px 24px;border-radius:999px;box-shadow:0 4px 14px rgba(242,146,10,.35);">かんたん予約 →</button>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,.1);">
+      <p style="max-width:1180px;margin:0 auto;padding:18px clamp(16px,4vw,26px);font-size:11.5px;color:#7FA8CF;">© 8×8 Conditioning.Lab All Rights Reserved.</p>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    view: 'lp',
+    rStep: 1,
+    course: null,
+    date: null,
+    time: null,
+    exp: '',
+    form: { name: '', tel: '', email: '', concerns: '' },
+    faqOpen: 0,
+  };
+
+  toTop() { try { window.scrollTo({ top: 0, behavior: 'instant' }); } catch (e) { window.scrollTo(0, 0); } }
+  go(view) { this.setState({ view }); this.toTop(); }
+  startReserve(courseId) { this.setState({ view: 'reserve', rStep: 1, course: courseId || null, date: null, time: null }); this.toTop(); }
+
+  next() {
+    const s = this.state;
+    if (s.rStep === 4) { this.setState({ rStep: 5 }); this.toTop(); return; }
+    this.setState({ rStep: s.rStep + 1 }); this.toTop();
+  }
+  back() { this.setState(s => ({ rStep: Math.max(1, s.rStep - 1) })); this.toTop(); }
+  setField(k, v) { this.setState(s => ({ form: { ...s.form, [k]: v } })); }
+
+  canProceed() {
+    const s = this.state;
+    if (s.rStep === 1) return !!s.course;
+    if (s.rStep === 2) return !!s.date;
+    if (s.rStep === 3) return !!s.time;
+    if (s.rStep === 4) return s.form.name.trim() && s.form.tel.trim() && s.form.email.trim() && s.exp;
+    return true;
+  }
+
+  courseMeta(id) {
+    const m = {
+      trial:   { name: '初回体験（カウンセリング＋体験60分）', price: '¥500' },
+      basic:   { name: 'ベーシックコース 60分', price: '¥9,000〜' },
+      pilates: { name: 'マシンピラティス 60分', price: '¥10,000〜' },
+    };
+    return m[id] || null;
+  }
+
+  renderVals() {
+    const S = this.state;
+    const view = S.view;
+
+    // ---- nav ----
+    const navDefs = [
+      ['lp', 'ホーム'], ['lp', 'ジムのご紹介'], ['pricing', 'コース料金'], ['lp', 'お客様の声'], ['reserve', 'ご予約'],
+    ];
+    const navItems = navDefs.map(([v, label], i) => {
+      const active = (v === 'lp' && view === 'lp' && i === 0) || (v === 'pricing' && view === 'pricing') || (v === 'reserve' && view === 'reserve');
+      return {
+        label,
+        onClick: () => (v === 'reserve' ? this.startReserve(null) : this.go(v)),
+        style: `background:none;border:none;cursor:pointer;font-family:'Noto Sans JP',sans-serif;font-weight:${active ? 700 : 500};font-size:13.5px;color:${active ? '#F2920A' : '#3D5670'};padding:14px 2px;white-space:nowrap;border-bottom:2.5px solid ${active ? '#F2920A' : 'transparent'};`,
+      };
+    });
+
+    // ---- LP content ----
+    const strengths = [
+      { icon: '🩺', title: '身体のチェックから', body: '筋肉や骨の状態を丁寧に確認し、不調の原因を見つけます。いきなり運動は始めません。' },
+      { icon: '🧘', title: 'あなた専用メニュー', body: '一人ひとりの状態や目標に合わせ、無理なく続けられるプログラムをご提案します。' },
+      { icon: '🏥', title: '接骨院を併設', body: '「馬喰町はちはち接骨院」を併設。運動と治療をその場で融合できます。' },
+    ];
+    const features = [
+      { num: '01', title: 'まずは"身体のチェック"からスタート', body: '筋肉や骨の状態を丁寧に確認し、体のクセや不調の原因を見つけます。いきなり運動を始めることはありません。' },
+      { num: '02', title: 'あなたに合った運動メニューを作成', body: '一人ひとりの状態や目標に合わせて、無理なく続けられるプログラムをご提案します。' },
+      { num: '03', title: '最初から重いものは持ちません', body: '筋トレが不安な方でも安心。体を整えるやさしい動きから始めます。' },
+    ];
+    const audiences = [
+      { icon: '✈️', text: '腰痛を気にせず、旅行を楽しみたい' },
+      { icon: '💪', text: '疲れにくい体で、仕事や家事をラクにこなしたい' },
+      { icon: '⛳', text: '趣味のゴルフや登山を、もっと長く続けたい' },
+      { icon: '👨‍👩‍👧', text: '将来、家族に迷惑をかけずに過ごしたい' },
+    ];
+    const voices = [
+      { icon: '🙂', who: '60代・女性 / ピラティス', quote: '運動はずっと苦手でしたが、マット1枚から始められて安心。今では階段の上り下りが本当に楽になりました。' },
+      { icon: '😊', who: '50代・男性 / ベーシック', quote: '腰の不安をチェックしてもらってから始めたので怖くなかった。週1回、自分のための時間が習慣になっています。' },
+      { icon: '😄', who: '40代・女性 / ピラティス', quote: '「重いものは持たない」の言葉どおり、やさしい動きから。体が変わると気持ちまで前向きになりました。' },
+    ];
+    const faqDefs = [
+      ['まったく運動していないのですが、大丈夫ですか？', 'はい、ご安心ください。通われている方の多くが運動が久しぶりな方ばかりです。体をゆるめることから少しずつ始めますので、無理なくスタートしていただけます。'],
+      ['どのようなトレーニングを行いますか？重りを使いますか？', 'まずはマット一枚分のスペースで、体の柔軟性や関節の使い方からスタート。バランスボールやストレッチポールを使い、できるところから行います。フォームを覚えてきたら軽い重さも。急には行いませんのでご安心ください。'],
+      ['腰に不安があるのですが、大丈夫でしょうか？', '大丈夫です。事前に体の状態をチェックしたうえで、腰に負担のない動きを組み合わせたメニューをご提案します。「痛めない」「無理させない」を大前提にサポートします。'],
+      ['どんな服装で行けばいいですか？', '動きやすい服装であれば何でもOK。Tシャツ・スウェット・ジャージなど気軽なもので大丈夫です。更衣スペースもご用意していますので、お仕事帰りにも通いやすいです。'],
+    ];
+    const faqs = faqDefs.map(([q, a], i) => {
+      const open = S.faqOpen === i;
+      return {
+        q, a,
+        onToggle: () => this.setState({ faqOpen: open ? -1 : i }),
+        wrapStyle: `cursor:pointer;background:#fff;border:1px solid ${open ? '#5BA8E5' : '#C9DDF0'};border-radius:16px;padding:20px 22px;box-shadow:0 6px 20px rgba(11,61,110,.06);transition:border-color .2s;`,
+        iconStyle: `font-family:'Zen Maru Gothic',sans-serif;font-weight:900;color:#F2920A;font-size:20px;flex-shrink:0;transition:transform .25s;transform:rotate(${open ? 45 : 0}deg);`,
+        answerStyle: `overflow:hidden;max-height:${open ? 300 : 0}px;opacity:${open ? 1 : 0};transition:max-height .3s ease,opacity .3s ease;`,
+      };
+    });
+
+    // ---- pricing ----
+    const plans = [
+      {
+        en: 'BASIC 60MIN', name: 'ベーシックコース', note: 'パーソナルトレーニング 60分', id: 'basic',
+        headStyle: 'background:linear-gradient(120deg,#0B3D6E,#1D6FBF);color:#fff;padding:24px;',
+        rows: [
+          { count: '1回', total: '¥9,000（¥9,900）', per: '¥9,000' },
+          { count: '4回', total: '¥34,000（¥37,400）', per: '¥8,500' },
+          { count: '8回', total: '¥66,000（¥69,600）', per: '¥8,250' },
+          { count: '12回', total: '¥96,000（¥105,600）', per: '¥8,000' },
+        ],
+        onReserve: () => this.startReserve('basic'),
+      },
+      {
+        en: 'PILATES 60MIN', name: 'マシンピラティス', note: 'マシンを使ったピラティス 60分', id: 'pilates',
+        headStyle: 'background:linear-gradient(120deg,#3E9E6E,#5bc48d);color:#fff;padding:24px;',
+        rows: [
+          { count: '1回', total: '¥10,000（¥11,000）', per: '¥10,000' },
+          { count: '4回', total: '¥32,000（¥35,200）', per: '¥8,000' },
+          { count: '8回', total: '¥60,000（¥66,000）', per: '¥7,500' },
+          { count: '12回', total: '¥84,000（¥92,400）', per: '¥7,000' },
+        ],
+        onReserve: () => this.startReserve('pilates'),
+      },
+    ];
+
+    // ---- reserve: courses ----
+    const courseDefs = [
+      { id: 'trial', icon: '🔰', iconBg: '#FDEBD2', name: '初回体験', tag: 'キャンペーン ¥500', desc: 'カウンセリング＋体験トレーニング（60分）。はじめての方におすすめ。', price: '¥500' },
+      { id: 'basic', icon: '💪', iconBg: '#EDF5FC', name: 'ベーシックコース', tag: '60分', desc: 'パーソナルトレーニングで、無理なく身体を整えます。', price: '¥9,000〜' },
+      { id: 'pilates', icon: '🧘', iconBg: '#DEF2E7', name: 'マシンピラティス', tag: '60分', desc: 'マシンを使い、体幹と柔軟性を高めます。', price: '¥10,000〜' },
+    ];
+    const courseCards = courseDefs.map(c => {
+      const sel = S.course === c.id;
+      return {
+        ...c,
+        isTrial: c.id === 'trial', isBasic: c.id === 'basic', isPilates: c.id === 'pilates',
+        onSelect: () => this.setState({ course: c.id }),
+        style: `display:flex;align-items:center;gap:16px;cursor:pointer;background:#fff;border:2px solid ${sel ? '#F2920A' : '#C9DDF0'};border-radius:18px;padding:18px 20px;box-shadow:${sel ? '0 10px 26px rgba(242,146,10,.18)' : '0 6px 20px rgba(11,61,110,.06)'};transition:border-color .2s,box-shadow .2s;`,
+        tagStyle: `font-family:'Jost',sans-serif;font-weight:600;font-size:11px;letter-spacing:.06em;padding:3px 10px;border-radius:999px;background:${c.id === 'trial' ? '#FDEBD2' : '#EDF5FC'};color:${c.id === 'trial' ? '#A35F00' : '#1D6FBF'};`,
+        checkStyle: `width:24px;height:24px;border-radius:50%;background:#F2920A;color:#fff;font-size:13px;display:${sel ? 'flex' : 'none'};align-items:center;justify-content:center;margin-left:auto;margin-top:6px;`,
+      };
+    });
+
+    // ---- reserve: calendar (2026年8月) ----
+    const year = 2026, month = 7; // August (0-index)
+    const monthLabel = '2026年8月';
+    const weekdayDefs = ['日', '月', '火', '水', '木', '金', '土'];
+    const weekdays = weekdayDefs.map((d, i) => ({
+      d,
+      style: `text-align:center;font-size:11.5px;font-weight:700;padding:4px 0;color:${i === 0 ? '#d06a6a' : i === 6 ? '#5B8FE5' : '#8aa0b8'};`,
+    }));
+    const first = new Date(year, month, 1).getDay();
+    const dim = new Date(year, month + 1, 0).getDate();
+    const today = 5;         // treat Aug 5 as "today"
+    const fullDays = [10, 17, 24];
+    const fewDays = [8, 15, 22, 29];
+    const cells = [];
+    for (let i = 0; i < first; i++) cells.push(null);
+    for (let d = 1; d <= dim; d++) cells.push(d);
+    while (cells.length % 7) cells.push(null);
+    const mkCell = (d, idx) => {
+      if (d === null) return { day: '', sub: '', onClick: null, style: 'visibility:hidden;height:52px;', subStyle: '' };
+      const dow = (first + (d - 1)) % 7;
+      const past = d < today;
+      const full = fullDays.includes(d);
+      const few = fewDays.includes(d);
+      const disabled = past || full;
+      const sel = S.date === d;
+      const mark = full ? '✕' : few ? '△' : '◯';
+      const dcol = dow === 0 ? '#d06a6a' : dow === 6 ? '#5B8FE5' : '#20354A';
+      return {
+        day: String(d),
+        sub: past ? '' : mark,
+        onClick: disabled ? null : (() => this.setState({ date: d })),
+        style: `display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;height:52px;border-radius:12px;cursor:${disabled ? 'default' : 'pointer'};font-family:'Jost',sans-serif;font-weight:600;font-size:15px;`
+          + (sel
+            ? 'background:#F2920A;color:#fff;border:2px solid #F2920A;'
+            : disabled
+              ? `background:#F4F7FB;color:#c3cdd8;border:2px solid transparent;`
+              : `background:#fff;color:${dcol};border:2px solid #E4EEF8;`),
+        subStyle: `font-size:11px;color:${sel ? '#fff' : full ? '#d06a6a' : few ? '#e0912c' : '#3E9E6E'};`,
+      };
+    };
+    const flat = cells.map(mkCell);
+    const weeks = [];
+    for (let i = 0; i < flat.length; i += 7) weeks.push(flat.slice(i, i + 7));
+    const selectedDateLabel = S.date ? `2026年8月${S.date}日(${weekdayDefs[(first + (S.date - 1)) % 7]})` : '';
+
+    // ---- reserve: times ----
+    const timeDefs = [
+      ['9:00', true], ['10:30', true], ['12:00', false], ['14:00', true],
+      ['15:30', true], ['17:00', false], ['18:30', true], ['20:00', true],
+    ];
+    const timeSlots = timeDefs.map(([t, ok]) => {
+      const sel = S.time === t;
+      return {
+        t, status: ok ? '予約可' : '満席',
+        onClick: ok ? (() => this.setState({ time: t })) : null,
+        style: `display:flex;flex-direction:column;align-items:center;gap:3px;padding:16px 8px;border-radius:14px;cursor:${ok ? 'pointer' : 'default'};`
+          + (sel
+            ? 'background:#F2920A;color:#fff;border:2px solid #F2920A;'
+            : ok
+              ? 'background:#fff;color:#0B3D6E;border:2px solid #E4EEF8;'
+              : 'background:#F4F7FB;color:#c3cdd8;border:2px solid transparent;'),
+        statusStyle: `font-size:11px;color:${sel ? '#fff' : ok ? '#3E9E6E' : '#c3cdd8'};`,
+      };
+    });
+
+    // ---- reserve: form ----
+    const expDefs = ['ある', '少しある', 'ない'];
+    const expOptions = expDefs.map(label => {
+      const sel = S.exp === label;
+      return {
+        label,
+        onClick: () => this.setState({ exp: label }),
+        style: `cursor:pointer;font-family:inherit;font-size:14px;font-weight:${sel ? 700 : 500};padding:11px 22px;border-radius:999px;background:${sel ? '#0B3D6E' : '#fff'};color:${sel ? '#fff' : '#3D5670'};border:1.5px solid ${sel ? '#0B3D6E' : '#C9DDF0'};`,
+      };
+    });
+
+    const cm = this.courseMeta(S.course);
+    const summaryCourse = cm ? `${cm.name} ${cm.price}` : '未選択';
+    const summaryDateTime = (S.date && S.time) ? `${selectedDateLabel || ('2026年8月' + S.date + '日')} ${S.time}〜` : '未選択';
+
+    const confirmRows = [
+      { k: 'コース', v: cm ? cm.name : '—' },
+      { k: '日時', v: (S.date && S.time) ? `8/${S.date} ${S.time}〜` : '—' },
+      { k: 'お名前', v: S.form.name || '—' },
+      { k: 'ご連絡先', v: S.form.tel || '—' },
+    ];
+
+    // ---- stepper ----
+    const stepLabels = ['コース', '日付', '時間', 'お客様情報'];
+    const steps = stepLabels.map((label, i) => {
+      const n = i + 1;
+      const done = S.rStep > n;
+      const active = S.rStep === n;
+      return {
+        n: done ? '✓' : String(n),
+        label,
+        dotStyle: `width:30px;height:30px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Jost',sans-serif;font-weight:600;font-size:13px;`
+          + (done ? 'background:#3E9E6E;color:#fff;' : active ? 'background:#F2920A;color:#fff;' : 'background:#fff;color:#a9bccf;border:1.5px solid #C9DDF0;'),
+        labelStyle: `font-size:12px;font-weight:${active ? 700 : 500};color:${active ? '#0B3D6E' : done ? '#3E9E6E' : '#a9bccf'};white-space:nowrap;`,
+        lineStyle: `flex:1;height:2px;border-radius:2px;background:${done ? '#3E9E6E' : '#DCEBF8'};display:${i < 3 ? 'block' : 'none'};`,
+      };
+    });
+
+    const proceed = this.canProceed();
+    const nextLabel = S.rStep === 4 ? 'この内容で予約する →' : '次へ進む →';
+
+    return {
+      // nav / view
+      navItems,
+      isLP: view === 'lp', isPricing: view === 'pricing', isReserve: view === 'reserve',
+      goHome: () => this.go('lp'),
+      goPricing: () => this.go('pricing'),
+      goReserveTop: () => this.startReserve(null),
+      goReserveTrial: () => this.startReserve('trial'),
+      // LP
+      strengths, features, audiences, voices, faqs,
+      // pricing
+      plans,
+      // reserve
+      showStepper: S.rStep <= 4,
+      steps,
+      isStep1: S.rStep === 1, isStep2: S.rStep === 2, isStep3: S.rStep === 3, isStep4: S.rStep === 4, isDone: S.rStep === 5,
+      courseCards,
+      monthLabel, weekdays, weeks,
+      selectedDateLabel,
+      timeSlots,
+      expOptions,
+      fName: S.form.name, fTel: S.form.tel, fEmail: S.form.email, fConcerns: S.form.concerns,
+      onName: (e) => this.setField('name', e.target.value),
+      onTel: (e) => this.setField('tel', e.target.value),
+      onEmail: (e) => this.setField('email', e.target.value),
+      onConcerns: (e) => this.setField('concerns', e.target.value),
+      summaryCourse, summaryDateTime, confirmRows,
+      showNav: S.rStep <= 4,
+      showBack: S.rStep > 1 && S.rStep <= 4,
+      next: () => { if (this.canProceed()) this.next(); },
+      back: () => this.back(),
+      nextLabel,
+      nextStyle: `flex:1;cursor:${proceed ? 'pointer' : 'not-allowed'};font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;color:#fff;border:none;padding:15px;border-radius:999px;background:${proceed ? '#F2920A' : '#e3c1a0'};box-shadow:${proceed ? '0 8px 22px rgba(242,146,10,.4)' : 'none'};`,
+    };
+  }
+}
+</script>
+</body>
+</html>
