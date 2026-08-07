@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Jost:ital,wght@0,400;0,600;1,600&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#fff; }
+  a { color:#1D6FBF; text-decoration:none; }
+  a:hover { color:#0B3D6E; }
+  html { scroll-behavior:smooth; }
+  @keyframes tw-fadeup { from { opacity:0; transform:translateY(22px);} to { opacity:1; transform:none;} }
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<div style="font-family:'Noto Sans JP',sans-serif;color:#20354A;line-height:1.9;overflow-x:hidden">
+
+  <header style="position:sticky;top:0;z-index:50;height:70px;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid #C9DDF0;display:flex;align-items:center">
+    <div style="max-width:1180px;width:100%;margin:0 auto;padding:0 22px;display:flex;align-items:center;gap:18px">
+      <a href="#top" style="display:flex;align-items:center;gap:10px;color:inherit">
+        <span style="width:38px;height:38px;border-radius:999px;background:linear-gradient(140deg,#1D6FBF,#0B3D6E);color:#fff;font-family:Jost,sans-serif;font-weight:600;font-size:16px;display:flex;align-items:center;justify-content:center;letter-spacing:.02em">T1</span>
+        <span style="display:flex;flex-direction:column;line-height:1.15">
+          <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:17px;color:#0B3D6E">トレーディング・ワン</span>
+          <span style="font-family:Jost,sans-serif;font-size:9px;letter-spacing:.22em;color:#6E8AA6">TRADING ONE CO., LTD.</span>
+        </span>
+      </a>
+      <nav style="margin-left:auto;display:flex;align-items:center;gap:26px">
+        <a href="#strength" style="font-size:13.5px;font-weight:500;color:#20354A">選ばれる理由</a>
+        <a href="#estimate" style="font-size:13.5px;font-weight:500;color:#20354A">かんたん査定</a>
+        <a href="#flow" style="font-size:13.5px;font-weight:500;color:#20354A">買取の流れ</a>
+        <a href="#machines" style="font-size:13.5px;font-weight:500;color:#20354A">対応機種</a>
+        <a href="#company" style="font-size:13.5px;font-weight:500;color:#20354A">会社概要</a>
+        <a href="#contact" style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;background:#F2920A;color:#fff;padding:11px 22px;border-radius:999px;box-shadow:0 6px 16px rgba(242,146,10,.32);transition:transform .2s" style-hover="transform:translateY(-3px)">無料査定を依頼 →</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="top" style="position:relative;min-height:640px;display:flex;align-items:center;overflow:hidden">
+    <div style="position:absolute;inset:0">
+      <image-slot id="tw-hero" shape="rect" fit="cover" src="https://images.pexels.com/photos/10410019/pexels-photo-10410019.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=2000" placeholder="重機・現場の写真（横長／2000px以上推奨）"></image-slot>
+    </div>
+    <div style="position:absolute;inset:0;background:linear-gradient(100deg,rgba(11,61,110,.92) 0%,rgba(11,61,110,.78) 45%,rgba(11,61,110,.35) 100%);pointer-events:none"></div>
+    <div style="position:relative;max-width:1180px;margin:0 auto;padding:110px 22px 130px;width:100%;pointer-events:none">
+      <p style="font-family:Jost,sans-serif;font-weight:600;font-style:italic;font-size:13px;letter-spacing:.26em;color:#5BA8E5;margin:0 0 18px">CONSTRUCTION MACHINERY / BUY &amp; SELL</p>
+      <h1 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:56px;line-height:1.35;letter-spacing:.01em;color:#fff;margin:0 0 24px;text-wrap:balance">その重機、<br>まだ、しっかり値が付きます。</h1>
+      <p style="font-size:17px;color:rgba(255,255,255,.9);max-width:620px;margin:0 0 36px">型式と稼働時間、写真が数枚あれば概算をお伝えできます。鹿児島から全国へ、無事故・きれいな取引にこだわって20年。<br>「売るなら、トレーディング・ワンさんに。」と言っていただける買取を。</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;pointer-events:auto">
+        <a href="#estimate" style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:17px;background:#F2920A;color:#fff;padding:18px 38px;border-radius:999px;box-shadow:0 10px 26px rgba(242,146,10,.38);transition:transform .2s" style-hover="transform:translateY(-3px)">30秒でかんたん査定 →</a>
+        <a href="#contact" style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:17px;background:#fff;color:#0B3D6E;padding:18px 38px;border-radius:999px;transition:transform .2s" style-hover="transform:translateY(-3px)">写真を送って相談する</a>
+      </div>
+      <div style="display:flex;gap:44px;flex-wrap:wrap;margin-top:56px">
+        <div><span style="font-family:Jost,sans-serif;font-weight:600;font-size:38px;color:#fff">0</span><span style="font-family:'Zen Maru Gothic',sans-serif;font-size:15px;color:rgba(255,255,255,.82);margin-left:8px">件　取引事故</span></div>
+        <div><span style="font-family:Jost,sans-serif;font-weight:600;font-size:38px;color:#fff">全国</span><span style="font-family:'Zen Maru Gothic',sans-serif;font-size:15px;color:rgba(255,255,255,.82);margin-left:8px">出張査定 対応</span></div>
+        <div><span style="font-family:Jost,sans-serif;font-weight:600;font-size:38px;color:#fff">最短48</span><span style="font-family:'Zen Maru Gothic',sans-serif;font-size:15px;color:rgba(255,255,255,.82);margin-left:8px">時間で入金</span></div>
+      </div>
+    </div>
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" style="position:absolute;bottom:-1px;left:0;width:100%;height:90px;display:block"><path d="M0,52 C260,96 470,10 720,34 C980,59 1200,4 1440,44 L1440,90 L0,90 Z" fill="#fff"></path></svg>
+  </section>
+
+  <section id="strength" style="padding:96px 22px;background:#fff">
+    <div style="max-width:1180px;margin:0 auto">
+      <p style="font-family:Jost,sans-serif;font-weight:600;font-style:italic;font-size:12px;letter-spacing:.26em;color:#1D6FBF;margin:0 0 12px;text-align:center">WHY TRADING ONE</p>
+      <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:36px;line-height:1.5;color:#0B3D6E;margin:0 0 16px;text-align:center">紹介が紹介を生む、<br>「きれいな取引」を続けてきました。</h2>
+      <p style="text-align:center;color:#4A6076;max-width:680px;margin:0 auto 56px;font-size:15.5px">一度ご利用いただいたお客様から、次のお客様をご紹介いただく——それが私たちの営業のかたちです。だからこそ、金額だけでなく、手続き・輸送・支払いまで一切のトラブルを起こさないことを何より大切にしています。</p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+        <div style="background:#fff;border:1px solid #C9DDF0;border-radius:18px;overflow:hidden;box-shadow:0 6px 20px rgba(11,61,110,.06);transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-6px);box-shadow:0 14px 34px rgba(11,61,110,.12)">
+          <div style="height:190px;position:relative">
+            <image-slot id="tw-str-1" shape="rect" src="https://images.pexels.com/photos/35598624/pexels-photo-35598624.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" placeholder="写真"></image-slot>
+            <span style="position:absolute;top:14px;left:14px;width:42px;height:42px;border-radius:14px;background:rgba(255,255,255,.94);display:flex;align-items:center;justify-content:center;font-size:20px;pointer-events:none">🤝</span>
+          </div>
+          <div style="padding:28px 30px 32px">
+            <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:20px;color:#0B3D6E;margin:0 0 12px">無事故・クレームゼロの実績</h3>
+            <p style="margin:0;font-size:14.5px;color:#4A6076">名義変更、輸送手配、入金まで一貫して当社が管理。創業以来、取引トラブル0件を継続しています。</p>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid #C9DDF0;border-radius:18px;overflow:hidden;box-shadow:0 6px 20px rgba(11,61,110,.06);transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-6px);box-shadow:0 14px 34px rgba(11,61,110,.12)">
+          <div style="height:190px;position:relative">
+            <image-slot id="tw-str-2" shape="rect" src="https://images.pexels.com/photos/37393680/pexels-photo-37393680.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" placeholder="写真"></image-slot>
+            <span style="position:absolute;top:14px;left:14px;width:42px;height:42px;border-radius:14px;background:rgba(255,255,255,.94);display:flex;align-items:center;justify-content:center;font-size:20px;pointer-events:none">📸</span>
+          </div>
+          <div style="padding:28px 30px 32px">
+            <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:20px;color:#0B3D6E;margin:0 0 12px">写真だけで概算がわかる</h3>
+            <p style="margin:0;font-size:14.5px;color:#4A6076">型式・稼働時間・写真数枚をお送りいただければ、来訪前に概算金額をご提示。まず金額感を知りたい方も歓迎です。</p>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid #C9DDF0;border-radius:18px;overflow:hidden;box-shadow:0 6px 20px rgba(11,61,110,.06);transition:transform .25s,box-shadow .25s" style-hover="transform:translateY(-6px);box-shadow:0 14px 34px rgba(11,61,110,.12)">
+          <div style="height:190px;position:relative">
+            <image-slot id="tw-str-3" shape="rect" src="https://images.pexels.com/photos/10421758/pexels-photo-10421758.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" placeholder="写真"></image-slot>
+            <span style="position:absolute;top:14px;left:14px;width:42px;height:42px;border-radius:14px;background:rgba(255,255,255,.94);display:flex;align-items:center;justify-content:center;font-size:20px;pointer-events:none">🚛</span>
+          </div>
+          <div style="padding:28px 30px 32px">
+            <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:20px;color:#0B3D6E;margin:0 0 12px">引取・輸送まで当社負担</h3>
+            <p style="margin:0;font-size:14.5px;color:#4A6076">現場からの引き上げ、回送、書類手続きまでお任せください。動かない機械・不動車もご相談いただけます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="estimate" style="position:relative;padding:0 0 96px;background:linear-gradient(180deg,#EDF5FC 0%,#fff 100%)">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="width:100%;height:70px;display:block;transform:rotate(180deg)"><path d="M0,40 C280,4 520,66 780,40 C1020,16 1230,62 1440,32 L1440,70 L0,70 Z" fill="#fff"></path></svg>
+    <div style="max-width:1180px;margin:0 auto;padding:34px 22px 0">
+      <p style="font-family:Jost,sans-serif;font-weight:600;font-style:italic;font-size:12px;letter-spacing:.26em;color:#1D6FBF;margin:0 0 12px;text-align:center">QUICK ESTIMATE</p>
+      <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:36px;line-height:1.5;color:#0B3D6E;margin:0 0 14px;text-align:center">30秒でわかる、かんたん買取査定</h2>
+      <p style="text-align:center;color:#4A6076;margin:0 auto 44px;font-size:15.5px;max-width:640px">4つ選ぶだけで、おおよその買取レンジを表示します。個人情報の入力は不要です。</p>
+
+      <div style="display:grid;grid-template-columns:1.15fr .85fr;gap:26px;align-items:start">
+        <div style="background:#fff;border:1px solid #C9DDF0;border-radius:26px;padding:38px 36px;box-shadow:0 6px 20px rgba(11,61,110,.06)">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px">
+            <label style="display:flex;flex-direction:column;gap:9px">
+              <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#0B3D6E">機種</span>
+              <select onChange="{{ onType }}" style="font-family:'Noto Sans JP',sans-serif;font-size:15px;color:#20354A;padding:13px 15px;border:1px solid #C9DDF0;border-radius:14px;background:#F7FBFF;appearance:none">
+                <option value="excavator">油圧ショベル（ユンボ）</option>
+                <option value="loader">ホイールローダー</option>
+                <option value="dozer">ブルドーザー</option>
+                <option value="crane">クレーン・高所作業車</option>
+                <option value="forklift">フォークリフト</option>
+                <option value="other">発電機・その他建機</option>
+              </select>
+            </label>
+            <label style="display:flex;flex-direction:column;gap:9px">
+              <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#0B3D6E">年式</span>
+              <select onChange="{{ onYear }}" style="font-family:'Noto Sans JP',sans-serif;font-size:15px;color:#20354A;padding:13px 15px;border:1px solid #C9DDF0;border-radius:14px;background:#F7FBFF;appearance:none">
+                <option value="y2020">2020年以降</option>
+                <option value="y2015">2015〜2019年</option>
+                <option value="y2010">2010〜2014年</option>
+                <option value="y2005">2005〜2009年</option>
+                <option value="y2004">2004年以前</option>
+              </select>
+            </label>
+            <label style="display:flex;flex-direction:column;gap:9px">
+              <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#0B3D6E">稼働時間（アワーメーター）</span>
+              <select onChange="{{ onHours }}" style="font-family:'Noto Sans JP',sans-serif;font-size:15px;color:#20354A;padding:13px 15px;border:1px solid #C9DDF0;border-radius:14px;background:#F7FBFF;appearance:none">
+                <option value="h2">2,000時間未満</option>
+                <option value="h5">2,000〜5,000時間</option>
+                <option value="h10">5,000〜10,000時間</option>
+                <option value="h99">10,000時間以上／不明</option>
+              </select>
+            </label>
+            <label style="display:flex;flex-direction:column;gap:9px">
+              <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#0B3D6E">機械の状態</span>
+              <select onChange="{{ onCond }}" style="font-family:'Noto Sans JP',sans-serif;font-size:15px;color:#20354A;padding:13px 15px;border:1px solid #C9DDF0;border-radius:14px;background:#F7FBFF;appearance:none">
+                <option value="good">良好・すぐ稼働できる</option>
+                <option value="normal">通常使用・小傷あり</option>
+                <option value="bad">要修理・不動</option>
+              </select>
+            </label>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;margin-top:26px;padding:16px 18px;background:#EDF5FC;border-radius:14px">
+            <span style="font-size:18px">📎</span>
+            <span style="font-size:13px;color:#4A6076">全景・アワーメーター・型式プレートの3枚があると、実際の金額に近いご提示が可能です。</span>
+          </div>
+        </div>
+
+        <div style="background:linear-gradient(160deg,#0B3D6E,#08304F);border-radius:26px;padding:40px 34px;color:#fff;position:relative;overflow:hidden">
+          <span style="position:absolute;right:-24px;bottom:-14px;font-family:Jost,sans-serif;font-style:italic;font-weight:600;font-size:76px;color:rgba(91,168,229,.12);letter-spacing:.04em;white-space:nowrap">ESTIMATE</span>
+          <p style="font-family:Jost,sans-serif;font-weight:600;font-size:11px;letter-spacing:.26em;color:#5BA8E5;margin:0 0 18px;position:relative">ESTIMATED RANGE</p>
+          <p style="margin:0 0 6px;font-size:14px;color:rgba(255,255,255,.75);position:relative">{{ label }}</p>
+          <p style="margin:0;position:relative;font-family:Jost,sans-serif;font-weight:600;font-size:46px;line-height:1.25;color:#fff">{{ range }}<span style="font-family:'Zen Maru Gothic',sans-serif;font-size:20px;margin-left:8px">万円</span></p>
+          <p style="margin:18px 0 0;font-size:12.5px;color:rgba(255,255,255,.62);line-height:1.8;position:relative">※ 一般的な相場に基づく参考値です。メーカー・アタッチメント・整備履歴により大きく上振れする場合があります。正確な金額は無料査定にてご提示します。</p>
+          <a href="#contact" style="display:block;text-align:center;margin-top:26px;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:16px;background:#F2920A;color:#fff;padding:16px 20px;border-radius:999px;box-shadow:0 10px 24px rgba(242,146,10,.34);position:relative;transition:transform .2s" style-hover="transform:translateY(-3px)">この機械の正式査定を依頼 →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="machines" style="padding:96px 22px;background:#fff">
+    <div style="max-width:1180px;margin:0 auto">
+      <p style="font-family:Jost,sans-serif;font-weight:600;font-style:italic;font-size:12px;letter-spacing:.26em;color:#1D6FBF;margin:0 0 12px">MACHINES WE BUY</p>
+      <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:34px;line-height:1.5;color:#0B3D6E;margin:0 0 44px">買取対応機種</h2>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px">
+        <div style="border:1px solid #C9DDF0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 6px 20px rgba(11,61,110,.06)">
+          <div style="height:150px;position:relative"><image-slot id="tw-cat-1" shape="rect" src="https://images.pexels.com/photos/27986721/pexels-photo-27986721.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900" placeholder="写真"></image-slot></div>
+          <div style="padding:22px 24px 26px">
+            <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:17px;color:#0B3D6E;margin:0 0 8px">🚜 油圧ショベル</h3>
+            <p style="margin:0;font-size:13.5px;color:#4A6076">ミニユンボから20t級まで。コマツ・日立・クボタ・ヤンマー各社対応。</p>
+          </div>
+        </div>
+        <div style="border:1px solid #C9DDF0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 6px 20px rgba(11,61,110,.06)">
+          <div style="height:150px;position:relative"><image-slot id="tw-cat-2" shape="rect" src="https://images.pexels.com/photos/29502217/pexels-photo-29502217.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900" placeholder="写真"></image-slot></div>
+          <div style="padding:22px 24px 26px">
+            <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:17px;color:#0B3D6E;margin:0 0 8px">🏗️ クレーン・高所作業車</h3>
+            <p style="margin:0;font-size:13.5px;color:#4A6076">ラフター、ユニック、車載型・自走式の高所作業車まで。</p>
+          </div>
+        </div>
+        <div style="border:1px solid #C9DDF0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 6px 20px rgba(11,61,110,.06)">
+          <div style="height:150px;position:relative"><image-slot id="tw-cat-3" shape="rect" src="https://images.pexels.com/photos/5125783/pexels-photo-5125783.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900" placeholder="写真"></image-slot></div>
+          <div style="padding:22px 24px 26px">
+            <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:17px;color:#0B3D6E;margin:0 0 8px">🚧 ホイールローダー・ブルドーザー</h3>
+            <p style="margin:0;font-size:13.5px;color:#4A6076">除雪仕様・農業仕様も評価します。大型・重量物も自社手配で回送。</p>
+          </div>
+        </div>
+        <div style="border:1px solid #C9DDF0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 6px 20px rgba(11,61,110,.06)">
+          <div style="height:150px;position:relative"><image-slot id="tw-cat-4" shape="rect" src="https://images.pexels.com/photos/29502218/pexels-photo-29502218.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=900" placeholder="写真"></image-slot></div>
+          <div style="padding:22px 24px 26px">
+            <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:17px;color:#0B3D6E;margin:0 0 8px">🔧 発電機・アタッチメント</h3>
+            <p style="margin:0;font-size:13.5px;color:#4A6076">溶接機、コンプレッサー、ブレーカー、バケット類の単品買取も可能。</p>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:22px;display:flex;align-items:center;gap:16px;background:#EDF5FC;border-radius:18px;padding:22px 28px">
+        <span style="font-size:22px">🏢</span>
+        <p style="margin:0;font-size:14.5px;color:#20354A">1台からでも、現場まるごとの一括処分でも対応します。まずは「これ売れる？」からご相談ください。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="flow" style="position:relative;background:#0B3D6E;color:#fff;padding:0 0 96px;overflow:hidden">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="width:100%;height:70px;display:block;transform:rotate(180deg)"><path d="M0,36 C240,70 500,6 760,32 C1010,57 1220,8 1440,38 L1440,70 L0,70 Z" fill="#fff"></path></svg>
+    <span style="position:absolute;left:-30px;top:180px;font-family:Jost,sans-serif;font-style:italic;font-weight:600;font-size:150px;color:rgba(91,168,229,.07);white-space:nowrap;letter-spacing:.04em">BUYING FLOW</span>
+    <div style="max-width:1180px;margin:0 auto;padding:34px 22px 0;position:relative">
+      <p style="font-family:Jost,sans-serif;font-weight:600;font-style:italic;font-size:12px;letter-spacing:.26em;color:#5BA8E5;margin:0 0 12px">FLOW</p>
+      <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:34px;line-height:1.5;margin:0 0 14px">お問い合わせから入金まで、最短48時間。</h2>
+      <p style="margin:0 0 46px;font-size:15.5px;color:rgba(255,255,255,.78);max-width:620px">はじめての方でも迷わないように、担当者が電話・LINEでその都度ご説明します。難しい書類の準備も当社がサポートします。</p>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(91,168,229,.28);border-radius:18px;padding:30px 26px">
+          <p style="font-family:Jost,sans-serif;font-style:italic;font-weight:600;font-size:30px;color:#5BA8E5;margin:0 0 14px">01</p>
+          <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:18px;margin:0 0 10px">お問い合わせ</h3>
+          <p style="margin:0;font-size:13.5px;color:rgba(255,255,255,.76)">フォーム・電話・LINEから。型式と稼働時間、写真があればスムーズです。</p>
+        </div>
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(91,168,229,.28);border-radius:18px;padding:30px 26px">
+          <p style="font-family:Jost,sans-serif;font-style:italic;font-weight:600;font-size:30px;color:#5BA8E5;margin:0 0 14px">02</p>
+          <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:18px;margin:0 0 10px">概算金額のご提示</h3>
+          <p style="margin:0;font-size:13.5px;color:rgba(255,255,255,.76)">写真査定なら当日〜翌営業日にご回答。この時点でのお断りも歓迎です。</p>
+        </div>
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(91,168,229,.28);border-radius:18px;padding:30px 26px">
+          <p style="font-family:Jost,sans-serif;font-style:italic;font-weight:600;font-size:30px;color:#5BA8E5;margin:0 0 14px">03</p>
+          <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:18px;margin:0 0 10px">出張査定・ご契約</h3>
+          <p style="margin:0;font-size:13.5px;color:rgba(255,255,255,.76)">現地で実機を確認し、正式金額を提示。出張費・査定料は無料です。</p>
+        </div>
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(91,168,229,.28);border-radius:18px;padding:30px 26px">
+          <p style="font-family:Jost,sans-serif;font-style:italic;font-weight:600;font-size:30px;color:#5BA8E5;margin:0 0 14px">04</p>
+          <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:18px;margin:0 0 10px">引取・お振込</h3>
+          <p style="margin:0;font-size:13.5px;color:rgba(255,255,255,.76)">回送手配は当社で。書類が揃い次第、最短48時間でお振込みします。</p>
+        </div>
+      </div>
+    </div>
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="position:absolute;bottom:-1px;left:0;width:100%;height:70px;display:block"><path d="M0,44 C250,8 480,64 740,38 C990,13 1210,58 1440,26 L1440,70 L0,70 Z" fill="#fff"></path></svg>
+  </section>
+
+  <section id="stock" style="padding:96px 22px;background:#fff">
+    <div style="max-width:1180px;margin:0 auto">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:40px;flex-wrap:wrap">
+        <div>
+          <p style="font-family:Jost,sans-serif;font-weight:600;font-style:italic;font-size:12px;letter-spacing:.26em;color:#1D6FBF;margin:0 0 12px">FOR SALE</p>
+          <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:34px;line-height:1.5;color:#0B3D6E;margin:0">販売中の機械</h2>
+        </div>
+        <a href="#contact" style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:#0B3D6E;border:1.5px solid #0B3D6E;padding:12px 26px;border-radius:999px;transition:transform .2s" style-hover="transform:translateY(-3px)">在庫リストを問い合わせる →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+        <div style="border:1px solid #C9DDF0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 6px 20px rgba(11,61,110,.06)">
+          <div style="height:200px;position:relative"><image-slot id="tw-stock-1" shape="rect" src="https://images.pexels.com/photos/30751525/pexels-photo-30751525.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" placeholder="販売機械の写真"></image-slot></div>
+          <div style="padding:24px">
+            <span style="display:inline-block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:11.5px;color:#3E9E6E;background:#E4F3EB;padding:5px 14px;border-radius:999px;margin-bottom:12px">整備済 / 即納可</span>
+            <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:18px;color:#0B3D6E;margin:0 0 8px">油圧ショベル 0.25㎥クラス</h3>
+            <p style="margin:0 0 14px;font-size:13.5px;color:#4A6076">2018年式／稼働 3,240h／ゴムクローラー新品</p>
+            <p style="margin:0;font-family:Jost,sans-serif;font-weight:600;font-size:24px;color:#20354A">ASK</p>
+          </div>
+        </div>
+        <div style="border:1px solid #C9DDF0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 6px 20px rgba(11,61,110,.06)">
+          <div style="height:200px;position:relative"><image-slot id="tw-stock-2" shape="rect" src="https://images.pexels.com/photos/5125782/pexels-photo-5125782.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" placeholder="販売機械の写真"></image-slot></div>
+          <div style="padding:24px">
+            <span style="display:inline-block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:11.5px;color:#B96D00;background:#FDF0DA;padding:5px 14px;border-radius:999px;margin-bottom:12px">商談中</span>
+            <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:18px;color:#0B3D6E;margin:0 0 8px">ホイールローダー 1.0㎥クラス</h3>
+            <p style="margin:0 0 14px;font-size:13.5px;color:#4A6076">2016年式／稼働 5,880h／除雪装置あり</p>
+            <p style="margin:0;font-family:Jost,sans-serif;font-weight:600;font-size:24px;color:#20354A">ASK</p>
+          </div>
+        </div>
+        <div style="border:1px solid #C9DDF0;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 6px 20px rgba(11,61,110,.06)">
+          <div style="height:200px;position:relative"><image-slot id="tw-stock-3" shape="rect" src="https://images.pexels.com/photos/12131140/pexels-photo-12131140.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" placeholder="販売機械の写真"></image-slot></div>
+          <div style="padding:24px">
+            <span style="display:inline-block;font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:11.5px;color:#1D6FBF;background:#EDF5FC;padding:5px 14px;border-radius:999px;margin-bottom:12px">新着</span>
+            <h3 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:18px;color:#0B3D6E;margin:0 0 8px">高所作業車 12m 自走式</h3>
+            <p style="margin:0 0 14px;font-size:13.5px;color:#4A6076">2019年式／稼働 1,120h／バッテリー交換済</p>
+            <p style="margin:0;font-family:Jost,sans-serif;font-weight:600;font-size:24px;color:#20354A">ASK</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:0 22px 96px;background:#fff">
+    <div style="max-width:1180px;margin:0 auto;background:linear-gradient(180deg,#EDF5FC,#fff);border:1px solid #C9DDF0;border-radius:26px;padding:60px 54px">
+      <p style="font-family:Jost,sans-serif;font-weight:600;font-style:italic;font-size:12px;letter-spacing:.26em;color:#1D6FBF;margin:0 0 12px;text-align:center">VOICE</p>
+      <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:30px;line-height:1.5;color:#0B3D6E;margin:0 0 44px;text-align:center">お取引先の声</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+        <div style="background:#fff;border:1px solid #C9DDF0;border-radius:18px;padding:30px 28px">
+          <p style="margin:0 0 18px;font-size:14.5px;color:#20354A">「現場を畳むタイミングで一括で引き取ってもらいました。回送も書類もお任せで、こちらは判子を押すだけ。次も声を掛けます。」</p>
+          <p style="margin:0;font-size:12.5px;color:#6E8AA6">土木工事業／鹿児島県</p>
+        </div>
+        <div style="background:#fff;border:1px solid #C9DDF0;border-radius:18px;padding:30px 28px">
+          <p style="margin:0 0 18px;font-size:14.5px;color:#20354A">「不動のユンボでも値段を付けてくれたのが驚きでした。写真を送って翌日には金額の返事、判断が早くて助かりました。」</p>
+          <p style="margin:0;font-size:12.5px;color:#6E8AA6">解体業／宮崎県</p>
+        </div>
+        <div style="background:#fff;border:1px solid #C9DDF0;border-radius:18px;padding:30px 28px">
+          <p style="margin:0 0 18px;font-size:14.5px;color:#20354A">「知人の紹介で初めてお願いしました。金額もですが、約束の期日を必ず守ってくれる点が一番の安心材料です。」</p>
+          <p style="margin:0;font-size:12.5px;color:#6E8AA6">造園・農業／熊本県</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="position:relative;background:#0B3D6E;color:#fff;padding:0">
+    <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style="width:100%;height:70px;display:block;transform:rotate(180deg)"><path d="M0,36 C240,70 500,6 760,32 C1010,57 1220,8 1440,38 L1440,70 L0,70 Z" fill="#fff"></path></svg>
+    <div style="max-width:1180px;margin:0 auto;padding:40px 22px 96px;text-align:center">
+      <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:38px;line-height:1.5;margin:0 0 16px">まずは一枚、写真を送ってみてください。</h2>
+      <p style="margin:0 auto 40px;font-size:16px;color:rgba(255,255,255,.8);max-width:620px">査定料・出張費・キャンセル料はすべて無料です。売る・売らないを決める前のご相談で構いません。</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:44px">
+        <a href="tel:0990000000" style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:18px;background:#F2920A;color:#fff;padding:20px 44px;border-radius:999px;box-shadow:0 10px 26px rgba(242,146,10,.38);transition:transform .2s" style-hover="transform:translateY(-3px)">📞 099-000-0000 に電話する</a>
+        <a href="#estimate" style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:18px;background:#fff;color:#0B3D6E;padding:20px 44px;border-radius:999px;transition:transform .2s" style-hover="transform:translateY(-3px)">フォームで査定を依頼</a>
+      </div>
+      <p style="margin:0;font-size:13px;color:rgba(255,255,255,.6)">受付時間 8:30〜18:00（日曜・祝日休）／ 全国出張査定対応</p>
+    </div>
+  </section>
+
+  <section id="company" style="padding:96px 22px;background:#fff">
+    <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+      <div>
+        <p style="font-family:Jost,sans-serif;font-weight:600;font-style:italic;font-size:12px;letter-spacing:.26em;color:#1D6FBF;margin:0 0 12px">COMPANY</p>
+        <h2 style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:32px;line-height:1.5;color:#0B3D6E;margin:0 0 22px">会社概要</h2>
+        <p style="margin:0 0 30px;font-size:15px;color:#4A6076">鹿児島を拠点に、建設機械・重機の買取と販売を行っています。一台一台のご縁を大切に、次の現場へ、次の使い手へ——機械の価値をつなぐ仕事をしています。</p>
+        <dl style="margin:0;display:grid;grid-template-columns:120px 1fr;gap:0 20px;font-size:14.5px">
+          <dt style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;color:#0B3D6E;padding:14px 0;border-top:1px solid #C9DDF0">会社名</dt>
+          <dd style="margin:0;padding:14px 0;border-top:1px solid #C9DDF0;color:#20354A">株式会社トレーディング・ワン</dd>
+          <dt style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;color:#0B3D6E;padding:14px 0;border-top:1px solid #C9DDF0">所在地</dt>
+          <dd style="margin:0;padding:14px 0;border-top:1px solid #C9DDF0;color:#20354A">鹿児島県鹿児島市吉野町10710-265</dd>
+          <dt style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;color:#0B3D6E;padding:14px 0;border-top:1px solid #C9DDF0">事業内容</dt>
+          <dd style="margin:0;padding:14px 0;border-top:1px solid #C9DDF0;color:#20354A">建設機械・重機の買取および販売、その他輸送機器の取扱い</dd>
+          <dt style="font-family:'Zen Maru Gothic',sans-serif;font-weight:700;color:#0B3D6E;padding:14px 0;border-top:1px solid #C9DDF0;border-bottom:1px solid #C9DDF0">対応エリア</dt>
+          <dd style="margin:0;padding:14px 0;border-top:1px solid #C9DDF0;border-bottom:1px solid #C9DDF0;color:#20354A">全国（出張査定対応）</dd>
+        </dl>
+      </div>
+      <div style="border:1px solid #C9DDF0;border-radius:18px;overflow:hidden;box-shadow:0 6px 20px rgba(11,61,110,.06)">
+        <div style="height:300px;position:relative"><image-slot id="tw-yard" shape="rect" placeholder="ヤード・社屋・スタッフの写真"></image-slot></div>
+        <div style="padding:28px;display:grid;gap:12px">
+          <p style="margin:0;font-size:14px;color:#20354A">📍 鹿児島県鹿児島市吉野町10710-265</p>
+          <p style="margin:0;font-size:14px;color:#20354A">🕐 8:30〜18:00（日曜・祝日休）</p>
+          <p style="margin:0;font-size:14px;color:#20354A">📞 099-000-0000</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background:#08304F;color:rgba(255,255,255,.7);padding:44px 22px">
+    <div style="max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+      <span style="width:36px;height:36px;border-radius:999px;background:linear-gradient(140deg,#1D6FBF,#0B3D6E);color:#fff;font-family:Jost,sans-serif;font-weight:600;font-size:15px;display:flex;align-items:center;justify-content:center">T1</span>
+      <span style="font-family:'Zen Maru Gothic',sans-serif;font-weight:900;font-size:16px;color:#fff">株式会社トレーディング・ワン</span>
+      <span style="margin-left:auto;font-family:Jost,sans-serif;font-size:11.5px;letter-spacing:.16em">© 2026 TRADING ONE CO., LTD.</span>
+    </div>
+  </footer>
+
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#0B3D6E"></rect><circle cx="50" cy="50" r="26" fill="#F2920A"></circle><text x="50" y="59" font-family="Jost,sans-serif" font-size="24" font-weight="600" fill="#fff" text-anchor="middle">T1</text></svg></template>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { type: 'excavator', year: 'y2020', hours: 'h2', cond: 'good' };
+
+  calc() {
+    const base = { excavator: 850, loader: 700, dozer: 900, crane: 1500, forklift: 200, other: 120 }[this.state.type];
+    const y = { y2020: 1.0, y2015: 0.7, y2010: 0.45, y2005: 0.28, y2004: 0.15 }[this.state.year];
+    const h = { h2: 1.15, h5: 1.0, h10: 0.82, h99: 0.62 }[this.state.hours];
+    const c = { good: 1.1, normal: 1.0, bad: 0.7 }[this.state.cond];
+    const mid = base * y * h * c;
+    const r = (v) => Math.max(5, Math.round(v / 5) * 5);
+    return r(mid * 0.85) + '〜' + r(mid * 1.15);
+  }
+
+  renderVals() {
+    const names = { excavator: '油圧ショベル', loader: 'ホイールローダー', dozer: 'ブルドーザー', crane: 'クレーン・高所作業車', forklift: 'フォークリフト', other: '発電機・その他建機' };
+    const years = { y2020: '2020年以降', y2015: '2015〜2019年', y2010: '2010〜2014年', y2005: '2005〜2009年', y2004: '2004年以前' };
+    const set = (k) => (e) => this.setState({ [k]: e.target.value });
+    return {
+      range: this.calc(),
+      label: names[this.state.type] + '／' + years[this.state.year],
+      onType: set('type'), onYear: set('year'), onHours: set('hours'), onCond: set('cond')
+    };
+  }
+}
+</script>
+</body>
+</html>
